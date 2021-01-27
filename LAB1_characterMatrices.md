@@ -12,11 +12,14 @@ The figure below details the basic steps involved in phylogenetic analysis. Over
 
 Each of the seven labs will involve working through a tutorial. Sprinkled throughout the tutorial, you’ll find the questions that make up the **lab assignments**. These questions are designed as checkpoints to make sure things are going smoothly as you move through the lab. There will also be some long-answer questions, which double as an opportunity for you to practice the type of writing you’ll be using for your manuscript. Eventually, when we get into tree-building, many of these questions will be talking points you can use for writing your discussion. 
 
-To complete the lab assignments, create a document with your answers to all the questions, and **upload it to Quercus** by the due date: **2:00 PM, one week after the lab in which they were assigned**.
+To complete the lab assignments, create a document with your answers to all the questions, and **upload it to Quercus** by the due date: **2:00 PM, one week after the lab in which they were assigned**. Bonus questions should be answered on the Discussion Board for Lab One. 
 
 
 ### Lab Assignment One: 
-Questions: [1](#question-1), 2, 3, 4, 5, 6, 7, 8, 9. 
+Questions: 
+- [1](#question-1), [2](#question-2), [3](#question-3), [4](#question-4), [5](#question-5), [6](#question-6), [7](#question-7)
+- [Bonus questions](#bonus-questions)
+
 
 rm - 1 question, 2 points
 renumber questions
