@@ -440,10 +440,9 @@ What commands did you use to complete the tasks above? *(4 points)*
 ---
 #### BONUS QUESTIONS:
 
-1. Name all the phyla to which the animals in the figure at the top of the page belong. *(1 point)*
+1. Name all the phyla to which the animals in the figure at the top of the page belong.
 
 2. When exporting files in Mesquite, you have the option to “Convert gaps to missing”. This indicates that we want to consider gaps in our alignment to represent missing data. 
 a) What is the alternative to this? 
 b) What is one reason why we might want to code gaps as missing data? 
-c) What is one reason why we might not want to do this? *(3 points)*
-
+c) What is one reason why we might not want to do this? 
