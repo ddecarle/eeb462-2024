@@ -14,13 +14,24 @@ Each of the seven labs will involve working through a tutorial. Sprinkled throug
 
 To complete the lab assignments, create a document with your answers to all the questions, and **upload it to Quercus** by the due date: **2:00 PM, one week after the lab in which they were assigned**.
 
+
+### Lab Assignment One: 
+Questions: [1](#question-1), 2, 3, 4, 5, 6, 7, 8, 9. 
+
 rm - 1 question, 2 points
 renumber questions
 
 ### Table of Contents:
  - [The Basics](#the-basics)
- - [Tutorial]
-   - [Setting up Your Workspace](#setting-up-your-workspace)
+ - [Tutorial](#the-tutorial)
+   - [Setting up your workspace](#setting-up-your-workspace)
+   - [Downloading sequences](#downloading-sequences)
+   - [Quality control](#quality-control)
+   - [Formatting your data](#formatting-your-data)
+   - [Translating sequences](#translating-sequences)
+   - [Alignment](#alignment)
+   - [Concatenating sequences](#concatenating-sequences)
+   - [Tidying up](#tidying-up)
  
 
 ## Software
@@ -34,7 +45,7 @@ For this lab, we will be using the following software:
 
 ## The Basics
 
-### A Note on Operating Systems 
+### A Note on operating systems 
 Most tree-building software is designed and built for the Unix shell, bash. Bash is a command language that is natively used by MacOS and most Linux distributions. (It is also available in Windows 10 using the Windows Subsystem for Linux.) 
 
 Accordingly, the tutorials in this course are also designed for bash. Be aware, however, that you will still need to download the appropriate (i.e. Windows) versions of all software. 
@@ -42,7 +53,7 @@ Accordingly, the tutorials in this course are also designed for bash. Be aware, 
 Throughout the tutorials, the word “terminal” will refer to the program you use to interface with the command line.
 
 
-### Good Computing Habits
+### Good computing habits
 Because we will be generating a large number of files in this course, and because we will be running virtually all programs on the command line, it is important to follow a few, key rules. 
 
 **Use succinct, informative names.** This goes for both files and folders. You may think you’ll remember what’s in `master.fasta`, or `~/Desktop/BLAH/` but I promise you’ll forget after you’ve run the same analysis 10 times, or you’re trying to submit a paper 4 months from now. Don’t worry if the names start to get a bit long: the trusty command line tab-complete feature will help you avoid making mistakes. Most importantly… **DO NOT USE SPACES** in the names of your files or folders. Most programs and programming languages interpret spaces as separations between elements in a file or script. Using spaces anywhere in your path is therefore a quick road to suffering. 
@@ -52,7 +63,7 @@ Because we will be generating a large number of files in this course, and becaus
 **Use a good text editor.** The best way to view many of the files we’ll be using (at least for the first four labs) is using a plain text editor. You probably have Text Edit or Notepad on your computer, but there are many, more powerful and more user-friendly programs out there. I, personally, prefer [Sublime Text](https://www.sublimetext.com/) or [Atom](https://atom.io/), but other popular options include [Notepad++](https://notepad-plus-plus.org/downloads/). Do ***not*** use Word, Open Office, or any other rich text editor: like using spaces in file names, they will cause you much suffering. 
 
 
-### Using the Command Line
+### Using the command line
 The vast majority of programs we’ll be using throughout the semester lack graphic user interfaces; therefore, you’ll need to be comfortable navigating your directories and running analyses on the command line. For more information about all the commands that we’ll be using, consult [this document](https://github.com/ddecarle/eeb462-2021/blob/main/CommandLineBasics.md), which details some of the most useful commands for phylogenetic analysis.  
 
 
@@ -88,7 +99,8 @@ mv *.fasta Fasta
 
 5. Navigate into the "Fasta" folder, and use the list directory contents command - `ls` - to view the contents of that folder
 
-<ins>**QUESTION 1:**</ins> What files are now stored in `~'Desktop/LabOne/Fasta`? *(1 point)*
+#### QUESTION 1 
+What files are now stored in `~'Desktop/LabOne/Fasta`? *(1 point)*
 
 6.	Use the `head` command to display the first few lines of one of the files contained within the “Fasta” folder. 
 
@@ -124,7 +136,7 @@ This file includes taxonomic information for all of our taxa, as well as their c
 
 5.	Save these results as “18s.fasta”, and store them in `~/Desktop/LabOne/Fasta`.  
 
-### Quality Control
+### Quality control
 
 1.	In the terminal, navigate to the “Fasta” folder, and use the following command to determine the number of sequences in the “18s.fasta” file: 
 
@@ -164,7 +176,7 @@ The **E value** describes the number of hits you would expect to see by chance w
 
 5.	Examine the BLAST results for each of the sequences in the “extraMammals.fasta” file. 
 
-### Formatting Your Data
+### Formatting your data
 
 1.	In your text editor, change all the sequence names in “18s.fasta” to common names as indicated in “data.xlsx”.
 
@@ -188,7 +200,7 @@ rm extraMammals.fasta
 
 Your “Fasta” folder should now contain four files: one for each of the four loci in our dataset.
 
-### Translating Sequences 
+### Translating sequences 
 
 Before aligning our sequences, you’ll also want to translate your COI sequences into amino acid sequences. 
 
@@ -256,7 +268,7 @@ mkdir ~/Desktop/LabOne/Alignments
 mv *.align ~/Desktop/LabOne/Alignments 
 ```
 
-### Concatenating Sequences
+### Concatenating sequences
 
 Now that you have your alignments, you’ll need to **concatenate them** into a data matrix that you can use to build phylogenetic trees. In essence, this is like stringing all the sequences for an organism together into one long gene. 
 
@@ -383,7 +395,7 @@ Mercifully, we are now finished with Mesquite. You may close the program.
 
 <ins>**QUESTION 8**</ins>: How long is each alignment (*i.e.* how many characters does each have)? (2 points)
 
-### Tidying Up
+### Tidying up
 
 Before you go, you’ll have to organize your files. 
 
