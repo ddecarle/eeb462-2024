@@ -21,7 +21,7 @@ Questions:
 - [Bonus questions](#bonus-questions)
 
 
-### Table of Contents:
+## Table of Contents:
  - [The Basics](#the-basics)
  - [Tutorial](#the-tutorial)
    - [Setting up your workspace](#setting-up-your-workspace)
