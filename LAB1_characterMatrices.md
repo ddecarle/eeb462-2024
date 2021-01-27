@@ -21,9 +21,6 @@ Questions:
 - [Bonus questions](#bonus-questions)
 
 
-rm - 1 question, 2 points
-renumber questions
-
 ### Table of Contents:
  - [The Basics](#the-basics)
  - [Tutorial](#the-tutorial)
