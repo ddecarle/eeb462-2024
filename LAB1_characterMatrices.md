@@ -99,8 +99,11 @@ mv *.fasta Fasta
 
 5. Navigate into the "Fasta" folder, and use the list directory contents command - `ls` - to view the contents of that folder
 
+---
 #### QUESTION 1 
 What files are now stored in `~'Desktop/LabOne/Fasta`? *(1 point)*
+
+---
 
 6.	Use the `head` command to display the first few lines of one of the files contained within the “Fasta” folder. 
 
@@ -204,7 +207,12 @@ Your “Fasta” folder should now contain four files: one for each of the four 
 
 Before aligning our sequences, you’ll also want to translate your COI sequences into amino acid sequences. 
 
-<ins>**QUESTION 3**</ins>: Why might we want to use amino acid sequences – rather than nucleotide sequences – for COI? Does it make sense to use amino acid sequences for COI, but not for ENAM? Why or why not?  (4 points)
+---
+#### QUESTION 2: 
+
+Why might we want to use amino acid sequences – rather than nucleotide sequences – for COI? Does it make sense to use amino acid sequences for COI, but not for ENAM? Why or why not?  *(4 points)*
+
+---
 
 1.	To translate your nucleotide sequences into amino acid sequences, use the EMBOSS tool, [Transeq](https://www.ebi.ac.uk/Tools/st/emboss_transeq/).  
 
@@ -293,9 +301,15 @@ Making the protein-only files will be easiest, so we’ll start with those.
 
 Now, you should see your character matrix colour-coded by amino acid, with the site/character numbers along the top. This is a very useful way to visualize alignments. Use this alignment to answer the next few questions. 
 
-<ins>**QUESTION 4**</ins>: How many characters are in your alignment? Are there any gaps? (1 point)
+---
 
-<ins>**QUESTION 5**</ins>: Are the following sites “parsimony informative”: a) 17, b) 23, c) 30, d) 42? Why or why not? (4 points)
+#### QUESTION 3: 
+How many characters are in your alignment? Are there any gaps? *(1 point)*
+
+#### QUESTION 4: 
+Are the following sites “parsimony informative”: a) 17, b) 23, c) 30, d) 42? Why or why not? *(4 points)*
+
+---
 
 3.	Close “coi-protein.nex”. 
 
@@ -372,7 +386,12 @@ Save the file as “16s-enam-18s-coi-fuseSimp.nex”
 
 24.	Close the file.
 
-<ins>**QUESTION 7**</ins>: Open “16s-enam-18s-coi-fuse.nex” and “16s-enam-18s-coi-fuseSimp.nex” in your text editor. Name at least 3 ways in which the Fused NEXUS file differs from the Simplified NEXUS file.  (3 points)
+---
+
+#### QUESTION 5: 
+Open “16s-enam-18s-coi-fuse.nex” and “16s-enam-18s-coi-fuseSimp.nex” in your text editor. Name at least 3 ways in which the Fused NEXUS file differs from the Simplified NEXUS file.  *(3 points)*
+
+---
 
 Now there’s only one file to go. 
 
@@ -393,7 +412,12 @@ Now there’s only one file to go.
 
 Mercifully, we are now finished with Mesquite. You may close the program. 
 
-<ins>**QUESTION 8**</ins>: How long is each alignment (*i.e.* how many characters does each have)? (2 points)
+---
+#### QUESTION 6: 
+
+How long is each alignment (*i.e.* how many characters does each have)? *(2 points)*
+
+---
 
 ### Tidying up
 
@@ -408,18 +432,19 @@ Before you go, you’ll have to organize your files.
 
 4.	Move the remaining NEXUS files (“coi-protein.nex”, “16s-enam-18s-fuse.nex”, and “16s-enam-18s-coi-fuse.nex”) to “ML”. 
 
-<ins>**QUESTION 9**</ins>: What commands did you use to complete the tasks above? (4 points)
+---
 
-<ins>**BONUS QUESTION**</ins>: Name all the phyla to which the animals silhouetted on the first page belong. (1 point)
+#### QUESTION 7: 
 
+What commands did you use to complete the tasks above? *(4 points)*
 
+---
+#### BONUS QUESTIONS:
 
+1. Name all the phyla to which the animals in the figure at the top of the page belong. *(1 point)*
 
-
-
-
-
-
-A BONUS:
-QUESTION 6: “Convert gaps to missing” indicates that we want to consider gaps in our alignment to represent missing data. What is the alternative to this? What is one reason why we might want to code gaps as missing data? What is one reason why we might not want to do this? (3 points)
+2. When exporting files in Mesquite, you have the option to “Convert gaps to missing”. This indicates that we want to consider gaps in our alignment to represent missing data. 
+a) What is the alternative to this? 
+b) What is one reason why we might want to code gaps as missing data? 
+c) What is one reason why we might not want to do this? *(3 points)*
 
