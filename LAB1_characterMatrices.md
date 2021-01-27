@@ -79,33 +79,37 @@ Ensure that you have downloaded and unzipped all necessary files for Lab One fro
 cd ~/Downloads
 ```
 
-2.	Move the LabOne folder to your desktop using the move `mv` command 
+2.	Make a new folder on your desktop called "EEB462" and move the LabOne folder into it using the move `mv` command 
 
 ```
-mv LabOne ~/Desktop
+mkdir ~/Desktop/EEB462
+mv LabOne ~/Desktop/EEB462
 ```
 
-3.	Navigate into the LabOne folder, and create a new folder called “Fasta”. 
+3. Move your MUSCLE program into this new folder as well (`~/Desktop/EEB462`)
+
+4.	Navigate into the LabOne folder, and create a new folder called “Fasta”. 
 
 ```
-cd ~/Desktop/LabOne
+cd ~/Desktop/EEB462/LabOne
+mkdir Fasta
 ```
 
-3. Move all `.fasta` files into this new folder
+5. Move all `.fasta` files into this new folder
 
 ```
 mv *.fasta Fasta
 ```
 
-5. Navigate into the "Fasta" folder, and use the list directory contents command - `ls` - to view the contents of that folder
+6. Navigate into the "Fasta" folder, and use the list directory contents command - `ls` - to view the contents of that folder
 
 ---
 #### QUESTION 1 
-What files are now stored in `~'Desktop/LabOne/Fasta`? *(1 point)*
+What files are now stored in `~'Desktop/EEB462/LabOne/Fasta`? *(1 point)*
 
 ---
 
-6.	Use the `head` command to display the first few lines of one of the files contained within the “Fasta” folder. 
+7.	Use the `head` command to display the first few lines of one of the files contained within the “Fasta” folder. 
 
 ```
 head <fileName>
@@ -133,11 +137,11 @@ This file includes taxonomic information for all of our taxa, as well as their c
 
 2.	To procure these sequences, use NCBI’s [Batch Entrez](https://www.ncbi.nlm.nih.gov/sites/batchentrez) tool, which allows you to download several sequences from GenBank at once. 
 
-3.	Click “**Choose File**” and select “18sAccessions.txt” from the “LabOne” folder. Then, click “**Retrieve**”. 
+3.	Click “**Browse**” and select “18sAccessions.txt” from the “LabOne” folder. Then, click “**Retrieve**”. 
 
-4.	Follow the link on the next page, and you will see a list of GenBank search results. To download these results, click “**Send to:**” in the upper right section of the page, then select “**File**” as your destination, and “**FASTA**” as the format. 
+4.	Follow the link on the next page, and you will see a list of GenBank search results. To download these results, click “**Send to**” in the upper right section of the page, then select “**File**” as your destination, and “**FASTA**” as the format. (Make sure the "**Complete Record**" option is selected.) Then click "**Create File**". 
 
-5.	Save these results as “18s.fasta”, and store them in `~/Desktop/LabOne/Fasta`.  
+5.	Save these results as “18s.fasta”, and store them in `~/Desktop/EEB462/LabOne/Fasta`.  
 
 ### Quality control
 
@@ -162,7 +166,7 @@ This file is slightly suspect. The title is uninformative: how do we know what t
 **BLAST** (Basic Local Alignment Search Tool) compares a sequence (or sequences) of interest to a database in order to find regions of high similarity. 
 
 4.	Select the “**Nucleotide BLAST**” icon from the landing page. 
-- Use the “**Choose File**” button to select `extraMammals.fasta`, and ensure that “**Nucleotide collection (nr/nt)**” is selected as the database. 
+- Use the “**Browsee**” button to select `extraMammals.fasta`, and ensure that “**Nucleotide collection (nr/nt)**” is selected as the database. 
 - Now click “**BLAST**” at the bottom of the page. 
 
 Since your query contains multiple sequences, you can scroll through the results for each of them using the dropdown menu under “**Results For**” in the upper left corner. 
@@ -181,11 +185,15 @@ The **E value** describes the number of hits you would expect to see by chance w
 
 ### Formatting your data
 
-1.	In your text editor, change all the sequence names in “18s.fasta” to common names as indicated in “data.xlsx”.
+1.	Change all the sequence names in “18s.fasta” to common names (as indicated in “data.xlsx”) using the `rename.bash` script provided:
+
+```
+bash ../rename.bash
+```
 
 2.	Open “extraMammals.fasta” and delete any sequences that BLAST identified as erroneous. 
 
-3.	Close these files, and return to your terminal window. 
+3.	Close this file, and return to your terminal window. 
 
 4.	Use the following command to append the contents of “extraMammals.fasta” onto the end of “18s.fasta”:
 
@@ -201,7 +209,7 @@ cat extraMammals.fasta >> 18s.fasta
 rm extraMammals.fasta
 ```
 
-Your “Fasta” folder should now contain four files: one for each of the four loci in our dataset.
+Your “Fasta” folder should now contain four fasta files: one for each of the four loci in our dataset.
 
 ### Translating sequences 
 
@@ -226,10 +234,10 @@ Why might we want to use amino acid sequences – rather than nucleotide sequenc
 
 You’ll notice that Transeq appended `_2` to the ends of the sequence names to signify the reading frame for each translation. Because, going forward, we will need to make sure that our sequences for each organism have exactly the same name, we’ll have to fix this. 
 
-6.	In your terminal, use the following command to clean up the sequence names, making sure that your working directory is `~/Desktop/LabOne/Fasta`.
+6.	In your terminal, use the following command to clean up the sequence names, making sure that your working directory is `~/Desktop/EEB462/LabOne/Fasta`.
 
 ```
-sed -i 's/_2//' coi-protein.fasta
+sed -i '' 's/_2//' coi-protein.fasta
 ```
 
 The stream editing tool (`sed`) can be used to edit streams of text as well as files. In this case, the `-i` flag indicates that we want to do the latter. The `s/` functionality is used to substitute one string of text for another. The strings are separated by slashes. Here, we are substituting `_2` with nothing. Finally, the file name at the end of the command specifies the file we want to edit. 
@@ -239,8 +247,6 @@ Now, we’re ready to move on to the next step…
 ### Alignment
 
 For these labs, we’ll be using the alignment program, MUSCLE (MUltiple Sequence Comparison by Log-Expectation). MUSCLE allows users to customize many of its parameters, such as gap opening scores, clustering methods, weighting schemes, etc. Detailed information about each of these parameters can be found in the user guide. For our purposes, however, the default parameters will be fine. 
-
-1.	Before we start, copy the correct version of MUSCLE to your “Fasta” folder using `cp`.  
 
 To run a program on the command line, use the following syntax:
 
@@ -258,22 +264,22 @@ You could manually type and execute the command for each alignment, but that wou
 
 For-loops not only expediate your analyses, they also decrease the chances that you’ll make a mistake, and make your analyses more reproducible. 
 
-2.	Align all the files in your “Fasta” folder using the following code:
+1.	Align all the files in your “Fasta” folder using the following code:
 
 ```
-for locus in *.fasta
+for locus in *.fasta*
 do
-./<MUSCLE> -in $locus -out $locus.align
+./../../<MUSCLE> -in $locus -out $locus.align
 done
 ```
 
 This for-loop defines the variable “`locus`”. The `*` indicates that the loop should iterate through every file in the folder with the file extension “`.fasta`”. For each `.fasta` file in the folder, the loop runs MUSCLE, and creates an alignment with the extension “`.align`”. Once all alignments are complete, the loop terminates. For more information on for-loops, see the [command line basics](https://github.com/ddecarle/eeb462-2021/blob/main/CommandLineBasics.md) page. 
 
-3.	Once you have all your alignments, create a new folder for them, and move them all to their new home: 
+2.	Once you have all your alignments, create a new folder for them, and move them all to their new home: 
 
 ```
-mkdir ~/Desktop/LabOne/Alignments
-mv *.align ~/Desktop/LabOne/Alignments 
+mkdir ~/Desktop/EEB462/LabOne/Alignments
+mv *.align ~/Desktop/EEB462/LabOne/Alignments 
 ```
 
 ### Concatenating sequences
@@ -295,7 +301,7 @@ The reason we’ll need so many files is that many phylogenetic inference progra
 Making the protein-only files will be easiest, so we’ll start with those. 
 
 2.	Click File > Open File… 
-- Select “coi-protein.fasta.align”
+- Select the coi-protein file 
 - In the “**Translate File**” window that appears, select “**FASTA (protein)**” and click “**OK**”. 
 - A dialogue box will appear asking you to save your file. Save it as “`coi-protein.nex`”. 
 
@@ -325,7 +331,7 @@ On the left side of the screen, you should notice the words “Taxa (36 taxa)”
 
 Renaming these elements makes the rest of the concatenation process much easier. It also makes the resulting NEXUS file more legible. 
 
-6.	**Select File** > **Include File…** and select “enam.fasta.align”.
+6.	**File** > **Include File…** and select “enam.fasta.align”.
 Again, select “**FASTA (DNA/RNA)**” and rename the **Taxa Block** and **Character Matrix**.
 
 7.	Repeat the process for the 18S alignment. 
@@ -349,42 +355,35 @@ The “enam” column should now be populated with the names of all taxa for whi
 Now save this file: we’ll come back to it later. 
 
 11.	**File** > **Save File As…**
-Save the file as “16s-enam-18s-master.nex”
+Save the file as “16s-enam-18s-MAIN.nex”
 
 This file is useful for our purposes, because we can easily come back to it and change only one aspect of our character matrix. Unfortunately, is not readable by the programs we’re going to use. Therefore, you’ll have to generate a **“Fused” NEXUS file**.
 
-12.	**File** > **Export…** > **Fused Matrix Export (NEXUS)**
+12.	**File** > **Export…** > **Fused Matrix Export (NEXUS)** > **OK**
 - Unselect “Generate MrBayes block” 
 - Export
 - Select 16S as the master block of taxa
 - Save the file as “16s-enam-18s-fuse.nex”
 
-13. Close the file. 
-
-14.	Open “16s-enam-18s-fuse.nex”
-- Because Mesquite is slightly buggy, you may see an alert about how the file may not have been read properly. Simply click “**OK**” and save a new copy of the file. (I usually just overwrite the file I currently have open.)
-
-16.	Close this file, and, if you do not still have it open, re-open “16s-enam-18s-master.nex”
-
-17.	**File** > **Include File…** > coi-barcode.fasta.align
+13.	Now, we'll be adding more loci to our MAIN file 
+- Select **File** > **Include File…** > coi-barcode.fasta.align
 - Rename the Taxa Block and Character Matrix as before.
 
-18.	Create an association between 16S and COI.
+14.	Create an association between 16S and COI.
 
-19.	**File** > **Save File As…** > “16s-enam-18s-coi-master.nex”
+15.	**File** > **Save File As…** > “16s-enam-18s-coi-MAIN.nex”
 
-20.	**File** > **Export…** > **Fused Matrix Export (NEXUS)**
+16.	**File** > **Export…** > **Fused Matrix Export (NEXUS)**
 - Select 16S as the master block of taxa
 - Save the file as “16s-enam-18s-coi-fuse.nex”
 
-21.	Close the file and open “16s-enam-18s-coi-fuse.nex”
+17.	Next, we’ll have to generate yet another type of NEXUS file for use in the program MrBayes. Open “16s-enam-18s-coi-fuse.nex”
+- Because Mesquite is slightly buggy, you may see an alert like the one to the right. Simply click “OK” and save a new copy of the file. I usually just overwrite the file I currently have open. 
 
-Next, we’ll have to generate yet another type of NEXUS file for use in the program MrBayes.
-
-23.	**File** > **Export…** > **Simplified NEXUS**
+18. Generate a simplified NEXUS file as before:	**File** > **Export…** > **Simplified NEXUS**
 Save the file as “16s-enam-18s-coi-fuseSimp.nex” 
 
-24.	Close the file.
+19.	Close the file.
 
 ---
 
@@ -395,17 +394,17 @@ Open “16s-enam-18s-coi-fuse.nex” and “16s-enam-18s-coi-fuseSimp.nex” in 
 
 Now there’s only one file to go. 
 
-25.	Open “16s-enam-18s-master.nex” again. 
+20.	Open “16s-enam-18s-MAIN.nex”... again. 
 
-26.	Include the file “coi-protein.fasta.align” 
+21.	Include the file “coi-protein.fasta.align” 
 - Select the correct interpreter for the file
 - Rename the **Taxa Block** and **Character Matrix**. 
 
-27.	Create an association between 16s and the COI protein alignment. 
+22.	Create an association between 16s and the COI protein alignment. 
 
-28.	**File** > **Save File As…** > “16s-enam-18s-coiProt-master.nex”
+23.	**File** > **Save File As…** > “16s-enam-18s-coiProt-MAIN.nex”
 
-29.	Export the file as a Fused NEXUS file. 
+24.	Export the file as a Fused NEXUS file. 
 - In the dialogue box that appears, make sure to check the box that says, “**Permit fused matrix with mixed data types…**” is selected. 
 - Leave the “**Generate MrBayes block**” box selected as well. 
 - Save the file as “16s-enam-18s-coiProt-fuse.nex”
@@ -423,10 +422,10 @@ How long is each alignment (*i.e.* how many characters does each have)? *(2 poin
 
 Before you go, you’ll have to organize your files. 
 
-1.	**Use the command line** to create a new folder within `~/Desktop/LabOne` called “NEXUS”. 
-- Within the “NEXUS” folder, create sub-folders called “Master”, “ML” and “MrBayes”. 
+1.	**Use the command line** to create a new folder within `~/Desktop/EEB462/LabOne` called “NEXUS”. 
+- Within the “NEXUS” folder, create sub-folders called “Main”, “ML” and “MrBayes”. 
 
-2.	Move all “master” files to “Master”.
+2.	Move all “MAIN” files to “Main”.
 
 3.	Move “16s-enam-18s-coi-fuseSimp.nex” and “16s-enam-18s-coiProt-fuse.nex” to “MrBayes”.
 
