@@ -17,7 +17,7 @@ To complete the lab assignments, create a document with your answers to all the 
 
 ### Lab Assignment One: 
 Questions: 
-- [1](#question-1), [2](#question-2), [3](#question-3), [4](#question-4), [5](#question-5), [6](#question-6), [7](#question-7)
+- [1](#question-1), [2](#question-2), [3](#question-3), [4](#question-4), [5](#question-5), [6](#question-6), [7](#question-7) *(19 points total)*
 - [Bonus questions](#bonus-questions)
 
 
