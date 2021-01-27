@@ -298,7 +298,7 @@ The reason we’ll need so many files is that many phylogenetic inference progra
 
 1.	Start by opening the program Mesquite. 
 
-Making the protein-only files will be easiest, so we’ll start with those. 
+Making the protein-only file will be easiest, so we’ll start with that. 
 
 2.	Click File > Open File… 
 - Select the coi-protein file 
