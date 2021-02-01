@@ -414,7 +414,13 @@ Mercifully, we are now finished with Mesquite. You may close the program.
 ---
 #### QUESTION 6: 
 
-How long is each alignment (*i.e.* how many characters does each have)? *(2 points)*
+How long is each of the following alignments (*i.e.* how many characters does each have)? *(2 points)*
+
+- 16S
+- 18S
+- ENAM
+- COI (nuceotides)
+- COI (amino acids)
 
 ---
 
