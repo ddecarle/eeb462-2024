@@ -258,7 +258,7 @@ Now we'll make some changes specific to constrained analyses. For more detailed 
  
 3. Remove `quote` from the beginning of **line 27** and **line 28**
 
-4. On **line 27**, replace `<tree>` with the following tree: `(hare rabbit macaque gibbon orangutan guineaPig porcupine vole mouse rat);` 
+4. On **line 27**, replace `<tree>` with the following tree: `(hare rabbit macaque gibbon orangutan guineaPig porcupine vole mouse rat)` 
 
   This indicates that we ***only*** want TNT to recover trees in which members of the Euarchontoglires form a clade, but we ***don't*** want to specify what the relationships between any of those taxa should look like. **NOTE:** The bootstrap trees will also be generated using this constraint. 
   
