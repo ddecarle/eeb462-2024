@@ -144,10 +144,10 @@ One of the perks of using IQ-TREE is that it can run model testing, tree inferen
 2. Run IQ-TREE using the following command:
 
     Mac: 
-`./../iqtree -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes –ninit 100 -b 1000`
+`./../iqtree -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes –ninit 100 -bb 1000 -wbt`
 
     Windows: 
-`./../iqtree.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes –ninit 100 -b 1000`
+`./../iqtree.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes –ninit 100 -bb 1000 -wbt`
 
 After executing this command, you should see some sign that IQ-TREE is working (or you'll get an error message). While you’re waiting for IQ-TREE to finish running, let’s break down that command a little:
 
@@ -169,9 +169,18 @@ After executing this command, you should see some sign that IQ-TREE is working (
   
     - For the purposes of the lab, 100 replications are used to save time. Ideally (and for your project), you would use a more thorough search – e.g. 1000 replications or more.
 
-  - `-b`: specify the number of bootstrap replicates and generate a bootstrap consensus tree
+  - `-bb`: specify the number of bootstrap replicates 
+  - `-wbt`: save bootstrap trees to a file ending in `.ufboot`
 
 Once IQ-TREE has finished running, you’ll see that it has generated a number of output files. The log file (`nucPartition.nex.log`) very helpfully contains a description of the information stored in each file. 
+
+3. Generate a 50% majority rule bootstrap consensus tree using the following command: 
+
+    Mac: 
+`./../iqtree -t *.ufboot -con -minsup 0.5`
+
+    Windows: 
+`./../iqtree.exe -t *.ufboot -con -minsup 0.5`
 
 ---
 
@@ -204,10 +213,10 @@ IQ-TREE is unable to process a single matrix containing more than one type of da
 3. Run IQ-TREE using the same options as before. Even though our alignments are located in multiple files, we only need to specify one of them in the IQ-TREE command. (It doesn't matter which alignment file you choose.)
 
     Mac: 
-`./../iqtree -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –ninit 100 -b 1000`
+`./../iqtree -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –ninit 100 -bb 1000 -wbt`
 
     Windows: 
-`./../iqtree.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –ninit 100 -b 1000`
+`./../iqtree.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –ninit 100 -bb 1000 -wbt`
 
 ---
 
@@ -327,10 +336,10 @@ Save your constraint tree in the same folder as your matrix and partition file (
 When running your tree search, use the option `-g` to indicate that you want to run a constrained analysis, and add it to the command you used to run your original tree search. For example, to run a constrained analysis on the nucProt dataset, you could use the following command: 
 
 Mac: 
-`./iqtree -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -b 1000`
+`./iqtree -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -bb 1000 -wbt`
 
 Cygwin: 
-`./iqtree.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -b 1000`
+`./iqtree.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -bb 1000 -wbt`
 
 
 ---
