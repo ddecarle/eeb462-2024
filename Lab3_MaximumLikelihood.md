@@ -23,7 +23,7 @@ Maximum likelihood analysis involves a few key assumptions:
 
     Although this concept is widely used in statistics broadly, but its relationship to phylogenetic analysis is rather complicated. We'll talk more about this in future labs. 
   
-2. Evolution produces fully bifucating trees
+2. Evolution produces fully bifurcating trees
 
     As with parsimony analysis, we can produce consensus trees for maximum likelihood analyses, so you may see ML trees that contain polytomies. However, any individual ML tree search will always return a topology that is fully resolved.   
 
