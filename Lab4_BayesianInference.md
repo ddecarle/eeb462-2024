@@ -16,6 +16,7 @@ Questions: *(28 points total)*
  ## Table of Contents
  
  - [Software](#software)
+ - [Resources](#resources)
  - [Tutorial](#tutorial)
    - [The Bayes Block](#the-bayes-block)
    - [Partitioning Data](#partitioning-data)
@@ -33,8 +34,8 @@ Questions: *(28 points total)*
        - [Amino Acid Models](#amino-acid-models)
        - [Morphological Models](#the-mk-model-for-morphological-data)	
    - [Appendix C: Restarting Analyses](#appendix-c-restarting-analyses)
- 
- ## Software
+
+## Software
  
 For this lab, we'll be using the following software:
 
@@ -43,7 +44,12 @@ For this lab, we'll be using the following software:
 - [Tracer](https://beast.community/tracer)
 - a plain-text editor of your choice
 
-**RESOURCES:** [MrBayes Wiki](http://mrbayes.sourceforge.net/wiki/index.php/Manual_3.2) - includes the manual, tutorials, and summaries of models
+## RESOURCES:
+
+- [MrBayes Wiki](http://mrbayes.sourceforge.net/wiki/index.php/Manual_3.2) - includes the manual, tutorials, and summaries of models
+- [Zwickl & Holder 2004 - *Systematic Biology*](https://academic.oup.com/sysbio/article/53/6/877/1651008#124599109) - Model Parameterization, Prior Distributions, and the General Time-Reversible Model in Bayesian Phylogenetics
+  - an excellent, not-super-technical paper about models and priors in Bayesian phylogenetics
+- [Archibald *et al.* 203 - *Taxon*](https://www.researchgate.net/publication/275922362_Bayesian_Inference_of_Phylogeny_A_Non-Technical_Primer) - Bayesian Inference of Phylogeny: A Non-Technical Primer
  
 ## Tutorial
 Begin by downloading and unzipping all necessary files from the Lab Three section of the Modules tab in Quercus. 
