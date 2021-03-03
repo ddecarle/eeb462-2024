@@ -464,7 +464,7 @@ This one is pretty self-explanatory: it indicates that you want to save the bran
 
 ### Amino Acid Models
 
-Amino acid models can be specified using the `aamodelpr` option of the prset command.
+Amino acid models can be specified using the `aamodelpr` option of the prset command. ***You do not need to include an `lset` command for amino-acid partitions***.
 
 The syntax is as follows:
 
