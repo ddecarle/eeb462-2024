@@ -6,6 +6,16 @@ Today, we’re delving into Bayesian phylogenetic analysis using MrBayes. MrBaye
 
 MrBayes is also very popular, meaning that **there are plenty of excellent tutorials and other resources available** online. I encourage you to explore these if you hit any snags.
 
+##### On an unrelated note...
+
+Since we're nearing the end of the lab material that will be relevant to your term projects, you may be interested to know the following bits of information: 
+
+- MrBayes is available on SciNet! If your analyses are taking a long time to run, you can use the SciNet computing cluster to save yourself some time and CPU power. We'll talk more about how to do this in the next lab.
+
+- [MBL Workshop on Molecular Evolution](https://molevolworkshop.github.io/schedule/): Slides, tutorials, and some recorded lectures from the [annual phylogenetics workshop](https://www.mbl.edu/education/courses/workshop-on-molecular-evolution/) at the Marine Biological Labratory in Woods Hole. I can't say enough good things about this workshop and the people who teach it. If you're looking for ideas for extra analyses, more detail about the methods we've covered in lecture and lab, or just another explanation of the course material, this is as great place to look.
+
+- [PhyloMeth](http://phylometh.info/syllabus.html): This is a freely-available online course about phylogenetic methods created by [Dr. Brian O'Meara](http://brianomeara.info/). The syllabus is quite comprehensive - in addition to phylogenetic inference, it covers downstream analyses such as dating trees, implementing phylogenetic comparative methods (*e.g.* estimating diversification, finding correlations between characters, etc.), and simulating data. The course uses different tree-building software than we have used so far in the labs, but the basic principles remain the same. If you're looking for additional analyses, this is a fantastic resource. 
+
 ### Lab Assignment Four
 
 Questions: *(28 points total)*
