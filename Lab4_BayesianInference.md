@@ -6,12 +6,6 @@ Today, we’re delving into Bayesian phylogenetic analysis using MrBayes. MrBaye
 
 MrBayes is also very popular, meaning that **there are plenty of excellent tutorials and other resources available** online. I encourage you to explore these if you hit any snags.
 
-##### On an unrelated note...
-
-Since we're nearing the end of the lab material that will be relevant to your term projects, you may be interested to know the following bits of information: 
-
-- MrBayes is available on SciNet! If your analyses are taking a long time to run, you can use the SciNet computing cluster to save yourself some time and CPU power. We'll talk more about how to do this in the next lab.
-
 ### Lab Assignment Four
 
 Questions: *(28 points total)*
