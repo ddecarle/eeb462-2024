@@ -370,7 +370,7 @@ In this section, you will run a Bayesian analysis on the combined nucleotide + p
   - set character partitions and partitioning scheme according to the `nucProtPartition.nex.best_scheme.nex` file generated during [Lab Three](https://github.com/ddecarle/eeb462-2021/blob/main/Lab3_MaximumLikelihood.md)
   - specify models for each partition 
       - for instructions on specifying amino acid models, see [Appendix B](#amino-acid-models).
-  - specify settings for the MCMCMC simulation according to the [instructions above](#the-mcmc-simulation). This analysis should run for 300,000 generations.
+  - specify settings for the MCMCMC simulation according to the [instructions above](#the-mcmc-simulation). This analysis should run for 150,000 generations.
   - begin the MCMC simulation
   - Generate summary statistics and a majority rule consensus tree
 
