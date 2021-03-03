@@ -478,10 +478,7 @@ prset applyto=(#) aamodelpr=fixed(NAME);
 For a complete list of the amino acid models implemented in MrBayes, consult the [MrBayes Wiki](http://mrbayes.sourceforge.net/wiki/index.php/Manual_3.2), or use the MrBayes help command (`help prset;`).
 
 
-**NOTE:** Unlike with the `allNuc` dataset, you won't be able to copy-and-paste the partitions straight from IQ-TREE's output file. Because MrBayes accepts multiple data types in the same file, but IQ-TREE does not, you have to remove the part of the command that specifies the file in which each dataset should be found. For example:
-
-  - IQ-TREE output in `.best_scheme.nex` file: `charset coi = coi-protein.nex: 1-220;`
-  - correct formatting for Bayes block: ` charset coi = 1-220;`
+**NOTE:** Unlike with the `allNuc` dataset, ***you cannot copy-and-paste the partitions straight from IQ-TREE's output file***. Because MrBayes accepts multiple data types in the same file, but IQ-TREE does not, the locations of each partition will change. Luckily, the fused NEXUS file contains a `SETS` block which tells you where each locus begins and ends. ***Remember*** that, when specifying your models of evolution, you may need to specify different partitions for each codon position in the protein-coding loci.  
 
 See [IQ-TREE: Substitution Models](http://www.iqtree.org/doc/Substitution-Models) for more information on the models listed in your `.best_scheme.nex` file.
 
