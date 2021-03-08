@@ -1,6 +1,6 @@
 # Lab One: Creating a Character Matrix
 
-Tutorial by Danielle de Carle
+*Tutorial by Danielle de Carle*
 
 ### Introduction to the Labs
 
