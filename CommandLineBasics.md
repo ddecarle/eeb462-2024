@@ -1,5 +1,7 @@
 # Introduction to the Command Line
 
+Tutorial by Viviana Astudillo-Clavijo & Danielle de Carle
+
 Below are some commands you'll need over the course of these labs. For the following examples, imagine we are working on a computer with the following file structure.
   
 ![sample file tree](https://github.com/ddecarle/eeb462/blob/master/file-tree.png)
