@@ -22,7 +22,7 @@ Questions: *(28 points total)*
    - [Partitioning Data](#partitioning-data)
    - [Specifying Models in MrBayes](#specifying-models-in-mrbayes) 	
   	 - [I. IQ-TREE's model selection output](#making-sense-of-iq-trees-model-selection-output)
-  	 - 	[II. Specifying models](#specifying-models)
+  	 - 	[II. Specifying models](#specifying-models-in-mrbayes)
   	 -  [III. Priors](#priors)
    - [The MCMC Simulation](#the-mcmc-simulation)
    - [Running the Analysis](#running-the-analysis)
