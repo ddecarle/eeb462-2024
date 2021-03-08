@@ -1,6 +1,6 @@
 # Lab Three: Model Testing & Maximum Likelihood
 
-Tutorial by Danielle de Carle
+*Tutorial by Danielle de Carle*
 
 ### Introduction
 
