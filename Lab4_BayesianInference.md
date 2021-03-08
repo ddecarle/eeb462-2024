@@ -21,9 +21,9 @@ Questions: *(28 points total)*
    - [The Bayes Block](#the-bayes-block)
    - [Partitioning Data](#partitioning-data)
    - [Specifying Models in MrBayes](#specifying-models-in-mrbayes) 	
-  	 - [I. IQ-TREE's model selection output](#making-sense-of-iq-trees-model-selection-output)
-  	 - 	[II. Specifying models](#specifying-models-in-mrbayes)
-  	 -  [III. Priors](#priors)
+  	 - I. IQ-TREE's model selection output
+  	 - 	II. Specifying models
+  	 -  III. Priors
    - [The MCMC Simulation](#the-mcmc-simulation)
    - [Running the Analysis](#running-the-analysis)
    - [Evaluating Convergence: Stopping Your Analysis](#evaluating-convergence-stopping-your-analysis)
