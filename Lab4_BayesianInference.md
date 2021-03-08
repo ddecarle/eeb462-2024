@@ -486,7 +486,8 @@ prset applyto=(#) aamodelpr=fixed(NAME);
 ```
 
 - `#`: number of the partition to which the model should be applied
-- `NAME`: the name of the particular model (*e.g.* dayhoff, wag, blosum...)
+- `aamodelpr`: this command specifies the rate matrices for ***amino acid partitions***
+  - `NAME`: the name of the particular model (*e.g.* dayhoff, wag, blosum...)
 
 For a complete list of the amino acid models implemented in MrBayes, consult the [MrBayes Wiki](http://mrbayes.sourceforge.net/wiki/index.php/Manual_3.2), or use the MrBayes help command (`help prset;`).
 
