@@ -1,5 +1,7 @@
 # Lab One: Creating a Character Matrix
 
+Tutorial by Danielle de Carle
+
 ### Introduction to the Labs
 
 The figure below details the basic steps involved in phylogenetic analysis. Over the course of the semester, we’ll touch on each of the steps required to infer a phylogenetic tree from molecular or morphological data. 
