@@ -1,5 +1,7 @@
 # Lab Four: Bayesian Analysis 
 
+Tutorial by Danielle de Carle
+
 ### Introduction
 
 Today, we’re delving into Bayesian phylogenetic analysis using MrBayes. MrBayes is by far the most user-friendly interface we have used to date. If you ever run into trouble, simply type `help <command_name>;` for detailed information about each of the possible parameters and their implementation. 
