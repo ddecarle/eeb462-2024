@@ -1,5 +1,7 @@
 # Lab Three: Model Testing & Maximum Likelihood
 
+Tutorial by Danielle de Carle
+
 ### Introduction
 
 Today marks your first foray into model-based phylogenetic analyses. 
