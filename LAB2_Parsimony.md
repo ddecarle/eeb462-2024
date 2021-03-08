@@ -1,6 +1,6 @@
 # Lab Two: Parsimony 
 
-Tutorial by Danielle de Carle
+*Tutorial by Danielle de Carle*
 
 ### Introduction
 
