@@ -1,5 +1,7 @@
 # Lab Two: Parsimony 
 
+Tutorial by Danielle de Carle
+
 ### Introduction
 
 #### Assumptions of Parsimony
