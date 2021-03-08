@@ -31,7 +31,7 @@ Maximum likelihood analysis involves a few key assumptions:
 
     It's highly unlikely that any of our models completely captures the process of evolution. In spite of that, however, we often converge on the same - or similar - answers using different models and/or independent datasets; for the purposes of this class, you don't have to worry about this too much.
 
-### Lab Assignment Two:
+### Lab Assignment Three:
 
 Questions: *(23 points total)*
 
