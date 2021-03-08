@@ -1,6 +1,6 @@
 # Lab Four: Bayesian Analysis 
 
-Tutorial by Danielle de Carle
+*Tutorial by Danielle de Carle*
 
 ### Introduction
 
