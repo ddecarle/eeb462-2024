@@ -139,7 +139,7 @@ A folder containing all material for the remaining labs has been created in the 
 5. Move into this folder and explore its contents:
 
   ```
-  cd $SCRATCH/eeb462share/Phylogenomics
+  cd $SCRATCH/eeb462share/
   ls
   ```
 
@@ -294,7 +294,7 @@ We will be using PRINSEQ’s online software to generate .png graphs to visualiz
 2. From here use the following command to access SciNet and download the specified file. Replace `<username>` in both locations with your username and enter your password when prompted. 
   
   ```
-  scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/Phylogenomics/A_cacatuoides/A_cacatuoides_Unprocessed_graphs.gd .
+  scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/A_cacatuoides/A_cacatuoides_Unprocessed_graphs.gd .
   ```
   
 3. The prinseq graphs should now be inside your prinseqGraphs folder. Confirm using `ls`.
@@ -336,7 +336,7 @@ You can use the post-process graphs to inform the continued to processing of rea
 
 Now that the reads have been processed, we will assemble them into complete target exons using the the *O. niloticus* exons as a guide. These steps are not as computational intensive as the previous section, so we will be using for loops to process *ALL* reads.  
 
-1. Go back to the ***terminal window that is signed into SciNet*** and whose working directory is set to Phylogenomics (you can confirm with `pwd`).
+1. Go back to the ***terminal window that is signed into SciNet*** and whose working directory is set to `eeb462share` (you can confirm with `pwd`).
 
 2. Create an index of the reference sequences using the `Refseq_923.fna` file, which contains all of the target exons for *O. niloticus*. 
 
