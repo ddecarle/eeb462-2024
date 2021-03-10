@@ -299,7 +299,7 @@ We will be using PRINSEQ’s online software to generate .png graphs to visualiz
   
 3. The prinseq graphs should now be inside your prinseqGraphs folder. Confirm using `ls`.
 
-4. In a web browser, go to [http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi](http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi])
+4. In a web browser, go to [http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi](http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi)
 
 5. select **Get Report** > click on **Select a graph data file to upload** > upload the `A_cacatuoides_Unprocessed_graphs.gd` file > click **Continue** > Download the .zip file and unpack it. 
  
