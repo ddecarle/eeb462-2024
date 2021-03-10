@@ -65,18 +65,18 @@ Over the next three weeks we will be working with 20 exons sequences for 10 Cich
 
 <div align="center">
 
-  | Species |
-  | ------- |
-  | *Apistogramma cacatuoides* |
-  | *Biotodoma cupido* |
-  | *Crenicichla minuano* |
-  | *Geophagus abalios* |
-  | *Geophagus dicrozoster* |
-  | *Gymnogeophagus balzanii* |
-  | *Gymnogeophagus rhabdotus* |
-  | *Mikrogeophagus altispinosus* |
-  | *Mikrogeophagus ramirezi* |
-  | *Oreochromis niloticus* |
+  | Species | Code |
+  | ------- | ---- |
+  | *Apistogramma cacatuoides* | A_cacatuoides |
+  | *Biotodoma cupido* | B_cupido |
+  | *Crenicichla minuano* | C_minuano |
+  | *Geophagus abalios* | Geo_abalios |
+  | *Geophagus dicrozoster* | Geo_dicrozoster |
+  | *Gymnogeophagus balzanii* | Gym_balzanii |
+  | *Gymnogeophagus rhabdotus* | Gym_rhabdotus |
+  | *Mikrogeophagus altispinosus* | Mik_altispinosus |
+  | *Mikrogeophagus ramirezi* | Mik_ramierzi |
+  | *Oreochromis niloticus* | O_niloticus |
   
 </div>
 
