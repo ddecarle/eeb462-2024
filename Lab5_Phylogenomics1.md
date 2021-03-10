@@ -241,7 +241,7 @@ This PRINSEQ script filters and trims reads based on a series of specified param
   -	`-ns_max_p 1` filters out reads with more than 1% N’s (N = ambiguous data).
   -	`-derep 12345` filters out all types of read duplicates.
   -	`-trim_tail_left 5` and `-trim_tail_right 5` trim poly-A tails with a minimum length of 5 from the 3’ and 5’ ends of reads.
-  -	`-trim_qual_type mean` specifies that the type of quality score that should be assessed is the mean score across a length of 5 bases, as specified by -trim_qual_window 5. If the average quality across sets 5 bases is below the threshold (*i.e.* 20), then those bases will be trimmed from the read. 
+  -	`-trim_qual_type mean` specifies that the type of quality score that should be assessed is the mean score across a length of 5 bases, as specified by `-trim_qual_window 5`. If the average quality across sets 5 bases is below the threshold (*i.e.* 20), then those bases will be trimmed from the read. 
   -	`-trim_qual_window 5` specifies a window of 5 bases for assessing quality scores. Larger or smaller window sizes can be used, but 5 is reasonable.
   -	`-trim_qual_step 1` specifies that the step size for moving the sliding window of bases is 1. That is, after assessing a set of 5 bases, move onto the next 5, without skipping any bases. If step size was 2, then the next 5 bases to be assessed would start 2-bases over from the initial 5-base window.
   -	`-trim_qual_rule` lt specifies that bases with a mean quality score less than the indicated threshold should be trimmed from reads. 
