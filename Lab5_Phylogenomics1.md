@@ -90,13 +90,13 @@ The 20 target exons were captured for geophagine species using probes designed b
 
 #### Running Analyses on a Super Computer
 
-Phylogenomics software is largely open source and is therefore unix-based. Unfortunately, Unix-based software is not easy to install or use with Windows (Most NGS software is easily applied on Macs). Therefore, we will be running analyses for the remaining labs on SciNet’s super computer. SciNet is a Canadian institution with high-power computers that are made accessible to registered Canadian institutions and researchers. Students in this class have been registered with a temporary account for the duration of the course. Your username and password will be given to you in lab. You will need to sign in (from any computer) with these temporary credentials any time you want to use SciNet. Two main things to know about SciNet is that (1) you can run smaller jobs directly on its $SCRATCH node (see below) or (2) submit larger jobs via scripts that will require more computational power and thus run as resources are available. 
+Phylogenomics software is largely open source and is therefore unix-based. Unfortunately, Unix-based software is not easy to install or use with Windows (Most NGS software is easily applied on Macs). Therefore, we will be running analyses for the remaining labs on SciNet’s super computer. SciNet is a Canadian institution with high-power computers that are made accessible to registered Canadian institutions and researchers. Students in this class have been registered with a temporary account for the duration of the course. Your username and password will be given to you in lab. You will need to sign in (from any computer) with these temporary credentials any time you want to use SciNet. Two main things to know about SciNet is that (1) you can run smaller jobs directly on its `$SCRATCH` node (see [below](#Preparing--Getting-Familiar-with-Your-Files)) or (2) submit larger jobs via scripts that will require more computational power and thus run as resources are available. 
 
 [back to top](#table-of-contents)
 
 ### Today's Lab
 
-| Main Objective for This Lab |
+| Main Objective for This Lab: |
 | ---- |
 | This week we will be focusing on processing the reads returned from NGS. By the end of the lab you should have gone from raw NGS reads to complete exon sequences for each species.  | 
 
