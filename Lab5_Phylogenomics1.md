@@ -180,7 +180,7 @@ Paste the output from the `head -8` command above (*i.e.* the first 2 reads and 
 
   ```
   ls -d */ | tr '/\n' ' ' > speciesNames.txt
-  sed '/astralEx/d' speciesNames.txt
+  sed -i 's/astralEx//' speciesNames.txt
   ls O_niloticus_References | sed 's/_REFERENCE.fasta//g' | tr '\n' ' ' > exonNames.txt
   ```
   
@@ -222,7 +222,7 @@ There are a lot of reads, so processing them can take a long time (~30+ minutes/
   do
   
   #Run prinseq on sorted read files
-    prinseq-lite.pl -fastq $species/${species}_sorted.fastq -out_format 3 -out_good $species/${species}_processed1 -out_bad null -no_qual_header -min_qual_mean 20 -ns_max_p 1 -derep 12345 -trim_tail_left 5 -trim_tail_right 5 -trim_qual_left 20 -trim_qual_right 20 -trim_qual_type mean -trim_qual_rule lt -trim_qual_window 5 -trim_qual_step 1 -min_len 60 -graph_stats ld,qd,da -graph_data $species/${species}_Unprocessed_graphs.gd -graph_stats ld,qd,da
+prinseq-lite.pl -fastq $species/${species}_sorted.fastq -out_format 3 -out_good $species/${species}_processed1 -out_bad null -no_qual_header -min_qual_mean 20 -ns_max_p 1 -derep 12345 -trim_tail_left 5 -trim_tail_right 5 -trim_qual_left 20 -trim_qual_right 20 -trim_qual_type mean -trim_qual_rule lt -trim_qual_window 5 -trim_qual_step 1 -min_len 60 -graph_stats ld,qd,da -graph_data $species/${species}_Unprocessed_graphs.gd -graph_stats ld,qd,da
     
   done
   ```
