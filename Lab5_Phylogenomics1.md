@@ -349,7 +349,7 @@ Now that the reads have been processed, we will assemble them into complete targ
 4. Copy all names **except for *O_niloticus***, and use that to replace `<species_names>` in the first line of the following code. Run the following for-loop for ALL target taxa (*i.e.* all taxa except *O. niloticus*). This will assemble reads using the indexed *O. niloticus* reference as a guide. The final result will be consensus sequences with a minimum read depth > 10. As the code below runs (it will take a few minutes) read through the comments above each command and the corresponding more detailed description below for details of the process. Each line of code is numbered so that you can match it with the description below. 
 
   ```
-  for species in species_names
+  for species in <species_names>
   do
   
     # 1. Assemble target sequences using the reads that were processed with PRINSEQ by aligning them to the indexed reference sequences. 
