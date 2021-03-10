@@ -305,7 +305,7 @@ We will be using PRINSEQ’s online software to generate .png graphs to visualiz
  
 This folder contains the collection of graphs generated for the unprocessed reads for this species.   
 
-6. Repeat steps 1 - 5 for the processed reads: `A_cacatuoides_processed1_Graphs.gd`
+6. Repeat steps 1 - 5 for the processed reads: `A_cacatuoides_Processed1_Graphs.gd`
 
 7. Look in the unpacked folders. Note that many graphs have been produced. Feel free to look these over if you want a better understanding of the types of stats that prinseq calculates. For this lab, we will focus only on the distribution of quality scores and duplicates across reads. 
 
