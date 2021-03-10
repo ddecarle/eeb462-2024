@@ -34,7 +34,7 @@ Questions: *(22 points total)*
      - The Study System 
      - Library Preparation and Next-Generation Sequencing
      - Running Analyses on a Super Computer
-   - [Preparing Your Files](#Preparing-Getting-Familiar-with-Your-Files)
+   - [Preparing Your Files](#Preparing--Getting-Familiar-with-Your-Files)
    - [Filtering and Trimming Reads](#filter-and-trim-reads-prinseq)
    - [Assessing Read Quality](#assess-read-quality-prinseq)
    - [Assembling Raw Reads](#assemble-raw-reads-bowtie2-samtools)
