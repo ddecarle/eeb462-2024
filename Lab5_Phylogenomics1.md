@@ -90,7 +90,11 @@ The 20 target exons were captured for geophagine species using probes designed b
 
 #### Running Analyses on a Super Computer
 
-Phylogenomics software is largely open source and is therefore unix-based. Unfortunately, Unix-based software is not easy to install or use with Windows (Most NGS software is easily applied on Macs). Therefore, we will be running analyses for the remaining labs on SciNet’s super computer. SciNet is a Canadian institution with high-power computers that are made accessible to registered Canadian institutions and researchers. Students in this class have been registered with a temporary account for the duration of the course. Your username and password will be given to you in lab. You will need to sign in (from any computer) with these temporary credentials any time you want to use SciNet. Two main things to know about SciNet is that (1) you can run smaller jobs directly on its `$SCRATCH` node (see [below](#Preparing--Getting-Familiar-with-Your-Files)) or (2) submit larger jobs via scripts that will require more computational power and thus run as resources are available. 
+Phylogenomics software is largely open source and is therefore unix-based. Unfortunately, Unix-based software is not easy to install or use with Windows (Most NGS software is easily applied on Macs). Therefore, we will be running analyses for the remaining labs on SciNet’s super computer. SciNet is a Canadian institution with high-power computers that are made accessible to registered Canadian institutions and researchers. Students in this class have been registered with a temporary account for the duration of the course.
+
+You will need to sign in (from any computer) with these temporary credentials any time you want to use SciNet. Two main things to know about SciNet is that (1) you can run smaller jobs directly on its `$SCRATCH` node (see [below](#Preparing--Getting-Familiar-with-Your-Files)) or (2) submit larger jobs via scripts that will require more computational power and thus run as resources are available. 
+
+**You can obtain a username and password using [this sign-up sheet](https://docs.google.com/spreadsheets/d/17IvhbKuhfztwHabd2wutmKfHzgghxrFleCcJrwidcw8/edit#gid=0)**: simply add your name next to one of the user IDs. You'll be using this same login information for the remainder of the labs. 
 
 [back to top](#table-of-contents)
 
@@ -373,6 +377,8 @@ Now that the reads have been processed, we will assemble them into complete targ
   done
   ```
 
+**NOTE:** You may get an error when executing this for loop. If that is the case, try manually re-typing the line of code beneath comment #1. Then, re-run the command from step 2, and execute the for loop again.
+
 <p align="center">
   <img src="https://github.com/ddecarle/eeb462-2021/blob/main/images/L5-Picture5.png">
 </p>
@@ -393,6 +399,8 @@ Read depth (also known as depth of coverage) refers to the number of independent
   - **Line 6:** The files outputted by `vcfutils.pl` are in `.fastq` format. This simple series of sed commands converts them to fasta formatted files. Low quality bases, coded as lowercase bases in the fastq file, are also converted to Ns
 
 5. Use the following to assess a final fasta file: `cat Gym_balzanii/Gym_balzanii.fasta`
+
+If this command does not print a fasta file to your terminal, re-run the code from step 4.
 
 ---
 
