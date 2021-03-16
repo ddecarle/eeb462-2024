@@ -49,6 +49,9 @@ For this lab, we'll be using the following software:
 
 All analyses for today's lab will be conducted on [SciNet's Teach Cluster](https://www.scinethpc.ca/). If you run into any trouble using the server, [SciNet has a very helpful wiki](https://docs.scinet.utoronto.ca/index.php/Main_Page).
 
+Don't forget to ***consult the [Command Line Basics](https://github.com/ddecarle/eeb462-2021/blob/main/CommandLineBasics.md) tutorial*** for more in-depth information about scripting and for loops.
+
+
 ## Tutorial
 
 ### Introduction
