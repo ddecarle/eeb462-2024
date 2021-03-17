@@ -235,7 +235,7 @@ Copy and paste the resulting table. *(1 point)*
 	```
 	for exon in <exon_names>
 	do
-	rm - I ${exon}_MUSCLEaligned.fasta                             
+	rm -I ${exon}_MUSCLEaligned.fasta                             
 	done
 	```
 	
