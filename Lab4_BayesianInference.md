@@ -52,7 +52,9 @@ For this lab, we'll be using the following software:
 
 - [Zwickl & Holder 2004 - *Systematic Biology*](https://academic.oup.com/sysbio/article/53/6/877/1651008#124599109): Model Parameterization, Prior Distributions, and the General Time-Reversible Model in Bayesian Phylogenetics (an excellent, not-super-technical paper about models and priors in Bayesian phylogenetics)
  
-- [Archibald *et al.* 203 - *Taxon*](https://www.researchgate.net/publication/275922362_Bayesian_Inference_of_Phylogeny_A_Non-Technical_Primer): Bayesian Inference of Phylogeny: A Non-Technical Primer
+- [Huelsenbeck, Rannala, & Malsy](https://www.sciencemag.org/site/feature/data/1050262.pdf)>: An Introduction to Bayesian Inference of Phylogeny - a plain-language explanation of Bayesian inference in phylogeny, starting from the basics & working up to all the gory details. 
+
+- [Archibald *et al.* 2003 - *Taxon*](https://www.researchgate.net/publication/275922362_Bayesian_Inference_of_Phylogeny_A_Non-Technical_Primer): Bayesian Inference of Phylogeny: A Non-Technical Primer
 
 - [MBL Workshop on Molecular Evolution](https://molevolworkshop.github.io/schedule/): Slides, tutorials, and some recorded lectures from the [annual phylogenetics workshop](https://www.mbl.edu/education/courses/workshop-on-molecular-evolution/) at the Marine Biological Labratory in Woods Hole. I can't say enough good things about this workshop and the people who teach it. If you're looking for ideas for extra analyses, more detail about the methods we've covered in lecture and lab, or just another explanation of the course material, this is as great place to look.
 
