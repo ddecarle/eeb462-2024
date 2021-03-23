@@ -364,7 +364,7 @@ Open `Geophagini_AstralTREE-q1q2q3.log` in your text editor, and use it to answe
   - a) How many gene trees have missing taxa? Why are they missing?  *(1 point)*
   - b) In addition to scoring quartet support for each node, ASTRAL quantifies quartet support for the whole species tree. One measure of support that is calculated is the **quartet score**, which is simply the sum of quartet topologies in gene trees that are also in the species tree. From this ASTRAL calculates the **normalized quartet score**, which is the proportion of gene tree quartets that support the species tree. A normalized quartet score of 1 means that all gene trees agree with the species tree and thus there is no gene tree heterogeneity. What are the quartet and normalized quartet scores for our species tree? *(1 point)*
   - c)	Does it appear that our loci are characterized by a low, intermediate or high level of gene tree discordance? Provide support from the ASTRAL analyses for your answer. *(1 point)*
-  - d)	What are some of the possible sources of gene tree discordance? You may find it useful to refresh your knowledge of cichlid biology by re-reading the introduction to cichlids provided in the first phylogenomics lab (*i.e.* [Lab 5](https://github.com/ddecarle/eeb462-2021/blob/main/Lab5_Phylogenomics1.md)). *(1 point)*
+  - d)	What are some of the possible sources of gene tree discordance? Remember to consult the slides from Lecture 9. You may also find it useful to refresh your knowledge of cichlid biology by re-reading the introduction to cichlids provided in the first phylogenomics lab (*i.e.* [Lab 5](https://github.com/ddecarle/eeb462-2021/blob/main/Lab5_Phylogenomics1.md)). *(1 point)*
 
 
 #### QUESTION 4
