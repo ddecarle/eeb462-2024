@@ -1,4 +1,4 @@
-# Lab 6: Phylogenomics III - Gene Trees vs. Species Trees
+# Lab 7: Phylogenomics III - Gene Trees vs. Species Trees
 
 *Tutorial by Viviana Astudillo-Clavijo*
 
