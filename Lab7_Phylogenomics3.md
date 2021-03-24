@@ -35,6 +35,7 @@ These types of approaches estimate the species tree from a set of gene trees tha
   - (i)	Data loss due to the use of gene trees instead of full genes. 
   - (ii)	Difficult to account for gene tree estimation error as a source of gene tree discordance because usually only the best gene trees for each gene are used. 
   - (iii)	Assume that incomplete lineage sorting is the main source of gene tree discordance, and does not account for other sources, such as hybridization and horizontal gene transfer. Summary approaches can be misled when sources other than incomplete lineage sorting are responsible for gene tree discordance. 
+  - (iv) Difficult to interpret branch lengths 
 - **Some summary-based methods:** ASTRAL, MP-EST, STAR.
 
 #### Co-Estimation Methods
