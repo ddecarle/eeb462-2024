@@ -340,7 +340,7 @@ When running your tree search, use the option `-g` to indicate that you want to 
 Mac: 
 `./iqtree -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -bb 1000 -wbt`
 
-Cygwin: 
+Win: 
 `./iqtree.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -bb 1000 -wbt`
 
 
