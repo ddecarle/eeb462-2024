@@ -259,7 +259,7 @@ MrBayes will automatically read your Bayes block and begin running the MCMC simu
 Before long, the program should start to print the output of the simulation to your terminal. The output will look something like this:
 
 <p align="center">
-  <img src="https://github.com/ddecarle/eeb462/blob/master/Picture1.png">
+  <img src="https://github.com/ddecarle/eeb462-2021/blob/main/images/L4-Picture1.png">
 </p>
 
 The **generation number** is listed in the leftmost column. Following that, you’ll see the **likelihood values** for every chain in the simulation. The chains from each of the two runs are separated by an asterisk. The values in round brackets represent *heated chains*, whereas the ones in square brackets represent the *cold chains*. 
@@ -295,7 +295,7 @@ In an ideal scenario, all ESS values would be well above 200, and the data for e
 The panels on the right can display these data in a number of ways.
 
 <p align="center">
-  <img src="https://github.com/ddecarle/eeb462/blob/master/Picture2.png">
+  <img src="https://github.com/ddecarle/eeb462-2021/blob/main/images/L4-Picture2.png">
 </p>
 
 18. Click the "**Trace**" button near the top of the screen.
@@ -307,7 +307,7 @@ and generating your consensus tree.
 The plot below depicts a run that has reached **stationarity** (often called the “fuzzy caterpillar”). Parameter values are said to have reached stationarity when they fluctuate around a single point. This is exactly what you hope to see.
 
 <p align="center">
-  <img src="https://github.com/ddecarle/eeb462/blob/master/Picture3.png">
+  <img src="https://github.com/ddecarle/eeb462-2021/blob/main/images/L4-Picture3.png">
 </p>
 
 If your trace plots do not resemble a fuzzy caterpillar, this is an indication that your simulation is not adequately searching tree space, and you may need to start your simulation again, perhaps using different tree searching parameters.
