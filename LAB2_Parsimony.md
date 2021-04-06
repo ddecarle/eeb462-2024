@@ -102,7 +102,7 @@ For this lab, we'll be using a script to run analyses in TNT, so you shouldn't r
 The first time you use TNT, you may be asked to agree to their terms of service. If so, follow the prompts on the screen until your terminal window looks something like this:
 
 <p align="center">
-  <img width="576" height="394" src="https://github.com/ddecarle/eeb462/blob/master/Screen%20Shot%202021-02-03%20at%2002.04.10.png">
+  <img width="576" height="394" src="https://github.com/ddecarle/eeb462-2021/blob/main/images/L2-Picture1.png">
 </p>
 
 **CAUTION:** If you want to resize your terminal window, do so ***before*** opening TNT. Resizing it while tnt is running makes it break.
