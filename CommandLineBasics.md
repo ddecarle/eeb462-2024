@@ -4,7 +4,7 @@
 
 Below are some commands you'll need over the course of these labs. For the following examples, imagine we are working on a computer with the following file structure.
   
-![sample file tree](https://github.com/ddecarle/eeb462/blob/master/file-tree.png)
+![sample file tree](https://github.com/ddecarle/eeb462-2021/blob/main/images/cmdLine-Picture1.png)
 
 When using this page, keep in mind that this is only a very cursory treatment of the bash commands. More information about each of these commands and its usage can be found in the manual by typing 
 
