@@ -8,7 +8,7 @@ The figure below details the basic steps involved in phylogenetic analysis. Over
 
 
 <p align="center">
-  <img width="209" height="656" src="https://github.com/ddecarle/eeb462/blob/master/Screen%20Shot%202021-01-26%20at%2020.13.32.png">
+  <img width="209" height="656" src="https://github.com/ddecarle/eeb462-2021/blob/main/images/L1-Picture1.png">
 </p>
 
 
