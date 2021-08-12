@@ -73,7 +73,7 @@ The vast majority of programs we’ll be using throughout the semester lack grap
 
 ### Setting up your workspace
 
-Ensure that you have downloaded and unzipped all necessary files for Lab One from the Modules tab in Quercus. 
+Ensure that you have downloaded and unzipped all necessary [files for Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LabOne.zip). 
 
 1.	Open a terminal window and change directories `cd` to the location where these files are saved. For most of you, this will be the Downloads folder. 
 
