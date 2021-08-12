@@ -63,7 +63,7 @@ For this lab, we'll be using the following software:
 - [PhyloSeminar](http://phyloseminar.org/recorded.html): A continually-updated collection of recorded talks from the PhyloSeminar lecture series. The seminars cover deal with many aspects of phylogenetic theory and methods for estimating trees and conducting dowstream analyses. For a more detailed introduction to some of the course material, I particularly recommend the "primer" lectures by [Dr. Paul O. Lewis](https://phylogeny.uconn.edu/).
  
 ## Tutorial
-Begin by downloading and unzipping all necessary files from the Lab Four section of the Modules tab in Quercus. 
+Begin by downloading and unzipping [all necessary files for Lab Four](https://github.com/ddecarle/eeb462-2021/blob/main/LabFour.zip). 
 
 1. Locate the "NEXUS/MrBayes" folder you created as part of [Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LAB1_characterMatrices.md) 
 2. Copy `16s-enam-18s-coi-fuseSimp.nex` into the "LabFour/allNuc" folder
