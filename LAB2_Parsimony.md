@@ -72,7 +72,7 @@ As you struggle through this lab, please know that I’ve done everything I can 
 
 ## Tutorial
 
-To begin this tutorial, download and unzip all the files under the Lab Two section of the Modules tab in Quercus. Your Lab Two folder should contain the following items:
+To begin this tutorial, download and unzip all the [files for Lab Two](https://github.com/ddecarle/eeb462-2021/blob/main/LabTwo.zip). Your Lab Two folder should contain the following items:
 
 - allNuc 
   - `16s-enam-18s-coi.tnt`
