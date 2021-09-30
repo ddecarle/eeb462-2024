@@ -150,7 +150,7 @@ This file includes taxonomic information for all of our taxa, as well as their c
 1.	In the terminal, navigate to the “Fasta” folder, and use the following command to determine the number of sequences in the “18s.fasta” file: 
 
 ```
-grep –c ‘>’ 18s.fasta
+grep –c '>' 18s.fasta
 ```
 
 The `grep` command searches plain text files for a particular pattern or regular expression. In this case, the pattern we’re looking for is `>`. Remember that, since the file is in FASTA format, the number of greater than symbols will be equal to the number of sequences in the file. By default, grep will print any lines that match the search pattern. Here, the modifier `-c` tells the terminal to merely count the number of matches in the specified file and display the number. 
