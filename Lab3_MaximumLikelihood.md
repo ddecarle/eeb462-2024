@@ -291,7 +291,7 @@ Conveniently, IQ-TREE outputs all topologies in Newick format. Trees resulting f
 - use the following commands to combine your trees into one file:
 
     ```
-    cat nucPartition.nex.contree >> allTrees.txt
+    cat nucPartition.nex.contree > allTrees.txt
     cat *.new >> allTrees.txt
     ```
 3. Run your topology test
