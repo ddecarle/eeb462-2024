@@ -139,7 +139,7 @@ This file includes taxonomic information for all of our taxa, as well as their c
 
 2.	To procure these sequences, use NCBI’s [Batch Entrez](https://www.ncbi.nlm.nih.gov/sites/batchentrez) tool, which allows you to download several sequences from GenBank at once. 
 
-3.	Click “**Browse**” and select “18sAccessions.txt” from the “LabOne” folder. Then, click “**Retrieve**”. 
+3.	Click “**Choose File**” and select “18sAccessions.txt” from the “LabOne” folder. Then, click “**Retrieve**”. 
 
 4.	Follow the link on the next page, and you will see a list of GenBank search results. To download these results, click “**Send to**” in the upper right section of the page, then select “**File**” as your destination, and “**FASTA**” as the format. (Make sure the "**Complete Record**" option is selected.) Then click "**Create File**". 
 
@@ -168,7 +168,7 @@ This file is slightly suspect. The title is uninformative: how do we know what t
 **BLAST** (Basic Local Alignment Search Tool) compares a sequence (or sequences) of interest to a database in order to find regions of high similarity. 
 
 4.	Select the “**Nucleotide BLAST**” icon from the landing page. 
-- Use the “**Browsee**” button to select `extraMammals.fasta`, and ensure that “**Nucleotide collection (nr/nt)**” is selected as the database. 
+- Use the “**Choose File**” button to select `extraMammals.fasta`, and ensure that “**Nucleotide collection (nr/nt)**” is selected as the database. 
 - Now click “**BLAST**” at the bottom of the page. 
 
 Since your query contains multiple sequences, you can scroll through the results for each of them using the dropdown menu under “**Results For**” in the upper left corner. 
