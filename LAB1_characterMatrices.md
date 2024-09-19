@@ -177,11 +177,11 @@ The **Graphic Summary** shows a visual representation of the most similar sequen
 
 Red bars stretching the entire length of the query sequence represent highly similar sequences that are at least as long as your sequence of interest. 
 
-Under **Descriptions**, you will see a list of sequences from GenBank in descending order of similarity. Clicking the **sequence name** will take you to an alignment of this sequence and your sequence of interest, while clicking the **accession number** in the rightmost column will take you to the page for that sequence. The rest of the columns list similarity metrics. In general, you’ll be most interested in the Per. Ident and E value columns. 
+Under **Descriptions**, you will see a list of sequences from GenBank in descending order of similarity. Clicking the **sequence name** will take you to an alignment of this sequence and your sequence of interest, while clicking the **accession number** in the rightmost column will take you to the page for that sequence. The rest of the columns list similarity metrics. In general, you’ll be most interested in the "Per. Ident" and "E value" columns. 
 
 The **E value** describes the number of hits you would expect to see by chance when searching a database of a given size: it decreases as the score of the match increases. Generally speaking, you want your E value to be as close to 0 as possible. 
 
-**Per. Ident** (or, identity) expresses the extent to which two sequences share the same nucleotide in the same position. Since (almost) all the data for this course were mined from GenBank, you should expect the top hit to have an identity value of 100%, indicating that the sequences are identical.
+**Per. Ident** (or, percent identity) expresses the extent to which two sequences share the same nucleotide in the same position. Since (almost) all the data for this course were mined from GenBank, you should expect the top hit to have an identity value of 100%, indicating that the sequences are identical.
 
 5.	Examine the BLAST results for each of the sequences in the “extraMammals.fasta” file. 
 
@@ -226,9 +226,9 @@ Why might we want to use amino acid sequences – rather than nucleotide sequenc
 
 1.	To translate your nucleotide sequences into amino acid sequences, use the EMBOSS tool, [Transeq](https://www.ebi.ac.uk/Tools/st/emboss_transeq/).  
 
-2.	Under **STEP 1**, choose the “coi-barcode.fasta” file. 
+2.	Under **Input Sequence**, click the "Choose File" button and select the “coi-barcode.fasta” file. 
 
-3.	Under **STEP 2**, set FRAME to “2”, and set CODON TABLE to “Vertebrate Mitochondrial”.
+3.	Under **Parameters**, set FRAME to “2”, and set CODON TABLE to “Vertebrate Mitochondrial”.
 
 4.	Click **Submit**. 
 
