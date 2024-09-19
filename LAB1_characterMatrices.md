@@ -41,6 +41,7 @@ Questions:
 For this lab, we will be using the following software: 
 
 - [MUSCLE](https://drive5.com/muscle5/)
+  - If your operating system is not up-to-date, you may need to download MUSCLE v3
 - [Mesquite](http://www.mesquiteproject.org/Installation.html)
 - A plain text editor of your choice 
 
