@@ -40,7 +40,7 @@ Questions:
 
 For this lab, we will be using the following software: 
 
-- [MUSCLE](https://www.drive5.com/muscle/downloads.htm)
+- [MUSCLE](https://drive5.com/muscle5/)
 - [Mesquite](http://www.mesquiteproject.org/Installation.html)
 - A plain text editor of your choice 
 
