@@ -34,7 +34,7 @@ Philosophical considerations aside, **parsimony has two considerable advantages*
 
     If your analyses recover relationships that seem at odds with your expectations, a parsimony tree will help you pinpoint the particular taxa or data driving that relationship. If nothing in your alignment(s) or parsimony tree(s) seems out of place, the problem is likely to be with your model or the way you have parameterized your analyses. 
     
-Today, we will be learning to conduct parsimony analyses using PAUP*, and touch on some other features you may find likely for your project: scripting and constrained analyses.  
+Today, we will be learning to conduct parsimony analyses using TNT, and touch on some other features you may find likely for your project: scripting and constrained analyses.  
 
 
 ### Lab Assignment Two:
