@@ -20,7 +20,7 @@ When assigning **weight** to certain characters, we assume that changes to some 
 
 #### Parsimony: a dirty word?
 
-In contemporary systematic research, parsimony trees are seldom used as a final product. The primary reason for this is that the fundamental assumption(s) of parsimony are demonstrably false in many situations: it is possible to more accurately estimate the process of evolution using statistical models. (The secondary reason is a colossal nerd war that took place in the '90s.) 
+In contemporary systematic research, parsimony trees are seldom used as a final product. The primary reason for this is that the fundamental assumption(s) of parsimony are demonstrably false in many situations: it is possible to more accurately estimate the process of evolution using statistical models. (The secondary reason is that a lot of nerd drama took place in the '90s.) 
 
 Although parsimony can outperform likelihood for particular datasets, or when specific types of evolutionary processes are at play, the degree to which these issues apply to real datasets or affect the quality of our phylogenetic inferences is debatable. For an approachable exploration of the biases toward which both parsimony and likelihood are prone, see [Swofford et al. 2001](https://www.jstor.org/stable/pdf/3070852.pdf?casa_token=m9pL7EqYpkgAAAAA:Yel2SDyznRU-RIrrcG2ttZJA0W926pfuWDu19qPuGeLFuUv9ozlXsw8uYtEuwqCsMPS9mhjnyjIA9DTQ6FhaR7uZwnkrHgrc9t9bJMNIwA5DYqxoZr7w).
 
