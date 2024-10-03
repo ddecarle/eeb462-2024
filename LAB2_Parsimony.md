@@ -60,9 +60,6 @@ Questions: *(21 points total)*
 For this lab, we will be using the following software: 
 
 - [TNT](http://www.lillo.org.ar/phylogeny/tnt/)
-- [Python](https://www.python.org/downloads/)
-    - Folks using MacOS will already have Python on their computers
-    - Windows users can install Python through the [Windows App Store](https://www.microsoft.com/en-ca/p/python-39/9p7qfqmjrfp7?activetab=pivot:overviewtab)
 - [FigTree](http://tree.bio.ed.ac.uk/software/figtree/)
 - A plain text editor of your choice 
 
@@ -83,7 +80,7 @@ To begin this tutorial, download and unzip all the [files for Lab Two](https://g
 - nucProt
   - `16s-enam-18s-coiProt.tnt`
   - `STATS.RUN`
-- `tnt_tree_clean.py`
+- `tnt_tree_clean.sh`
 - `tnt.command` (for MacOS)
 - `tnt.exe` (for Windows)
 - `TNTscript.run`
@@ -157,7 +154,7 @@ tnt*>
 
 The last TNT idiosyncrasy that we will encounter (…hopefully), is the tree output. TNT prints its trees in a particular format that can’t be read by most other programs. Luckily, I’ve provided you with a script that converts the TNT tree format into a more legible tree file.
 
-10. Run the tree conversion script: `python ../tnt_tree_clean.py`
+10. Run the tree conversion script: `bash ../tnt_tree_clean.sh`
 
 ---
 #### QUESTION 1 
@@ -175,19 +172,19 @@ What are the CI and RI for your tree? *(1 point)*
 
 ### Examining Trees
 
-1. Open `consensus_bootstraps.tnttre.tre` in FigTree
+11. Open `consensus_bootstraps.tnttre.tre` in FigTree
 
     A dialogue box will appear asking you to assign a name to the labels in the tree file. These labels are your bootstrap values: enter, “bootstrap” and click OK. 
 
 FigTree allows you to customize many aspects of your tree’s appearance. You may wish to use these options when creating figures for your manuscript. 
 
-2.	**Display bootstrap values** on your tree:
+12.	**Display bootstrap values** on your tree:
 
   - Tick the box next to “Node Labels”
   - Expand the “Node Labels” menu by clicking the arrow to the left
   - In the “Display” menu, select “bootstrap”
 
-3.	**Reroot the tree**: Select a single taxon as the outgroup, and click the “Reroot” icon in the top left corner of the window. 
+13.	**Reroot the tree**: Select a single taxon as the outgroup, and click the “Reroot” icon in the top left corner of the window. 
 
 Use your tree to answer the following questions: 
 
@@ -211,21 +208,21 @@ Today, we'll be working with files that combine nucleotide (DNA) and amino acid 
 
 As before, we'll have to make some changes to our TNT script. 
 
-1. Navigate to your nucProt folder and open `TNTscript.run` in your text editor. 
+14. Navigate to your nucProt folder and open `TNTscript.run` in your text editor. 
 
-2. Make the following changes: 
+15. Make the following changes: 
 
   - On **line 5**, replace `<log-name>` with an informative file name 
   - On **line 14**, replace `<matrix.tnt>` with the name of the correct data matrix
   - Add `quote` to the beginning of **line 36** and **line 62**  (we'll be running shorter analyses again this time)
  
-3. Save your changes.
+16. Save your changes.
 
-4. Open a terminal window, navigate to your nucProt folder, and launch TNT as before
+17. Open a terminal window, navigate to your nucProt folder, and launch TNT as before
 
-5. Use the TNT script to execute your analysis: `run TNTscript.run;`
+18. Use the TNT script to execute your analysis: `run TNTscript.run;`
 
-6. When the analyses are complete, quit TNT (`quit;`) and use the script to reformat the trees: `python ../tnt_tree_clean.py`
+19. When the analyses are complete, quit TNT (`quit;`) and use the script to reformat the trees: `bash ../tnt_tree_clean.sh`
 
 ---
 #### QUESTION 7
@@ -233,7 +230,7 @@ Report the length of the most parsimonious tree, the number of trees encountered
 
 ---
 
-7. As before, examine the tree in FigTree, making sure to re-root the tree using the same taxon. 
+20. As before, examine the tree in FigTree, making sure to re-root the tree using the same taxon. 
 
 --- 
 #### QUESTION 8
@@ -248,9 +245,9 @@ Contrast this tree with the one generated using an all-nucleotide alignment. Thi
 
 Although Euarchontoglires (rodents, lagomorphs, treeshrews, colugos, and primates) is a considered to be a robust clade, neither of our analyses today recovered it. In situations such as this, you may wish to “constrain” your analysis to recover a given topology decided *a priori*. In this way, you can examine the effect of this constraint on your overall tree score, or on other aspects of the topology. 
 
-1. Navigate to your nucConstrain folder and open `TNTscript.run` in your text editor. 
+21. Navigate to your nucConstrain folder and open `TNTscript.run` in your text editor. 
 
-2. Make the following changes to the script:
+22. Make the following changes to the script:
 
   - On **line 5**, replace `<log-name>` with an informative file name 
   - On **line 14**, replace `<matrix.tnt>` with the name of the correct data matrix
@@ -258,19 +255,19 @@ Although Euarchontoglires (rodents, lagomorphs, treeshrews, colugos, and primate
   
 Now we'll make some changes specific to constrained analyses. For more detailed information about these commands, see [Appendix A](#appendix-a-the-script-explained).
  
-3. Remove `quote` from the beginning of **line 27** and **line 28**
+23. Remove `quote` from the beginning of **line 27** and **line 28**
 
-4. On **line 27**, replace `<tree>` with the following tree: `(hare rabbit macaque gibbon orangutan guineaPig porcupine vole mouse rat)` 
+24. On **line 27**, replace `<tree>` with the following tree: `(hare rabbit macaque gibbon orangutan guineaPig porcupine vole mouse rat)` 
 
   This indicates that we ***only*** want TNT to recover trees in which members of the Euarchontoglires form a clade, but we ***don't*** want to specify what the relationships between any of those taxa should look like. **NOTE:** The bootstrap trees will also be generated using this constraint. 
   
-5. Save these changes, and close the file. 
+25. Save these changes, and close the file. 
 
-6. In your terminal, navigate to the nucConstrain folder; launch TNT; and conduct your analyses using hte script as before. 
+26. In your terminal, navigate to the nucConstrain folder; launch TNT; and conduct your analyses using hte script as before. 
 
-7. Once the analysis is finished, quit TNT and run the `tnt_tree_clean.py` script to reformat your trees
+27. Once the analysis is finished, quit TNT and run the `tnt_tree_clean.sh` script to reformat your trees
 
-8. Examine the trees and your log file(s) to answer the following questions:
+28. Examine the trees and your log file(s) to answer the following questions:
 
 --- 
 #### QUESTION 9
