@@ -108,7 +108,7 @@ The first time you use TNT, you may be asked to agree to their terms of service.
 
 ### Parsimony Analysis 101
 
-1. Copy `TNTscript.run` to each of these three folders: allNuc nucConstrain, and nucProt
+1. Copy `TNTscript.run` to each of these three folders: `allNuc`, `nucConstrain`, and `nucProt`
 
 2. Move into the **allNuc** folder and open `TNTscript.run` in your text editor
 
