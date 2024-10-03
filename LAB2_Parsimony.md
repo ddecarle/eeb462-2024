@@ -283,7 +283,7 @@ Which (if any) of the trees you generated do you trust the most? Can you trust s
 In the following tree, node x has a bootstrap support value of 90%. What topology did the other 10% of bootstrap trees support? Choose one of the following, and explain your answer.
 
 <p align="center">
-  <img src="https://github.com/ddecarle/eeb462/blob/master/Picture1.png">
+  <img src="https://github.com/ddecarle/eeb462-2024/blob/main/images/L2-Picture2.png">
 </p>
 
 
