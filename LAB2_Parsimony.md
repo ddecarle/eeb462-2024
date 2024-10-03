@@ -378,18 +378,18 @@ Unfortunately, if you want to create a TNT file that contains **multiple types o
 
 TNT files can support partitioned data matrices. These partitions can contain the same types of data, or they can contain a mixture of data types. In the latter case, a few adjustments have to be made. 
 
-32.	In “16s-enam-18s.tnt”, change “nstates” from “dna;” to “num 21;”. 
+3.	In “16s-enam-18s.tnt”, change “nstates” from “dna;” to “num 21;”. 
 
   This signifies that there are 21 different states in the matrix as a whole, but the matrix is neither strictly protein, nor strictly DNA. 
 
-33.	Change the number of characters (*i.e.* the first number) on **line 3**   to reflect the fact that we are adding a new partition. The new number should be equal to the length of both character matrices added together.
+4.	Change the number of characters (*i.e.* the first number) on **line 3**   to reflect the fact that we are adding a new partition. The new number should be equal to the length of both character matrices added together.
 
-34.	 Create a new line before the start of your character matrix that reads `&[DNA]`. 
+5.	 Create a new line before the start of your character matrix that reads `&[DNA]`. 
 The ampersand indicates the beginning of a new partition, while the text within the brackets tells TNT what type of data to expect.
 
-35.	After the end of your DNA matrix (but before the semi-colon), paste your protein matrix, preceded by a line that reads `&[PROT]`. 
+6.	After the end of your DNA matrix (but before the semi-colon), paste your protein matrix, preceded by a line that reads `&[PROT]`. 
 
-36.	Save the file as `16s-enam-18s-coiProt.tnt` and close your text editor. You can now use this file for analysis in TNT
+7.	Save the file as `16s-enam-18s-coiProt.tnt` and close your text editor. You can now use this file for analysis in TNT
 
 [back to top](#table-of-contents)
 
