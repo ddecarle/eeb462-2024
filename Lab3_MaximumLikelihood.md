@@ -23,7 +23,7 @@ Maximum likelihood analysis involves a few key assumptions:
 
 1.  **Statistical consistency**: The larger your dataset, the more your results will converge on the truth. 
 
-    Although this concept is widely used in statistics broadly, but its relationship to phylogenetic analysis is rather complicated. We'll talk more about this in future labs. 
+    Although this concept is widely used in statistics broadly, its relationship to phylogenetic analysis is rather complicated. We'll talk more about this in future labs. 
   
 2. Evolution produces fully bifurcating trees
 
