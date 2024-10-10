@@ -288,9 +288,9 @@ Conveniently, IQ-TREE outputs all topologies in Newick format. Trees resulting f
     ```
 3. Run your topology test
 
-    Mac: `./../iqtree -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
+    Mac: `./../iqtree2 -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
     
-    Win: `./../iqtree/exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
+    Win: `./../iqtree2.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
 
 As before, let’s break down that command: 
 The `-s` and `-spp` options are used exactly as before to specify the matrix, partition file, and models.
@@ -330,17 +330,17 @@ Save your constraint tree in the same folder as your matrix and partition file (
 When running your tree search, use the option `-g` to indicate that you want to run a constrained analysis, and add it to the command you used to run your original tree search. For example, to run a constrained analysis on the nucProt dataset, you could use the following command: 
 
 Mac: 
-`./iqtree -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -bb 1000 -wbt`
+`./iqtree2 -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -bb 1000 -wbt`
 
 Win: 
-`./iqtree.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -bb 1000 -wbt`
+`./iqtree2.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> –ninit 100 -bb 1000 -wbt`
 
 
 ---
 
 #### BONUS QUESTION
 
-Identify the order that is recovered as polyphyletic in both ML trees you generated today. Conduct a tree search using the “Nucleotide” dataset that constrains this order to be monophyletic. Then, conduct a topology test: Are the constrained and unconstrained trees significantly different from one another? 
+Identify the order that is recovered as non-monophyletic in one of the ML trees you generated today. Conduct a tree search using the appropriate dataset that constrains this order to be monophyletic. Then, conduct a topology test: Are the constrained and unconstrained trees significantly different from one another? 
 
 ---
 
