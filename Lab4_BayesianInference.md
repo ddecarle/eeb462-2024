@@ -48,13 +48,13 @@ For this lab, we'll be using the following software:
 
 ## RESOURCES:
 
-- [MrBayes Wiki](http://mrbayes.sourceforge.net/wiki/index.php/Manual_3.2): Includes the manual, tutorials, and summaries of models
+- [MrBayes Manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf): Includes tutorials and summaries of models
 
 - [Zwickl & Holder 2004 - *Systematic Biology*](https://academic.oup.com/sysbio/article/53/6/877/1651008#124599109): Model Parameterization, Prior Distributions, and the General Time-Reversible Model in Bayesian Phylogenetics (an excellent, not-super-technical paper about models and priors in Bayesian phylogenetics)
  
-- [Huelsenbeck, Rannala, & Malsy](https://www.sciencemag.org/site/feature/data/1050262.pdf)>: An Introduction to Bayesian Inference of Phylogeny - a plain-language explanation of Bayesian inference in phylogeny, starting from the basics & working up to all the gory details. 
+- [An Introduction to Bayesian Inference of Phylogeny by Huelsenbeck, Rannala, & Masly](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=40d4bf7e7e6d07d10a1bbcea87c9ff63324458b9): A plain-language explanation of Bayesian inference in phylogeny, starting from the basics & working up to all the gory details. 
 
-- [Archibald *et al.* 2003 - *Taxon*](https://www.researchgate.net/publication/275922362_Bayesian_Inference_of_Phylogeny_A_Non-Technical_Primer): Bayesian Inference of Phylogeny: A Non-Technical Primer
+- [Archibald, Mort, & Crawford, 2003 - *Taxon*](https://www.researchgate.net/publication/275922362_Bayesian_Inference_of_Phylogeny_A_Non-Technical_Primer): Bayesian Inference of Phylogeny: A Non-Technical Primer
 
 - [MBL Workshop on Molecular Evolution](https://molevolworkshop.github.io/schedule/): Slides, tutorials, and some recorded lectures from the [annual phylogenetics workshop](https://www.mbl.edu/education/courses/workshop-on-molecular-evolution/) at the Marine Biological Labratory in Woods Hole. I can't say enough good things about this workshop and the people who teach it. If you're looking for ideas for extra analyses, more detail about the methods we've covered in lecture and lab, or just another explanation of the course material, this is as great place to look.
 
@@ -63,7 +63,7 @@ For this lab, we'll be using the following software:
 - [PhyloSeminar](http://phyloseminar.org/recorded.html): A continually-updated collection of recorded talks from the PhyloSeminar lecture series. The seminars cover deal with many aspects of phylogenetic theory and methods for estimating trees and conducting dowstream analyses. For a more detailed introduction to some of the course material, I particularly recommend the "primer" lectures by [Dr. Paul O. Lewis](https://phylogeny.uconn.edu/).
  
 ## Tutorial
-Begin by downloading and unzipping [all necessary files for Lab Four](https://github.com/ddecarle/eeb462-2021/blob/main/LabFour.zip). 
+Begin by downloading and unzipping [all necessary files for Lab Four](https://github.com/ddecarle/eeb462-2024/blob/main/LabFour.zip). 
 
 1. Locate the "NEXUS/MrBayes" folder you created as part of [Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LAB1_characterMatrices.md) 
 2. Copy `16s-enam-18s-coi-fuseSimp.nex` into the "LabFour/allNuc" folder
