@@ -490,7 +490,7 @@ prset applyto=(#) aamodelpr=fixed(NAME);
 - `aamodelpr`: this command specifies the rate matrices for ***amino acid partitions***
   - `NAME`: the name of the particular model (*e.g.* dayhoff, wag, blosum...)
 
-For a complete list of the amino acid models implemented in MrBayes, consult the [MrBayes Wiki](http://mrbayes.sourceforge.net/wiki/index.php/Manual_3.2), or use the MrBayes help command (`help prset;`).
+For a complete list of the amino acid models implemented in MrBayes, consult the [MrBayes Manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf), or use the MrBayes help command (`help prset;`).
 
 
 **NOTE:** Unlike with the `allNuc` dataset, ***you cannot copy-and-paste the partitions straight from IQ-TREE's output file***. Because MrBayes accepts multiple data types in the same file, but IQ-TREE does not, the locations of each partition will change. Luckily, the fused NEXUS file contains a `SETS` block which tells you where each locus begins and ends. ***Remember*** that, when specifying your models of evolution, you may need to specify different partitions for each codon position in the protein-coding loci.  
