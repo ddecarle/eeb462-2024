@@ -148,7 +148,7 @@ lset applyto=(99) nst=1 rates=invgamma ngammacat=4;
 - `rates`: indicates the type of rate heterogeneity (if any). The `invgamma` option specifies a proportion of invariant sites (`+I`) and gamma-distributed rates (`+G`)
 - `ngammacat`: specifies the number of gamma rate categories
 
-The `applyto` and `nst` options _must always be present_ in your lset commands; `rates` and `ngammacat` may not need to be included, depending on the model. You can also use `lset` to specify other options, such as codon table if applicable. For more information, use the MrBayes help command, or consult the [MrBayes wiki](http://mrbayes.sourceforge.net/wiki/index.php/Manual_3.2).
+The `applyto` and `nst` options _must always be present_ in your lset commands; `rates` and `ngammacat` may not need to be included, depending on the model. You can also use `lset` to specify other options, such as codon table if applicable. For more information, use the MrBayes help command, or consult the [MrBayes Manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
 
 A typical `prset` command might look like this: 
 
