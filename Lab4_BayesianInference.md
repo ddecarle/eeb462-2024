@@ -66,8 +66,8 @@ For this lab, we'll be using the following software:
 1. Begin by downloading [all necessary files for Lab Four](https://github.com/ddecarle/eeb462-2024/blob/main/LabFour.zip) to your Desktop and unzipping them.
 
 We will be using the remaining NEXUS files you created as part of [Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LAB1_characterMatrices.md). These files should already be included in the folder you just downloaded, along with two versions of MrBayes:
-	- MacOS: `mb`
-	- Windows: `mb.3.2.7-win64.exe`
+ - MacOS: `mb`
+ - Windows: `mb.3.2.7-win64.exe`
 
 ### The Bayes Block
 
