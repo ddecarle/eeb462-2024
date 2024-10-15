@@ -97,18 +97,19 @@ The next lines in your MrBayes block will specify the optimal partitioning schem
 
 Because IQ-TREE conveniently outputs the results of its model test in NEXUS format, most of the relevant information can simply be copy-and-pasted into your MrBayes block.  
 
-6. To define the partitions for your analysis, copy lines 3 - 9 (*i.e.* all lines beginning with `charset` into your Bayes block.
+6. To define the partitions for your analysis, copy all lines beginning with `charset` into your Bayes block.
 
 Once we've defined the partitions, we need to indicate which partitioning scheme we want to use. 
 
-7. On a new line, enter the following commands: 
+7. On a new line, enter the following commands:
 
 ```
-partition bestScheme = 7: 16s, enam1_enam2, enam3 18s, coi1, coi2, coi3;
+partition bestScheme = <N>: <partition1>, <partition2>, <partition3> ... <partiitonN>;
 set partition = bestScheme;
 ```
+Replace `N` with the number of partitions contained within `nucPartition.nex.best_scheme.nex`, and list each of the partitions after the colon. 
 
-This creates a new partitioning scheme called `bestScheme` that contains 7 partitions; it then lists the identities of those partitions and tells MrBayes to implement the scheme we just specified. 
+This creates a new partitioning scheme called `bestScheme` that contains the appropriate number of partitions; it then lists the identities of those partitions and tells MrBayes to implement the scheme we just specified. 
 
 [back to top](#table-of-contents)
 
@@ -124,8 +125,8 @@ The lines following `charpartition mymodels = ` indicate the best model for each
 
 - `+F`: indicates that base frequencies should be empirically calculated from your data. (This is the default option for models - such as GTR - that include unequal base frequencies.)
 - `+I`: allows for a proportion of invariable (*i.e.* unchanging) sites
-- `+G`: discrete gamma model - nucleotides may evolve at different rates according to a gamma distribution; may be followed by a number (*e.g.* `G4`) indicating the optimal number of rate categories
-- `+ASC`: ascertainment bias correction for datasets that do not contain constant sites (*i.e.* SNP and morphological data)
+- `+G`: discrete gamma model - nucleotides in a sequence may evolve at different rates according to a gamma distribution; may be followed by a number (*e.g.* `G4`) indicating the optimal number of rate categories
+- `+ASC`: ascertainment bias correction for datasets that do not contain invariant sites (*i.e.* SNP and morphological data)
 
 More information about IQ-TREE's model selection output can be found on the [IQ-TREE Substitution Models](http://www.iqtree.org/doc/Substitution-Models) page.
 
