@@ -248,6 +248,7 @@ Once you’ve written your Bayes Block, running an analysis is easy.
 
     - MacOS: `./../mb`
     - Windows: `./../mb.3.2.7-win64.exe`
+    - If you encounter a `Permission Denied` error, enter the following command" `chmod +x mb` or `chmod +x mb.3.2.7-win64.exe` and try the previous command again. 
 
 16. When MrBayes has started, load your matrix: `exec 16s-enam-18s-coi-fuseSimp.nex;`
 
