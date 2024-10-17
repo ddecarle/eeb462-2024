@@ -133,7 +133,7 @@
 
 **JC+I+G**
 
-    lset applyto=() nst=1 rates=incgamma;
+    lset applyto=() nst=1 rates=invgamma;
     prset applyto=() statefreqpr=fixed(equal);
     
 ## MK Model for Morphology
