@@ -141,19 +141,19 @@ Now you are logged into SciNet’s super computer system. There are two main log
 
 When you log in, you are automatically taken to the `$HOME` node (you can confirm using `pwd`). This is a read-only node, used mainly for moving files from your computer into SciNet. We will be running all analyses on the `$SCRATCH` node.
 
-A folder containing all material for the remaining labs has been created in the `$SCRATCH` node: `Phylogenomics`. 
+A folder containing all material for the remaining labs has been created in the `$HOME` node: `home/l/lcl_uoteeb462/eeb462starter`
 
 5. Move into this folder and explore its contents:
 
   ```
-  cd $SCRATCH/eeb462share/
+  cd ../eeb462starter
   ls
   ```
 
 All of the files for the phylogenomics labs are here:
 
 - The `O_niloticus_Reference` folder contains the 20 target exons for Tilapia; these will be our outgroup sequences.
-- The 9 geophagine species folders contain reads for the focal taxa (use `ls G_abalios` to see the contents of one of these). The `sorted` part of the filenames specifies that reads are sorted by sequence identifier. A separate folder is used for each species because a number of other files will be created during processing. 
+- The 9 geophagine species folders contain reads for the focal taxa (use `ls Geo_abalios` to see the contents of one of these). The `sorted` part of the filenames specifies that reads are sorted by sequence identifier. A separate folder is used for each species because a number of other files will be created during processing. 
 - The `Refseq_923.fna` file contains the *O. niloticus* references that will be used to guide the assembly of the target exons for the 9 geophagine taxa. The remaining files are software executables that are needed for running analyses (*e.g.* muscle and astral). 
 
 6. Inspect the first few lines of `A_cacatuoides_sorted.fastq` using the `head` command below. This will display the first 8 lines of the `A_cacatuoides_sorted.fastq` file.  
@@ -186,9 +186,9 @@ Paste the output from the `head -8` command above (*i.e.* the first 2 reads and 
 7. Use the `ls`, `tr` and `sed` commands to make `speciesNames.txt` and `exonNames.txt` files. These files will contain space-delimited species and exon names, respectively, which will be useful for automating scripts across specific species or exons with for-loops later.
 
   ```
-  ls -d */ | tr '/\n' ' ' > speciesNames.txt
-  sed -i 's/astralEx//' speciesNames.txt
-  ls O_niloticus_References | sed 's/_REFERENCE.fasta//g' | tr '\n' ' ' > exonNames.txt
+  ls -d */ | tr '/\n' ' ' > $SCRATCH/speciesNames.txt
+  sed -i 's/astralEx//' $SCRATCH/speciesNames.txt
+  ls O_niloticus_References | sed 's/_REFERENCE.fasta//g' | tr '\n' ' ' > $SCRATCH/exonNames.txt
   ```
   
 Now whenever you need to automate a script for all folders, simply print the contents of the species or exon file to the console with `cat` and copy and paste what you need into a for-loop (see next section). 
@@ -200,9 +200,10 @@ Now whenever you need to automate a script for all folders, simply print the con
   
 Lastly, SciNet has installed the software that we need as modules. The necessary modules need to be loaded, along with any dependencies (*e.g.* gcc), in order for the software to be available in your SciNet session. 
 
-8. Load the modules.
+8. Move into your `scratch`node, then load the modules.
 
   ```
+  cd $SCRATCH
   module load gcc
   module load tbb
   module load prinseq
@@ -225,13 +226,16 @@ There are a lot of reads, so processing them can take a long time (~30+ minutes/
 2. Copy the first name (*i.e.* *A. cacatuoides*) in the resulting list and replace it for `<species_names>` in the first line of the following script. 
 
   ```
-  for species in <species_names>
-  do
+for species in <species_names>
+do
+
+#make a folder to contain your results
+mkdir $species
   
-  #Run prinseq on sorted read files
-prinseq-lite.pl -fastq $species/${species}_sorted.fastq -out_format 3 -out_good $species/${species}_processed1 -out_bad null -no_qual_header -min_qual_mean 20 -ns_max_p 1 -derep 12345 -trim_tail_left 5 -trim_tail_right 5 -trim_qual_left 20 -trim_qual_right 20 -trim_qual_type mean -trim_qual_rule lt -trim_qual_window 5 -trim_qual_step 1 -min_len 60 -graph_stats ld,qd,da -graph_data $species/${species}_Unprocessed_graphs.gd -graph_stats ld,qd,da
+#Run prinseq on sorted read files
+prinseq-lite.pl -fastq $species/${species}_sorted.fastq -out_format 3 -out_good $species/${species}_processed1 -out_bad null -no_qual_header -min_qual_mean 20 -ns_max_p 1 -derep 12345 -trim_tail_left 5 -trim_tail_right 5 -trim_qual_left 20 -trim_qual_right 20 -trim_qual_type mean -trim_qual_rule lt -trim_qual_window 5 -trim_qual_step 1 -min_len 60 -graph_stats ld,qd,da -graph_data 
     
-  done
+done
   ```
 
 4. Run the entire for-loop. Comments (*i.e.* lines of text in the script starting with `#`) are ignored by the shell (*i.e.* not interpreted as commands) and are included primarily to help explain what the script is doing.
@@ -301,7 +305,7 @@ We will be using PRINSEQ’s online software to generate .png graphs to visualiz
 2. From here use the following command to access SciNet and download the specified file. Replace `<username>` in both locations with your username and enter your password when prompted. 
   
   ```
-  scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/A_cacatuoides/A_cacatuoides_Unprocessed_graphs.gd .
+  scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/eeb462share/A_cacatuoides/A_cacatuoides_Unprocessed_graphs.gd .
   ```
   
 3. The prinseq graphs should now be inside your prinseqGraphs folder. Confirm using `ls`.
