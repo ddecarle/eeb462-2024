@@ -211,6 +211,7 @@ Lastly, SciNet has installed the software that we need as modules. The necessary
   module load samtools
   module load bcftools
   ```
+If you encounter an error, try replacing the `module load gcc` command with the following command instead: `module load gcc/7.3.0`
   
 9. Confirm that your modules were loaded using the command `module list`, and checking to see that all the relevant modules are displayed in the terminal. 
 
