@@ -223,15 +223,19 @@ We will be using the PRINSEQ software to process reads. PRINSEQ has an online GU
 
 There are a lot of reads, so processing them can take a long time (~30+ minutes/species, depending on computational power). To speed things up, we are only going to process 1 taxon (*A. cacatuoides*) for this section of the lab. All other have been done for you. 
 
-1. Print the contents of the `speciesNames.txt` file (generated in section 1) using `cat`. 
+1. Print the contents of the `speciesNames.txt` file (generated in section 1) using `cat`. Then, copy all names **except for *O_niloticus*, and use that to replace `<species_names>` in the first line of the following code. This will create a folder to house the assembled reads for each of our species.
+
+```
+for species in <species names>
+mkdir $species
+done
+```
+
 2. Copy the first name (*i.e.* *A. cacatuoides*) in the resulting list and replace it for `<species_names>` in the first line of the following script. 
 
   ```
 for species in <species_names>
 do
-
-#make a folder to contain your results
-mkdir $species
   
 #Run prinseq on sorted read files
 prinseq-lite.pl -fastq /home/l/lcl_uoteeb462/eeb462starter/$species/${species}_sorted.fastq -out_format 3 -out_good $species/${species}_processed1 -out_bad null -no_qual_header -min_qual_mean 20 -ns_max_p 1 -derep 12345 -trim_tail_left 5 -trim_tail_right 5 -trim_qual_left 20 -trim_qual_right 20 -trim_qual_type mean -trim_qual_rule lt -trim_qual_window 5 -trim_qual_step 1 -min_len 60 -graph_stats ld,qd,da -graph_data 
@@ -239,7 +243,7 @@ prinseq-lite.pl -fastq /home/l/lcl_uoteeb462/eeb462starter/$species/${species}_s
 done
   ```
 
-4. Run the entire for-loop. Comments (*i.e.* lines of text in the script starting with `#`) are ignored by the shell (*i.e.* not interpreted as commands) and are included primarily to help explain what the script is doing.
+3. Run the entire for-loop. Comments (*i.e.* lines of text in the script starting with `#`) are ignored by the shell (*i.e.* not interpreted as commands) and are included primarily to help explain what the script is doing.
 
 **NOTE:** a for-loop is not actually necessary here since we are processing only 1 file, but we will use one anyway so that you know how to do it if you want to process multiple species in the future. 
 
@@ -277,7 +281,7 @@ Fill out the table below to summarize the types of reads that get filtered and b
 
 ---
 
-5. Calculate the same graphing stats for the processed reads:
+4. Calculate the same graphing stats for the processed reads:
 
   ```
   for species in A_cacatuoides
@@ -362,16 +366,11 @@ Now that the reads have been processed, we will assemble them into complete targ
   bowtie2-build /home/l/lcl_uoteeb462/eeb462starter/Refseq_923.fna Refseq923
   ```
 
-3. Print the species names to the console: `cat speciesNames.txt`
-
-4. Copy all names **except for *O_niloticus***, and use that to replace `<species_names>` in the first line of the following code. Run the following for-loop for ALL target taxa (*i.e.* all taxa except *O. niloticus*). This will assemble reads using the indexed *O. niloticus* reference as a guide. The final result will be consensus sequences with a minimum read depth > 10. As the code below runs (it will take a few minutes) read through the comments above each command and the corresponding more detailed description below for details of the process. Each line of code is numbered so that you can match it with the description below. 
+3. Copy all names **except for *O_niloticus***, and use that to replace `<species_names>` in the first line of the following code. Run the following for-loop for ALL target taxa (*i.e.* all taxa except *O. niloticus*). This will assemble reads using the indexed *O. niloticus* reference as a guide. The final result will be consensus sequences with a minimum read depth > 10. As the code below runs (it will take a few minutes) read through the comments above each command and the corresponding more detailed description below for details of the process. Each line of code is numbered so that you can match it with the description below. 
 
   ```
   for species in <species_names>
 do
-
-# make directories to house your files
-mkdir $species
 
 # 1. Assemble target sequences using the reads that were processed with PRINSEQ by aligning them to the indexed reference sequences. 
 bowtie2 --very-sensitive-local -x Refseq923 -U /home/l/lcl_uoteeb462/eeb462starter/$species/${species}_processed1.fastq -S $species/${species}.sam
@@ -389,6 +388,8 @@ vcfutils.pl vcf2fq -d10 $species/${species}.sorted.vcf > $species/${species}.fq
 
 # 6. Convert fastq to fasta, converting all poor quality bases to Ns
 sed '/^+/,/^\@/{/^+/!{/^\@/!d}}' $species/${species}.fq | sed 's/@/>/g' | sed '/+/d' | sed 's/[a-z]/N/g' > $species/${species}.fasta
+
+printf "\n \n Processing for $species complete. \n \n"
 
 done
   ```
@@ -414,9 +415,9 @@ Bowtie2 allows you to set assembly parameters (*e.g.* maximum number of mismatch
 Read depth (also known as depth of coverage) refers to the number of independent reads that a base site is represented in. For example, a site with a read depth of 100 is represented in 100 reads. Read depth provides a measure of confidence in sequencing. The higher the number of reads that support a site, the more confident you can be that that site was correctly sequenced. If a site is represented in only a few reads, then it is difficult to know whether the correct base was called for that site or whether you are dealing with a sequencing error. See **Fig. 2.3** for a graphical explanation of read depth.
   - **Line 6:** The files outputted by `vcfutils.pl` are in `.fastq` format. This simple series of sed commands converts them to fasta formatted files. Low quality bases, coded as lowercase bases in the fastq file, are also converted to Ns
 
-5. Use the following to assess a final fasta file: `cat Gym_balzanii/Gym_balzanii.fasta`
+4. Use the following to assess a final fasta file: `cat Gym_balzanii/Gym_balzanii.fasta`
 
-If this command does not print a fasta file to your terminal, re-run the code from step 4.
+If this command does not print a fasta file to your terminal, re-run the code from step 3.
 
 ---
 
