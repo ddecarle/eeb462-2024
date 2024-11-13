@@ -368,30 +368,29 @@ Now that the reads have been processed, we will assemble them into complete targ
 
   ```
   for species in <species_names>
-  do
+do
 
-    #make directories to house your files
-    mkdir $species
-  
-    # 1. Assemble target sequences using the reads that were processed with PRINSEQ by aligning them to the indexed reference sequences. 
-    bowtie2 --very-sensitive-local -x Refseq_923 -U $species/${species}_processed1.fastq -S $species/${species}.sam
+# make directories to house your files
+mkdir $species
 
-    # 2. Sort reads in sam format
-    samtools sort $species/${species}.sam > $species/${species}.sorted.sam
+# 1. Assemble target sequences using the reads that were processed with PRINSEQ by aligning them to the indexed reference sequences. 
+bowtie2 --very-sensitive-local -x Refseq923 -U /home/l/lcl_uoteeb462/eeb462starter/$species/${species}_processed1.fastq -S $species/${species}.sam
 
-    # 3. Convert sorted sam to sorted bam
-    samtools view -b $species/${species}.sorted.sam > $species/${species}.sorted.bam
+# 2. Sort reads in sam format
+samtools sort $species/${species}.sam > $species/${species}.sorted.sam
 
-    # 4. Convert .bam to .vcf while filtering out reads with quality scores < 20. Pipe the filtered reads to bcftools call for variant calling.  
-    bcftools mpileup  -f Refseq_923.fna -q20 -Q20 $species/${species}.sorted.bam | bcftools call -c -Ov -o $species/${species}.sorted.vcf
+# 3. Convert sorted sam to sorted bam
+samtools view -b $species/${species}.sorted.sam > $species/${species}.sorted.bam
 
-    # 5. Filter out reads with a read depth less than 10. This outputs a fastq file 
-    vcfutils.pl vcf2fq -d10 $species/${species}.sorted.vcf > $species/${species}.fq
+# 4. Convert .bam to .vcf while filtering out reads with quality scores < 20. Pipe the filtered reads to bcftools call for variant calling.  
+bcftools mpileup  -f /home/l/lcl_uoteeb462/eeb462starter/Refseq_923.fna -q20 -Q20 $species/${species}.sorted.bam | bcftools call -c -Ov -o $species/${species}.sorted.vcf
 
-    # 6. Convert fastq to fasta, converting all poor quality bases to Ns
-    sed '/^+/,/^\@/{/^+/!{/^\@/!d}}' $species/${species}.fq | sed 's/@/>/g' | sed '/+/d' | sed 's/[a-z]/N/g' > $species/${species}.fasta
+vcfutils.pl vcf2fq -d10 $species/${species}.sorted.vcf > $species/${species}.fq
 
-  done
+# 6. Convert fastq to fasta, converting all poor quality bases to Ns
+sed '/^+/,/^\@/{/^+/!{/^\@/!d}}' $species/${species}.fq | sed 's/@/>/g' | sed '/+/d' | sed 's/[a-z]/N/g' > $species/${species}.fasta
+
+done
   ```
 
 **NOTE:** You may get an error when executing this for loop. If that is the case, try manually re-typing the line of code beneath comment #1. Then, re-run the command from step 2, and execute the for loop again.
