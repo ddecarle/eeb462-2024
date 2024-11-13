@@ -234,7 +234,7 @@ do
 mkdir $species
   
 #Run prinseq on sorted read files
-prinseq-lite.pl -fastq $species/${species}_sorted.fastq -out_format 3 -out_good $species/${species}_processed1 -out_bad null -no_qual_header -min_qual_mean 20 -ns_max_p 1 -derep 12345 -trim_tail_left 5 -trim_tail_right 5 -trim_qual_left 20 -trim_qual_right 20 -trim_qual_type mean -trim_qual_rule lt -trim_qual_window 5 -trim_qual_step 1 -min_len 60 -graph_stats ld,qd,da -graph_data 
+prinseq-lite.pl -fastq /home/l/lcl_uoteeb462/eeb462starter/$species/${species}_sorted.fastq -out_format 3 -out_good $species/${species}_processed1 -out_bad null -no_qual_header -min_qual_mean 20 -ns_max_p 1 -derep 12345 -trim_tail_left 5 -trim_tail_right 5 -trim_qual_left 20 -trim_qual_right 20 -trim_qual_type mean -trim_qual_rule lt -trim_qual_window 5 -trim_qual_step 1 -min_len 60 -graph_stats ld,qd,da -graph_data 
     
 done
   ```
@@ -303,10 +303,10 @@ We will be using PRINSEQ’s online software to generate .png graphs to visualiz
   
   confirm that you are in the right directory using `pwd`
 
-2. From here use the following command to access SciNet and download the specified file. Replace `<username>` in both locations with your username and enter your password when prompted. 
+2. From here use the following command to access SciNet and download the specified file. Replace `<username>` with your username and enter your password when prompted. 
   
   ```
-  scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/eeb462share/A_cacatuoides/A_cacatuoides_Unprocessed_graphs.gd .
+scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/eeb462starter/A_cacatuoides/A_cacatuoides_Unprocessed_graphs.gd .
   ```
   
 3. The prinseq graphs should now be inside your prinseqGraphs folder. Confirm using `ls`.
@@ -317,9 +317,15 @@ We will be using PRINSEQ’s online software to generate .png graphs to visualiz
  
 This folder contains the collection of graphs generated for the unprocessed reads for this species.   
 
-6. Repeat steps 1 - 5 for the processed reads: `A_cacatuoides_Processed1_Graphs.gd`
+6. Download the graph file for the ***processed*** *A. cacatuoides* reads to your "prinseqGraphs" directoy using the following command. As before, replace `<username>` with your username and enter your password when prompted. 
 
-7. Look in the unpacked folders. Note that many graphs have been produced. Feel free to look these over if you want a better understanding of the types of stats that prinseq calculates. For this lab, we will focus only on the distribution of quality scores and duplicates across reads. 
+```
+scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/A_cacatuoides/A_cacatuoides_Processed1_Graphs.gd .
+```
+   
+8. Repeat steps 3 – 5 for the processed reads in `A_cacatuoides_Processed1_Graphs.gd`
+
+9. Look in the unpacked folders. Note that many graphs have been produced. Feel free to look these over if you want a better understanding of the types of stats that prinseq calculates. For this lab, we will focus only on the distribution of quality scores and duplicates across reads. 
 
 ---
 
@@ -348,12 +354,12 @@ You can use the post-process graphs to inform the continued to processing of rea
 
 Now that the reads have been processed, we will assemble them into complete target exons using the the *O. niloticus* exons as a guide. These steps are not as computational intensive as the previous section, so we will be using for loops to process *ALL* reads.  
 
-1. Go back to the ***terminal window that is signed into SciNet*** and whose working directory is set to `eeb462share` (you can confirm with `pwd`).
+1. Go back to the ***terminal window that is signed into SciNet*** and set your scratch node. You can confirm this using the `pwd` command. If necessary, navigate to the correct directory using `cd $SCRATCH`. 
 
 2. Create an index of the reference sequences using the `Refseq_923.fna` file, which contains all of the target exons for *O. niloticus*. 
 
   ```
-  bowtie2-build Refseq_923.fna Refseq923
+  bowtie2-build /home/l/lcl_uoteeb462/eeb462starter/Refseq_923.fna Refseq923
   ```
 
 3. Print the species names to the console: `cat speciesNames.txt`
@@ -363,6 +369,9 @@ Now that the reads have been processed, we will assemble them into complete targ
   ```
   for species in <species_names>
   do
+
+    #make directories to house your files
+    mkdir $species
   
     # 1. Assemble target sequences using the reads that were processed with PRINSEQ by aligning them to the indexed reference sequences. 
     bowtie2 --very-sensitive-local -x Refseq_923 -U $species/${species}_processed1.fastq -S $species/${species}.sam
