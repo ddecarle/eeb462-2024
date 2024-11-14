@@ -225,7 +225,7 @@ We will be using the PRINSEQ software to process reads. PRINSEQ has an online GU
 
 There are a lot of reads, so processing them can take a long time (~30+ minutes/species, depending on computational power). To speed things up, we are only going to process 1 taxon (*A. cacatuoides*) for this section of the lab. All other have been done for you. 
 
-1. Print the contents of the `speciesNames.txt` file (generated in section 1) using `cat`. Then, copy all names **except for *O_niloticus*, and use that to replace `<species_names>` in the first line of the following code. This will create a folder to house the assembled reads for each of our species.
+10. Print the contents of the `speciesNames.txt` file (generated in section 1) using `cat`. Then, copy all names **except for *O_niloticus*, and use that to replace `<species_names>` in the first line of the following code. This will create a folder to house the assembled reads for each of our species.
 
 ```
 for species in <species names>
@@ -234,7 +234,7 @@ mkdir $species
 done
 ```
 
-2. Copy the first name (*i.e.* *A. cacatuoides*) in the resulting list and replace it for `<species_names>` in the first line of the following script. 
+11. Copy the first name (*i.e.* *A. cacatuoides*) in the resulting list and replace it for `<species_names>` in the first line of the following script. 
 
   ```
 for species in <species_names>
@@ -246,7 +246,7 @@ prinseq-lite.pl -fastq /home/l/lcl_uoteeb462/eeb462starter/$species/${species}_s
 done
   ```
 
-3. Run the entire for-loop. Comments (*i.e.* lines of text in the script starting with `#`) are ignored by the shell (*i.e.* not interpreted as commands) and are included primarily to help explain what the script is doing. 
+12. Run the entire for-loop. Comments (*i.e.* lines of text in the script starting with `#`) are ignored by the shell (*i.e.* not interpreted as commands) and are included primarily to help explain what the script is doing. 
 
 **NOTE:** a for-loop is not actually necessary here since we are processing only 1 file, but we will use one anyway so that you know how to do it if you want to process multiple species in the future. 
 
@@ -286,7 +286,7 @@ Fill out the table below to summarize the types of reads that get filtered and b
 
 ---
 
-4. Calculate the same graphing stats for the processed reads:
+13. Calculate the same graphing stats for the processed reads:
 
   ```
   for species in A_cacatuoides
@@ -308,33 +308,33 @@ Fill out the table below to summarize the types of reads that get filtered and b
 
 We will be using PRINSEQ’s online software to generate .png graphs to visualize a summary of our unprocessed and processed reads for *A. cacatuoides*.
 
-1. Download the graph file for *A. cacatuoides* from SciNet to the "prinseqGraphs" directory that you created locally. In a new terminal window that is ***not signed into SciNet*** navigate to the "prinseqGraphs" directory.   
+14. Download the graph file for *A. cacatuoides* from SciNet to the "prinseqGraphs" directory that you created locally. In a new terminal window that is ***not signed into SciNet*** navigate to the "prinseqGraphs" directory.   
   
   confirm that you are in the right directory using `pwd`
 
-2. From here use the following command to access SciNet and download the specified file. Replace `<username>` with your username and enter your password when prompted. 
+15. From here use the following command to access SciNet and download the specified file. Replace `<username>` with your username and enter your password when prompted. 
   
   ```
 scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/eeb462starter/A_cacatuoides/A_cacatuoides_Unprocessed_graphs.gd .
   ```
   
-3. The prinseq graphs should now be inside your prinseqGraphs folder. Confirm using `ls`.
+16. The prinseq graphs should now be inside your prinseqGraphs folder. Confirm using `ls`.
 
-4. In a web browser, go to [http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi](http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi)
+17. In a web browser, go to [http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi](http://edwards.sdsu.edu/cgi-bin/prinseq/prinseq.cgi)
 
-5. select **Get Report** > click on **Select a graph data file to upload** > upload the `A_cacatuoides_Unprocessed_graphs.gd` file > click **Continue** > Download the .zip file and unpack it. 
+18. select **Get Report** > click on **Select a graph data file to upload** > upload the `A_cacatuoides_Unprocessed_graphs.gd` file > click **Continue** > Download the .zip file and unpack it. 
  
 This folder contains the collection of graphs generated for the unprocessed reads for this species.   
 
-6. Download the graph file for the ***processed*** *A. cacatuoides* reads to your "prinseqGraphs" directoy using the following command. As before, replace `<username>` with your username and enter your password when prompted. 
+19. Download the graph file for the ***processed*** *A. cacatuoides* reads to your "prinseqGraphs" directoy using the following command. As before, replace `<username>` with your username and enter your password when prompted. 
 
 ```
 scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/A_cacatuoides/A_cacatuoides_Processed1_Graphs.gd .
 ```
    
-8. Repeat steps 3 – 5 for the processed reads in `A_cacatuoides_Processed1_Graphs.gd`
+20. Repeat steps 16 – 18 for the processed reads in `A_cacatuoides_Processed1_Graphs.gd`
 
-9. Look in the unpacked folders. Note that many graphs have been produced. Feel free to look these over if you want a better understanding of the types of stats that prinseq calculates. For this lab, we will focus only on the distribution of quality scores and duplicates across reads. 
+21. Look in the unpacked folders. Note that many graphs have been produced. Feel free to look these over if you want a better understanding of the types of stats that prinseq calculates. For this lab, we will focus only on the distribution of quality scores and duplicates across reads. 
 
 ---
 
@@ -363,15 +363,15 @@ You can use the post-process graphs to inform the continued to processing of rea
 
 Now that the reads have been processed, we will assemble them into complete target exons using the the *O. niloticus* exons as a guide. These steps are not as computational intensive as the previous section, so we will be using for loops to process *ALL* reads.  
 
-1. Go back to the ***terminal window that is signed into SciNet*** and set your scratch node. You can confirm this using the `pwd` command. If necessary, navigate to the correct directory using `cd $SCRATCH`. 
+22. Go back to the ***terminal window that is signed into SciNet*** and set your scratch node. You can confirm this using the `pwd` command. If necessary, navigate to the correct directory using `cd $SCRATCH`. 
 
-2. Create an index of the reference sequences using the `Refseq_923.fna` file, which contains all of the target exons for *O. niloticus*. 
+23. Create an index of the reference sequences using the `Refseq_923.fna` file, which contains all of the target exons for *O. niloticus*. 
 
   ```
   bowtie2-build /home/l/lcl_uoteeb462/eeb462starter/Refseq_923.fna Refseq923
   ```
 
-3. Copy all names **except for *O_niloticus***, and use that to replace `<species_names>` in the first line of the following code. Run the following for-loop for ALL target taxa (*i.e.* all taxa except *O. niloticus*). This will assemble reads using the indexed *O. niloticus* reference as a guide. The final result will be consensus sequences with a minimum read depth > 10. As the code below runs (it will take a few minutes) read through the comments above each command and the corresponding more detailed description below for details of the process. Each line of code is numbered so that you can match it with the description below. 
+24. Copy all names **except for *O_niloticus***, and use that to replace `<species_names>` in the first line of the following code. Run the following for-loop for ALL target taxa (*i.e.* all taxa except *O. niloticus*). This will assemble reads using the indexed *O. niloticus* reference as a guide. The final result will be consensus sequences with a minimum read depth > 10. As the code below runs (it will take a few minutes) read through the comments above each command and the corresponding more detailed description below for details of the process. Each line of code is numbered so that you can match it with the description below. 
 
   ```
   for species in <species_names>
@@ -399,7 +399,7 @@ printf "\n \n Processing for $species complete. \n \n"
 done
   ```
 
-**NOTE:** You may get an error when executing this for loop. If that is the case, try manually re-typing the line of code beneath comment #1. Then, re-run the command from step 2, and execute the for loop again.
+**NOTE:** You may get an error when executing this for loop. If that is the case, try manually re-typing the line of code beneath comment #1. Then, re-run the command from step 23, and execute the for loop again.
 
 <p align="center">
   <img src="https://github.com/ddecarle/eeb462-2021/blob/main/images/L5-Picture5.png">
@@ -420,9 +420,9 @@ Bowtie2 allows you to set assembly parameters (*e.g.* maximum number of mismatch
 Read depth (also known as depth of coverage) refers to the number of independent reads that a base site is represented in. For example, a site with a read depth of 100 is represented in 100 reads. Read depth provides a measure of confidence in sequencing. The higher the number of reads that support a site, the more confident you can be that that site was correctly sequenced. If a site is represented in only a few reads, then it is difficult to know whether the correct base was called for that site or whether you are dealing with a sequencing error. See **Fig. 2.3** for a graphical explanation of read depth.
   - **Line 6:** The files outputted by `vcfutils.pl` are in `.fastq` format. This simple series of sed commands converts them to fasta formatted files. Low quality bases, coded as lowercase bases in the fastq file, are also converted to Ns
 
-4. Use the following to assess a final fasta file: `cat Gym_balzanii/Gym_balzanii.fasta`
+25. Use the following to assess a final fasta file: `cat Gym_balzanii/Gym_balzanii.fasta`
 
-If this command does not print a fasta file to your terminal, re-run the code from step 3.
+If this command does not print a fasta file to your terminal, re-run the code from step 24.
 
 ---
 
