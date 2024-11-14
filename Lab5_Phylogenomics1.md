@@ -97,7 +97,7 @@ Phylogenomics software is largely open source and is therefore unix-based. Unfor
 
 You will need to sign in (from any computer) with these temporary credentials any time you want to use SciNet. Two main things to know about SciNet is that (1) you can run smaller jobs directly on its `$SCRATCH` node (see [below](#Preparing--Getting-Familiar-with-Your-Files)) or (2) submit larger jobs via scripts that will require more computational power and thus run as resources are available. 
 
-**You can obtain a username and password using [this sign-up sheet](https://docs.google.com/spreadsheets/d/17IvhbKuhfztwHabd2wutmKfHzgghxrFleCcJrwidcw8/edit#gid=0)**: simply add your name next to one of the user IDs. You'll be using this same login information for the remainder of the labs. 
+**You should have received an email from SciNet with instructions on how to set up your temporary SciNet account.**
 
 [back to top](#table-of-contents)
 
