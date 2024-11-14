@@ -137,6 +137,8 @@ Now let’s get onto Scinet, where we will be doing most of our work. SciNet is 
    ```
    ssh –Y <username>@teach.scinet.utoronto.ca 
    ```
+If this gives you an error, try using the following command instead: `LANG=C ssh -Y <username>@teach.scinet.utoronto.ca`
+
 Now you are logged into SciNet’s super computer system. There are two main login nodes: `$HOME` and `$SCRATCH`. This is where you develop, prepare and submit jobs. 
 
 When you log in, you are automatically taken to the `$HOME` node (you can confirm using `pwd`). This is a read-only node, used mainly for moving files from your computer into SciNet. We will be running all analyses on the `$SCRATCH` node.
@@ -227,6 +229,7 @@ There are a lot of reads, so processing them can take a long time (~30+ minutes/
 
 ```
 for species in <species names>
+do
 mkdir $species
 done
 ```
@@ -243,9 +246,11 @@ prinseq-lite.pl -fastq /home/l/lcl_uoteeb462/eeb462starter/$species/${species}_s
 done
   ```
 
-3. Run the entire for-loop. Comments (*i.e.* lines of text in the script starting with `#`) are ignored by the shell (*i.e.* not interpreted as commands) and are included primarily to help explain what the script is doing.
+3. Run the entire for-loop. Comments (*i.e.* lines of text in the script starting with `#`) are ignored by the shell (*i.e.* not interpreted as commands) and are included primarily to help explain what the script is doing. 
 
 **NOTE:** a for-loop is not actually necessary here since we are processing only 1 file, but we will use one anyway so that you know how to do it if you want to process multiple species in the future. 
+
+This command may return the following error: `Cannot open file /home/l/lcluoteeb462/eeb462starter/A_cacatuoides/A_cacatuoides_sorted.fastq.gd: Permission denied.`. As long as the file `A_cacatuoides_processed1.fastq` is produced, you may disregard this. 
 
 This PRINSEQ script filters and trims reads based on a series of specified parameters. Here is a more detailed explanation of the parameters that we specified. See the [prinseq manual](#software) for additional options and explanations: 
 
