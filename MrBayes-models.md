@@ -8,7 +8,7 @@
 * [K2P](#K2P)
 * [F81](#F81)
 * [JC](#JC)
-* [MK](#MK-Model-for-Morphology)
+* [Mk](#Mk-Model-for-Morphology)
 
 
 ## GTR
@@ -136,10 +136,18 @@
     lset applyto=() nst=1 rates=invgamma;
     prset applyto=() statefreqpr=fixed(equal);
     
-## MK Model for Morphology
+## Mk Model for Morphology
+
+**Mk**
 
 	lset applyto=() coding=variable;
 	prset applyto=() symdirihyperpr=fixed(infinity) ratepr=variable;
+
+ **Mk+G**
+ 
+	lset applyto=() coding=variable rates=gamma;
+	prset applyto=() symdirihyperpr=fixed(infinity) ratepr=variable;
+ 
 
 * `coding`: indicates that only variable sites have the probability of being sampled. In other words, there are no invariable sites in your dataset.
 
