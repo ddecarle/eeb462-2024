@@ -340,7 +340,7 @@ scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/A_ca
 
 #### QUESTION 3
 
-Paste the quality and duplicate distribution graphs for *A. cacatuoides*’s unprocessed reads below. The file extensions for these graphs are: `_qd.png`, `_qd3.png`, and `_df.png`. Give each graph a figure legend with an informative title. Refer to these when answering questions 5 a-c. *(6 points)*
+Paste the quality and duplicate distribution graphs for *A. cacatuoides*’s unprocessed reads below. The file extensions for these graphs are: `_qd.png`, `_qd3.png`, and `_df.png`. Give each graph a figure legend with an informative title. Refer to these when answering questions 3 a-c. *(6 points)*
 
   - a) Is there a part along the length of reads that appears to be particularly prone to sequencing errors? 
   - b)	Would you say that across their length reads are mostly of low (mean quality score < 20) or high (mean quality score > 20) quality? 
