@@ -56,11 +56,11 @@ Don't forget to ***consult the [Command Line Basics](https://github.com/ddecarle
 
 ### Assessing and Filtering Assembled Loci
 
-1. Log into SciNet and navigate into the `eeb462share` directory. Use the same username and password you used for the previous lab: sign in info can be found [here](https://docs.google.com/spreadsheets/d/17IvhbKuhfztwHabd2wutmKfHzgghxrFleCcJrwidcw8/edit#gid=0). 
+1. Log into SciNet and navigate into your `$SCRATCH` directory. Use the same username and password you used for the previous lab. 
 
 	```
 	ssh -Y <username>@teach.scinet.utoronto.ca
-	cd $SCRATCH/eeb462share
+	cd $SCRATCH
 	```
 At the end of last lab we generated complete target loci for our ingroup taxa. The `*.fasta` files that we generated have multiple lines of nucleotides per locus (you can confirm using `head -20 Gym_balzanii/Gym_balzanii.fasta`). Sequence data is much easier to work with if there is only a single line of nucleotides per locus. 
 
@@ -103,7 +103,7 @@ Choosing which loci to filter out is usually arbitrary, but nonetheless informed
 	# Make another table (TargLengths_min500.txt) containing only those sequences > 500 bp in length
 	cat TargLengths.txt | awk '$3>500' > TargLengths_min500.txt
 	
-	# Finally, use the sequence information in the TargLengths_min500.txt table to find (i.e. using grep) and extract only those sequences that meet our 500bp threshold from the *.fa files that we generated in last lab (i.e. from the complete set of target exons)
+	# Finally, use the sequence information in the TargLengths_min500.txt table to find (i.e. using grep) and extract only those sequences that meet our 500bp threshold from the *.fasta files that we generated in last lab (i.e. from the complete set of target exons)
 	
 	for species in A_cacatuoides  B_cupido  C_minuano  Geo_abalios  Geo_dicrozoster  Gym_balzanii  Gym_rhabdotus  Mik_altispinosus  Mik_ramirezi 
 	do
@@ -127,9 +127,9 @@ Reveal the contents of the `TargLengths_min500.txt` file for the first two taxa 
 
 Now that we have established a set of good quality target loci, we are ready to align our sequences. 
 
-5. To keep things neat, make a directory to hold your alignments: `mkdir Aligns`. This directory should have been created within the `eeb462share` directory. Confirm using this command: `ls $SCSRATCH/eeb462share`  
+5. To keep things neat, make a directory to hold your alignments: `mkdir Aligns`. This directory should have been created within your `$SCRATCH` directory. Confirm using this command: `ls $SCSRATCH`  
 
-Right now the target sequences only include the loci names. We need to **append the species name to each locus**, otherwise we won’t be able to identify to which species loci belong to once they are aligned. (The references are already appended with “`O_niloticus`".) We also need to **separate all sequences into their own files** because we will have to concatenate them by locus, rather than by species like they are now, for MUSCLE to align them. 
+Right now, the target sequences only include the locus names. We need to **append the species name to each locus**, otherwise we won’t be able to identify to which species loci belong to once they are aligned. (The references are already appended with “`O_niloticus`".) We also need to **separate all sequences into their own files** because we will have to concatenate them by locus, rather than by species like they are now, for MUSCLE to align them. 
 
 6. Run the code below to do these two things:  
 
@@ -140,7 +140,7 @@ Right now the target sequences only include the loci names. We need to **append 
 	# Append species name. To do this, sed finds lines starting with > (i.e. lines containing the sequence name) and adds “_${species}” to the end of those lines
 	sed -i "/^>/ s/$/_${species}/" $species/${species}_500bp.fasta
 	
-	# Split all 20 sequences into their own file
+	# Split all 20 sequences into their own files
 	split -l 2 -d $species/${species}_500bp.fasta $species/${species}_
 	
 		# Rename files to “locus_taxa.fa” format
@@ -156,7 +156,7 @@ Right now the target sequences only include the loci names. We need to **append 
 	mv *.fasta Aligns
 	```
 	
-7. Look at the contents of the `Aligns` directory. You should see many files named `locus_taxa.fasta`. **Look inside one of these files to confirm** that it contains a single sequence for one species:
+7. Look at the contents of the `Aligns` directory. You should see many files named `<locus>_<taxon>.fasta`. **Look inside one of these files to confirm** that it contains a single sequence for one species:
 
 	```
 	ls Aligns
@@ -165,7 +165,9 @@ Right now the target sequences only include the loci names. We need to **append 
 
 Right now the Aligns directory only contains target sequences. 
 
-8. Put a copy of the *O. niloticus* loci in there as well, as this will be our outgroup taxon in phylogenetic analyses: `cp O_niloticus_References/*.fasta Aligns`.
+8. Put a copy of the *O. niloticus* loci in there as well, as this will be our outgroup taxon in phylogenetic analyses:`cp /home/l/lcl_uoteeb462/eeb462starter/O_niloticus_References/*.fasta Aligns/`. 
+
+Also add a copy of `muscle` for your `$SCRATCH` folder: `cp /home/l/lcl_uoteeb462/eeb462starter/muscle $SCRATCH`
 
 Now let’s concatenate and align our loci!
 
@@ -203,20 +205,19 @@ While some amount of missing taxonomic data is ok (*i.e.* can still give us good
 
 We can determine which alignments don’t meet this cutoff fairly easily with the command line. 
 
-11. Move into your local Aligns directory and run the following for-loop.
+11. Move into your local Aligns directory (`cd Aligns`) and run the following for-loop.
 
-	```
-	cd Aligns
-	for exon in ENSONIE00000005149 ENSONIE00000015639 ENSONIE00000021168 ENSONIE00000023461 ENSONIE00000029595 ENSONIE00000033868 ENSONIE00000034582 ENSONIE00000042474 ENSONIE00000044242 ENSONIE00000048423 ENSONIE00000061707 ENSONIE00000064342 ENSONIE00000075454 ENSONIE00000110949 ENSONIE00000130663 ENSONIE00000141538 ENSONIE00000265157 ENSONIE00000265161 ENSONIE00000265364 ENSONIE00000265379_GPR85
-	
-	do
-	
-	# Count the number of sequences in the alignment by counting the number of times that the > character is present
-	nTaxa=`cat ${exon}_MUSCLEaligned.fasta | grep '>' | wc -l`
-	printf "%-30s %-30s \n" "$exon" "$nTaxa "
-	
-	done
-	```
+ ```
+for exon in ENSONIE00000005149 ENSONIE00000015639 ENSONIE00000021168 ENSONIE00000023461 ENSONIE00000029595 ENSONIE00000033868 ENSONIE00000034582 ENSONIE00000042474 ENSONIE00000044242 ENSONIE00000048423 ENSONIE00000061707 ENSONIE00000064342 ENSONIE00000075454 ENSONIE00000110949 ENSONIE00000130663 ENSONIE00000141538 ENSONIE00000265157 ENSONIE00000265161 ENSONIE00000265364 ENSONIE00000265379_GPR85
+do
+
+# Count the number of sequences in the alignment by counting the number of times that the > character is present
+nTaxa=`cat ${exon}_MUSCLEaligned.fasta | grep '>' | wc -l`
+printf "%-30s %-30s \n" "$exon" "$nTaxa "
+
+done
+```
+
 The output should be a table printed to the terminal with the first column containing locus name and the second showing the number of taxa in that alignment.
 
 ---
@@ -258,8 +259,7 @@ Some of the potential problems may include the addition of gaps in an alignment 
 15. When you are in the right directory, use `scp` ("secure copy") to download all `*_MUSCLEaligned.fasta` files from the `Aligns` directory in Scinet to your *local* `Aligns` directory. The period (`.`) at the end of this command specifies that the downloaded files should be placed in the current working directory (which again, is your local Aligns directory). Replace `<directory>` with your desired directory. Also replace `<username>` with your Scinet username. Enter your password when prompted. 
 
 ```
-scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/Aligns/\*MUSCLEaligned.fasta .
-
+scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/Aligns/\*MUSCLEaligned.fasta .
 ```
 
 **NOTE:** the back-slash (`\`) before the wildcard character (`*`) in the above command is known as an "escape character". We use escape characters to indicate that we want to use the literal meaning for the following character, rather than any other significance that character might have. Although we do not need to use an escape character when navigating through directories on SciNet, it is an essential part of the `scp` command. 
@@ -268,7 +268,7 @@ scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462
 
 We will now review the alignments in Mesquite. 
 
-For a small dataset like outs, this may be a fairly quick process. For larger datasets (*e.g.* hundreds of loci), editing alignments can easily take many days or weeks. 
+For a small dataset like ours, this may be a fairly quick process. For larger datasets (*e.g.* hundreds of loci), editing alignments can easily take many days or weeks. 
 
 While time-consuming, it is important to manually review and edit your alignments. Automated alignment software (such as MUSCLE) can – and occasionally does – make mistakes. It is up to the researcher, who knows the system they are working with, to vet the resulting alignments that will serve as input data for phylogenetic inference. (Again, garbage in ➤ garbage out).
 
@@ -320,9 +320,11 @@ Reviewing and manually editing alignments can be very time consuming for phyloge
 
 Let's end by putting our edited alignments back onto SciNet. 
 
-20. In a terminal window that is logged into your SciNet account, create a new directory within the `eeb462share` folder to hold edited alignments: `mkdir Aligns_edited`.
+20. In a terminal window that **is** logged into your SciNet account, create a new directory on your `$SCRATCH` node to hold edited alignments: `mkdir Aligns_edited`.
 
-21. From your other terminal window (*i.e.* the one that isn't logged in to SciNet), navigate to your `Aligns_edited` folder, and use the following `scp` command to transfer the files back to SciNet. As always, remember to replace `<username>` with the correct user ID. 
+21. From your other terminal window (*i.e.* the one that is **not** logged in to SciNet), navigate to your `Aligns_edited` folder, and use the following `scp` command to transfer the files back to SciNet. As always, remember to replace `<username>` with the correct user ID.
+
+`scp * <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/Aligns_edited`
 
 [back to top](#table-of-contents)
 
