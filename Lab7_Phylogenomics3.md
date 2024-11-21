@@ -101,7 +101,7 @@ As with [Lab 5](https://github.com/ddecarle/eeb462-2021/blob/main/Lab5_Phylogeno
 
 ### Prepare Your Working Directory
 
-1. Login to Scinet and move into the `eeb462share` directory.
+1. Login to Scinet and move into your `$SCRATCH` directory.
 
 2. Make a folder called "TREES": `mkdir TREES`
 
@@ -155,7 +155,7 @@ Let’s concatenate our edited alignments into a supermatrix. While you could wr
 9. Navigate into the new `Concat` folder, and download the alignments that we just worked on from SciNet. Be sure to replace `<username>` with your username. 
 
     ```
-    scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/Aligns_edited/\*.fasta .
+    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/Aligns_edited/\*.fasta .
     ```
 
 10. Open one of the alignments in Mesquite by clicking **File** > **Open File** > select the first file in your list of fasta alignments > select **Fasta(DNA/RNA)** > **OK**. (***Tip:** Open the alignments in the order that they appear in the folder – i.e. alphabetically – so that you don’t get confused.*)
@@ -180,7 +180,7 @@ How long is the concatenated supermatrix? *(1 point)*
 16. Upload this supermatrix back to SciNet: From the terminal window whose working directory is set to your local directory with the exported supermatrix, run the following. As always, replace `<username>` with your username. 
 
     ```
-    scp Concat_18Loci.fasta <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/TREES/Concat
+    scp Concat_18Loci.fasta <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/Concat
     ```
 
 17. Now that the supermatrix is in place, in the terminal window that is ***logged into SciNet***, move into the Concat folder: `cd TREES/Concat`
@@ -236,7 +236,7 @@ Explore the contents of the `RAxML_info*` file. Scroll through the file to find 
 21. Download resulting concatenation tree files from SciNet to a folder of your choice. As before, in a terminal window that is ***not signed in to SciNet***, `cd` to the folder that you want to put your trees into (`... /LabFive/TREES/concat`) and then run the following command, replacing `<username>` with your username and entering the password when prompted. 
 
     ```
-    scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/TREES/Concat/\*.tre .
+    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/Concat/\*.tre .
     ```
 
 22. Open the annotated concatenated tree (`RAxML_bipartitions.Geophagini_ConcatTREE.tre`) in FigTree, and use the **Display** drop-down menu in the **Node Labels** tab to show the bootstrap values. 
@@ -256,7 +256,7 @@ As mentioned previously, we are using a **summary approach**, which **takes gene
 23. In SciNet, navigate back to the `eeb462share` directory, and make a new folder within the `ASTRAL` directory to hold your gene trees. (Then, confirm that your folder was created using `ls`.)
   
     ```
-    cd $SCRATCH/eeb462share
+    cd $SCRATCH/
     mkdir TREES/ASTRAL/geneTrees
     
     ls TREES/ASTRAL
