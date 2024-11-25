@@ -24,7 +24,7 @@ As a result, a whole suite of new methods for estimating species trees while acc
 
 #### Summary Methods
 
-These types of approaches estimate the species tree from a set of gene trees that were previously estimated using other methods (*e.g.* RAxML or Mr. Bayes). 
+These types of approaches estimate the species tree from gene trees that were previously estimated using other methods (*e.g.* RAxML or Mr. Bayes). 
 
 - **Input:** Gene trees. Some methods will accept gene trees with polytomies, while others will only accept fully resolved gene trees. 
 - **Advantages:**
@@ -53,7 +53,7 @@ These types of approaches estimate both gene trees and species trees simultaneou
 
 ### A Note on Quartets
 
-We will be using ASTRAL-III to build our species tree, which, like a few other summary methods, uses a **quartet approach** to infer species relationships. The quartet approach basically breaks a big problem down into a few smaller more tangible ones. A subset of four taxa (from the whole collection of taxa) are sampled at a time and all three of the possible topologies for their relationships are drawn (*i.e.* three alternative quartet trees). The quartet trees are then compared to inputted gene trees, and the quartets that are present in the largest number of gene trees are assembled into the species tree. If instead we tried to proposed all (or even a decent sample) of the possible topologies for all species at once, we would be waiting a long time for an answer, since the number of possible rooted topologies for even a moderate 10 taxa is 34,459,425. Thus the quartet approach speeds up species tree inference substantially, which makes it possible to build trees for hundreds or thousands of taxa while also accounting for heterogeneity in the evolutionary history of a large number of loci. 
+We will be using ASTRAL-III to build our species tree, which, like a few other summary methods, uses a **quartet approach** to infer species relationships. The quartet approach basically breaks a big problem down into a few, smaller, more tangible ones. A subset of four taxa (from the whole collection of taxa) is sampled at a time, and all three of the possible topologies for their relationships are drawn (*i.e.* three alternative quartet trees). The quartet trees are then compared to inputted gene trees, and the quartets that are present in the largest number of gene trees are assembled into the species tree. If instead we tried to propose all (or even a decent sample) of the possible topologies for all taxa at once, we would be waiting a long time for an answer, since the number of possible rooted topologies for even a moderate 10 taxa is 34,459,425. Thus, the quartet approach speeds up species tree inference substantially, which makes it possible to build trees for hundreds or thousands of taxa while also accounting for heterogeneity in the evolutionary history of a large number of loci. 
 
 
 ### Lab Assignment 7
@@ -87,13 +87,13 @@ For this lab, we'll be using the following software:
 
 Don't forget to ***consult the [Command Line Basics](https://github.com/ddecarle/eeb462-2021/blob/main/CommandLineBasics.md) tutorial*** for more in-depth explanations of scripting and for loops.
 
-As with [Lab 5](https://github.com/ddecarle/eeb462-2021/blob/main/Lab5_Phylogenomics1.md) & [Lab 6](https://github.com/ddecarle/eeb462-2021/blob/main/Lab6_Phylogenomics2.md), you'll also need your [SciNet login information](https://docs.google.com/spreadsheets/d/17IvhbKuhfztwHabd2wutmKfHzgghxrFleCcJrwidcw8/edit#gid=0).
+As with [Lab 5](https://github.com/ddecarle/eeb462-2021/blob/main/Lab5_Phylogenomics1.md) & [Lab 6](https://github.com/ddecarle/eeb462-2021/blob/main/Lab6_Phylogenomics2.md), you'll also need your SciNet login information. Your username can be found on quercus.
 
 ## Tutorial
 
 | Main Objective for This Lab: |
 | ---- |
-| In today’s lab we will be inferring phylogenies for our geophagine cichlid species using the alignments generated in last lab. We will estimate two trees with two different methods: (1) maximum likelihood (ML) concatenation and (2) ASTRAL-III species trees.  | 
+| In today’s lab we will be inferring phylogenies for our geophagine cichlid species using the alignments we generated in the last lab. We will estimate two trees with two different methods: (1) maximum likelihood (ML) concatenation and (2) ASTRAL-III species trees.  | 
 
 <p align="center">
   <img src="https://github.com/ddecarle/eeb462-2021/blob/main/images/L7-Picture2.jpg">
