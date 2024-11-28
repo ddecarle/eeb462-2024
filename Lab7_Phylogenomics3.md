@@ -289,8 +289,8 @@ We're almost there! Just a few more file modifications, and then we can make the
 27. Copy the ASTRAL executable and its library folder from `eeb462share/astralEx` into this folder. (These need to be in your working directory for ASTRAL to run.)
 
     ```
-    cp -r ../../astralEx/lib/ .
-    cp ../../astralEx/astral.5.6.3.jar .
+    cp -r /home/l/lcl_uoteeb462/eeb462starter/astralEx/lib .
+    cp /home/l/lcl_uoteeb462/eeb462starter/astralEx/astral.5.6.3.jar .
     ```
 
 There are many options for quantifying node support in ASTRAL. Since we used bootstrapping for the concatenated tree, we will use bootstrapping for the species tree as well so that we can compare. With this in mind, ASTRAL requires two input files to run:
@@ -352,9 +352,9 @@ ASTRAL has a parameter `t` that allows you to annotate a species tree with a num
 34. Download the two species trees and their log files from SciNet to the `... LabFive/TREES/ASTRAL` folder on your computer.
 
     ```
-    scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/TREES/ASTRAL/Geophagini_AstralTREE-q1q2q3\* .
-    scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/TREES/ASTRAL/Geophagini_AstralTREE_BS.log .
-    scp <username>@teach.scinet.utoronto.ca:/scratch/t/teacheeb462/<username>/eeb462share/TREES/ASTRAL/Geophagini_AstralTREE.tre .
+    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE-q1q2q3\* .
+    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE_BS.log .
+    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE.tre .
     ```
 
 ---
