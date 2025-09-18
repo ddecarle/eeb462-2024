@@ -41,7 +41,6 @@ Questions:
 For this lab, we will be using the following software: 
 
 - [MUSCLE](https://drive5.com/muscle5/)
-  - If your operating system is not up-to-date, you may need to download MUSCLE v3
 - [Mesquite](http://www.mesquiteproject.org/Installation.html)
 - A plain text editor of your choice 
 
@@ -76,7 +75,7 @@ The vast majority of programs we’ll be using throughout the semester lack grap
 
 Ensure that you have downloaded and unzipped all necessary [files for Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LabOne.zip). 
 
-1.	Open a terminal window and change directories `cd` to the location where these files are saved. For most of you, this will be the Downloads folder. 
+1.	Open a terminal window and change directories `cd` to the location where these files are saved. For most of you, this will be the Downloads folder. If you are using the Windows Subsystem for Linux, you will first need to launch it by entering the command `wsl ~`.
 
 ```
 cd ~/Downloads
