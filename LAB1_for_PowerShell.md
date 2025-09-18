@@ -1,6 +1,6 @@
 ## Setting up your workspace 
 
-1. All necessary files for this lab are stored in the "student" folder on the EEB teaching laptop, so you will not need to follow the first few steps listed in the main tutorial.  
+1. All necessary files for this lab are stored in the "student" folder on the EEB teaching laptop, so you will not need to follow the first few steps listed in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md).
 
 2. Open an instance of Windows PowerShell from the start menu.
 
@@ -41,13 +41,13 @@ These sequences are already downloaded for you, so you will not need to download
 (get-content 18s-2.fasta | select-string -pattern ">").length
 ```
 
-2. Follow steps 2-5 from the main tutorial.
+2. Follow steps 2-5 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md#downloading-sequences).
 
 ## Formatting your data
 
 1. Because students are not allowed to run scripts on the teaching laptops, you can skip this step. The sequences are already correctly named for you. 
 
-2-3. Follow steps 2-3 from the main tutorial
+2-3. Follow steps 2-3 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md#formatting-your-data)
 
 4. Use the following command to append the contents of `extraMammals.fasta` to `18s-2.fasta`:
 
@@ -70,7 +70,7 @@ del 18s-2.fasta
 
 ## Translating sequences
 
- Follow steps 1-5 in the main tutorial. 
+ Follow steps 1-5 in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md#translating-sequences). 
 
  6. Open `coi-protein.fasta` in your text editor (*e.g.* Notepad++) and remove '_2' from the end of each sequence name. 
 
@@ -102,7 +102,7 @@ mv Fasta/*align Alignments
 
 ## Concatenating sequences 
 
-Follow steps 1-24 in the main tutorial.
+Follow steps 1-24 in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md#concatenating-sequences).
 
 ## Tidying up
 
