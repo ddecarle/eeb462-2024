@@ -68,6 +68,9 @@ Because we will be generating a large number of files in this course, and becaus
 ### Using the command line
 The vast majority of programs we’ll be using throughout the semester lack graphic user interfaces; therefore, you’ll need to be comfortable navigating your directories and running analyses on the command line. For more information about all the commands that we’ll be using, consult [this document](https://github.com/ddecarle/eeb462-2021/blob/main/CommandLineBasics.md), which details some of the most useful commands for phylogenetic analysis.  
 
+### Borrowed laptops
+If you are working through this tutorial on one of the EEB teaching laptops, please use [this version of the tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_for_PowerShell.md).
+
 
 ## The Tutorial
 
