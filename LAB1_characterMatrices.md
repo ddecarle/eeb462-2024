@@ -121,16 +121,20 @@ head <fileName>
 The output should look something like this: 
 
 ```
->sequence_one
-ATCGGTACGATCGATCGATCGTAGATTCAGAGATGATCGCAACTAGCTAGCTAC
->sequence_two
-ATCGGTACGATCGAATGATCGTAGATTCAGAGATGATCGCAATTTGCTAGCTCC
->sequence_three
-ATCCCCTAGATCGATCGATCGTAGATTCAGAGGATCGAGCAACTAGCTAGCTAC
+>sequence
+ACTAAAGCTAGCCCCACCATACCACAATTTACTCCCCCCACCTTAATAGA
+CTAAAACATTTAGACCCATAAAAGTATAGGAGATAGAAATTTTACTGAGG
+AGCTATAGCGCACAGTACCGTAAGGGAAAGATGAAAGATAAATTTATAGT
+GAAAAACAGCAAAGATTAGCCCTTCTACCTTTAGCATAATGAATTAACTA
+GAATAAGCTTGGCAAAATGAATTACAGTCAACTTTCCCGAAACCAGACGA
+GCTACTTAAAGTCAATCTCCCCAAGGATCAACTCATCTATGTAGCAAAAT
+AGTGAGAAGAACATTAAGTAGAGGTGAAAAGCCAACCGAGCCTGGTGATA
+GCTGGTTATCCAAAATAGAATCTAAGTTCAACCTAAAATTTACTATAAGA
+ACTTTAACTAATCCCTCCACGTAAGTTTTAGATATAATCAAAAGAGGTAC
 …
 ```
 
-This is the **FASTA file format**. It consists of a sequence name (always preceded by `>`), followed by the sequence itself on a second line. This format can be used with DNA (nucleotide) or protein (amino acid) sequences. FASTA is a very simple file format, and is used as input by many of the programs we’ll be using this semester. 
+This is the **FASTA file format**. It consists of a sequence name (always preceded by `>`), followed by the sequence itself. This format can be used with DNA (nucleotide) or protein (amino acid) sequences. FASTA is a very simple file format, and is used as input by many of the programs we’ll be using this semester. 
 
 ### Downloading sequences
 
@@ -196,7 +200,7 @@ bash ../rename.bash
 
 2.	Open “extraMammals.fasta” and delete any sequences that BLAST identified as erroneous. 
 
-3.	Close this file, and return to your terminal window. 
+3.	Save this file, close it, and return to your terminal window. 
 
 4.	Use the following command to append the contents of “extraMammals.fasta” onto the end of “18s.fasta”:
 
@@ -225,15 +229,15 @@ Why might we want to use amino acid sequences – rather than nucleotide sequenc
 
 ---
 
-1.	To translate your nucleotide sequences into amino acid sequences, use the EMBOSS tool, [Transeq](https://www.ebi.ac.uk/Tools/st/emboss_transeq/).  
+1.	To translate your nucleotide sequences into amino acid sequences, use the EMBOSS tool, [Transeq](https://www.ebi.ac.uk/jdispatcher/st/emboss_transeq).  
 
 2.	Under **Input Sequence**, click the "Choose File" button and select the “coi-barcode.fasta” file. 
 
 3.	Under **Parameters**, set FRAME to “2”, and set CODON TABLE to “Vertebrate Mitochondrial”.
 
-4.	Click **Submit**. 
+4.	Click **Submit**. If this gives you an error, you can copy and paste the contents of "coi-barcode.fasta" into the text box instead.
 
-5.	Once the translation is complete, download the sequences, and save the file in the “Fasta” folder under the name “coi-protein.fasta”.
+6.	Once the translation is complete, download the sequences, and save the file in the “Fasta” folder under the name “coi-protein.fasta”.
 
 You’ll notice that Transeq appended `_2` to the ends of the sequence names to signify the reading frame for each translation. Because, going forward, we will need to make sure that our sequences for each organism have exactly the same name, we’ll have to fix this. 
 
@@ -257,10 +261,10 @@ To run a program on the command line, use the following syntax:
 ./<program> [option 1] [option 2]…
 ```
 
-To run MUSCLE, we might use a command like this: 
+To run MUSCLE, for example, we might use a command like this: 
 
 ```
-./muscle3.8.31_i86darwin64 -in 16s.fasta -out 16s.fasta.align
+./muscle-osx-arm64.v5.3 -align 16s.fasta -output 16s.fasta.align
 ```
 
 You could manually type and execute the command for each alignment, but that would be tedious. Instead, let’s use a **for-loop**. 
@@ -272,7 +276,7 @@ For-loops not only expediate your analyses, they also decrease the chances that 
 ```
 for locus in *.fasta*
 do
-./../../<MUSCLE> -in $locus -out $locus.align
+./../../<MUSCLE> -align $locus -output $locus.align
 done
 ```
 
@@ -334,7 +338,7 @@ On the left side of the screen, you should notice the words “Taxa (36 taxa)”
 
 Renaming these elements makes the rest of the concatenation process much easier. It also makes the resulting NEXUS file more legible. 
 
-6.	**File** > **Include File…** and select “enam.fasta.align”.
+6.	**File** > **Include & Merge** > **Include File…** and select “enam.fasta.align”.
 Again, select “**FASTA (DNA/RNA)**” and rename the **Taxa Block** and **Character Matrix**.
 
 7.	Repeat the process for the 18S alignment. 
@@ -347,11 +351,11 @@ Now that you have the three alignments open, it’s time to make **associations*
 
 You should be taken to a window that lists all the taxa in the “16s” block on the left, and contains columns labelled “Group” and “enam” (highlighted in yellow). The taxa in the “enam” block should be listed in the rightmost column. 
 
-9. Click the title of the yellow “**enam**” column > **Auto-assign Matches…** 
+9. Click the title of the yellow “**Contained taxa**” column > **Assign Associates by Name Matching** 
 
 Since the names of all taxa in both alignments should be the same, simply click “**OK**” in the box that appears. 
 
-The “enam” column should now be populated with the names of all taxa for which ENAM sequences are available. 
+The “Contained taxa” column should now be populated with the names of all taxa for which ENAM sequences are available. 
 
 10.	Repeat step nine to create an association between 16S and 18S. 
 
@@ -369,7 +373,7 @@ This file is useful for our purposes, because we can easily come back to it and 
 - Save the file as “16s-enam-18s-fuse.nex”
 
 13.	Now, we'll be adding more loci to our MAIN file 
-- Select **File** > **Include File…** > coi-barcode.fasta.align
+- Select **File** > **Include & Merge** > **Include File…** > coi-barcode.fasta.align
 - Rename the Taxa Block and Character Matrix as before.
 
 14.	Create an association between 16S and COI.
@@ -381,7 +385,6 @@ This file is useful for our purposes, because we can easily come back to it and 
 - Save the file as “16s-enam-18s-coi-fuse.nex”
 
 17.	Next, we’ll have to generate yet another type of NEXUS file for use in the program MrBayes. Open “16s-enam-18s-coi-fuse.nex”
-- Because Mesquite is slightly buggy, you may see an alert like the one to the right. Simply click “OK” and save a new copy of the file. I usually just overwrite the file I currently have open. 
 
 18. Generate a simplified NEXUS file as before:	**File** > **Export…** > **Simplified NEXUS**
 Save the file as “16s-enam-18s-coi-fuseSimp.nex” 
@@ -449,9 +452,7 @@ What commands did you use to complete the tasks above? *(4 points)*
 ---
 #### BONUS QUESTIONS:
 
-1. Name all the phyla to which the animals in the figure at the top of the page belong.
-
-2. When exporting files in Mesquite, you have the option to “Convert gaps to missing”. This indicates that we want to consider gaps in our alignment to represent missing data. 
+When exporting files in Mesquite, you have the option to “Convert gaps to missing”. This indicates that we want to consider gaps in our alignment to represent missing data. 
 a) What is the alternative to this? 
 b) What is one reason why we might want to code gaps as missing data? 
 c) What is one reason why we might not want to do this? 
