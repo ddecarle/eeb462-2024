@@ -263,7 +263,7 @@ Now we'll make some changes specific to constrained analyses. For more detailed 
   
 25. Save these changes, and close the file. 
 
-26. In your terminal, navigate to the nucConstrain folder; launch TNT; and conduct your analyses using hte script as before. 
+26. In your terminal, navigate to the nucConstrain folder; launch TNT; and conduct your analyses using the script as before. 
 
 27. Once the analysis is finished, quit TNT and run the `tnt_tree_clean.sh` script to reformat your trees
 
