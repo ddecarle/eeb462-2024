@@ -161,7 +161,7 @@ The last TNT idiosyncrasy that we will encounter (…hopefully), is the tree out
 What is the length of the best scoring tree? *(1 point)*
 
 #### QUESTION 2
-How many MPTs were encountered? *(1 point)*
+How many most parsimonious trees (MPTs) were encountered? *(1 point)*
 
 #### QUESTION 3
 What are the CI and RI for your tree? *(1 point)*
