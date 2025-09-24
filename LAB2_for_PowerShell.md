@@ -8,13 +8,15 @@ More detailed information about all these steps is available in the [main tutori
 
 ### Parsimony Analysis 101
 
-1. Follow steps 1-5 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#parsimony-analysis-101).
+Follow steps 1-5 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#parsimony-analysis-101).
 
-2. Open an instance of PowerShell and use the `cd` command to navigate to the `Lab2-TNT` folder. If you are using one of the EEB computers, the path should be `C:\Users\student\EEB462\Lab2-TNT`.
-3. Follow steps 7-9 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#parsimony-analysis-101).
-4. **If you are not using one of the EEB laptops**: Download `tnt_tree_clean.ps1` [from the course GitHub repository](https://github.com/ddecarle/eeb462-2024/blob/main/tnt_tree_clean.ps1). Move it to your `Lab2-TNT` folder and use the following command to convert your TNT trees to `.tre` format: `.\..\tnt_tree_clean.ps1`  
-    
-    **If you are using one of the EEB laptops**: You will not be able to run the script necessary to convert the TNT output  (*i.e.* `consensus_bootstraps.tnttre` and `mpts.tnttre`) to a format that is readable by most tree viewing software. Instead, you can view the results of this analysis on the Interactive Tree of Life website by following this link: [allNuc\_consensus\_bootstraps.tnttre.tre](https://itol.embl.de/tree/142150219144141561758741537). 
+Open an instance of PowerShell and use the `cd` command to navigate to the `Lab2-TNT` folder. If you are using one of the EEB computers, the path should be `C:\Users\student\EEB462\Lab2-TNT`.
+
+Follow steps 7-9 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#parsimony-analysis-101).
+
+**If you are not using one of the EEB laptops**: Download `tnt_tree_clean.ps1` [from the course GitHub repository](https://github.com/ddecarle/eeb462-2024/blob/main/tnt_tree_clean.ps1). Move it to your `Lab2-TNT` folder and use the following command to convert your TNT trees to `.tre` format: `.\..\tnt_tree_clean.ps1`  
+
+**If you are using one of the EEB laptops**: You will not be able to run the script necessary to convert the TNT output  (*i.e.* `consensus_bootstraps.tnttre` and `mpts.tnttre`) to a format that is readable by most tree viewing software. Instead, you can view the results of this analysis on the Interactive Tree of Life website by following this link: [allNuc\_consensus\_bootstraps.tnttre.tre](https://itol.embl.de/tree/142150219144141561758741537). 
 
 ### Examining Trees
 
