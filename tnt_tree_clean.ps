@@ -1,0 +1,61 @@
+function Get-Trees {
+    param (
+        [string]$FileName
+    )
+    $onlyTrees = @()
+
+    Get-Content -Path $FileName | ForEach-Object {
+        if ($_ -like '(*') {
+            $onlyTrees += $_
+        }
+    }
+
+    return $onlyTrees
+}
+
+function Regex-Trees {
+    param (
+        [string]$Text
+    )
+    $Text = $Text -replace '\[[0-9]{1,3}\]', ''
+    $Text = $Text -replace ' ;', ';'
+    $Text = $Text -replace '=', ':'
+    $Text = $Text -replace ' :', ':'
+    $Text = $Text -replace ' \)', ')'
+    $Text = $Text -replace ' ', ','
+    $Text = $Text -replace '\)\(', '),('
+    $Text = $Text -replace '\(:[0-9]{1,3}\)/([0-9]{1,3})', { param($m) "$($m.Groups[2].Value)$($m.Groups[1].Value)" }
+    $Text = $Text -replace '/', ''
+    $Text = $Text -replace '\?', ''
+
+    return $Text
+}
+
+function Tnttre-List {
+    $tnttreFiles = Get-ChildItem -Path . -Filter '*.tnttre' -File | ForEach-Object { $_.Name }
+    return $tnttreFiles
+}
+
+function Write-Trees {
+    param (
+        [string]$InTree,
+        [string]$TreName
+    )
+
+    $done = Get-Trees -FileName $InTree
+    $treeStrings = $done -join "`n"
+    $trStr = Regex-Trees -Text $treeStrings
+
+    $trStr | Out-File -FilePath $TreName -Encoding utf8
+}
+
+function Tnt-All {
+    $all = Tnttre-List
+    foreach ($i in $all) {
+        $iTre = "$i.tre"
+        Write-Trees -InTree $i -TreName $iTre
+    }
+}
+
+Tnt-All
+Write-Output "Enjoy your trees!"
