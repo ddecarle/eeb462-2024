@@ -67,6 +67,10 @@ For this lab, we will be using the following software:
 
 As you struggle through this lab, please know that I’ve done everything I can to alleviate your suffering. Power through, and you will be rewarded with unbridled knowledge (of phylogenetic analysis using TNT).   
 
+## Windows PowerShell Users
+
+Follow this link for a [PowerShell version of this tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_for_PowerShell.md).
+
 ## Tutorial
 
 To begin this tutorial, download and unzip all the [files for Lab Two](https://github.com/ddecarle/eeb462-2021/blob/main/LabTwo.zip). Your Lab Two folder should contain the following items:
