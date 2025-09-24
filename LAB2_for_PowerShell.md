@@ -8,43 +8,41 @@ More detailed information about all these steps is available in the [main tutori
 
 ### Parsimony Analysis 101
 
-Follow steps 1-5 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#parsimony-analysis-101).
+- Follow steps 1-5 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#parsimony-analysis-101).
 
-Open an instance of PowerShell and use the `cd` command to navigate to the `Lab2-TNT` folder. If you are using one of the EEB computers, the path should be `C:\Users\student\EEB462\Lab2-TNT`.
-
-Follow steps 7-9 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#parsimony-analysis-101).
-
-**If you are not using one of the EEB laptops**: Download `tnt_tree_clean.ps1` [from the course GitHub repository](https://github.com/ddecarle/eeb462-2024/blob/main/tnt_tree_clean.ps1). Move it to your `Lab2-TNT` folder and use the following command to convert your TNT trees to `.tre` format: `.\..\tnt_tree_clean.ps1`  
-
-**If you are using one of the EEB laptops**: You will not be able to run the script necessary to convert the TNT output  (*i.e.* `consensus_bootstraps.tnttre` and `mpts.tnttre`) to a format that is readable by most tree viewing software. Instead, you can view the results of this analysis on the Interactive Tree of Life website by following this link: [allNuc\_consensus\_bootstraps.tnttre.tre](https://itol.embl.de/tree/142150219144141561758741537). 
+- Open an instance of PowerShell and use the `cd` command to navigate to the `Lab2-TNT` folder. If you are using one of the EEB computers, the path should be `C:\Users\student\EEB462\Lab2-TNT`.
+- Follow steps 7-9 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#parsimony-analysis-101).
+- **If you are not using one of the EEB laptops**: Download `tnt_tree_clean.ps1` [from the course GitHub repository](https://github.com/ddecarle/eeb462-2024/blob/main/tnt_tree_clean.ps1). Move it to your `Lab2-TNT` folder and use the following command to convert your TNT trees to `.tre` format: `.\..\tnt_tree_clean.ps1`  
+    
+- **If you are using one of the EEB laptops**: You will not be able to run the script necessary to convert the TNT output  (*i.e.* `consensus_bootstraps.tnttre` and `mpts.tnttre`) to a format that is readable by most tree viewing software. Instead, you can view the results of this analysis on the Interactive Tree of Life website by following this link: [allNuc\_consensus\_bootstraps.tnttre.tre](https://itol.embl.de/tree/142150219144141561758741537). 
 
 ### Examining Trees
 
-**If you are not using one of the EEB laptops**, follow steps 11-13 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#examining-trees). 
+- **If you are not using one of the EEB laptops**, follow steps 11-13 from the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#examining-trees). 
 
-**If you are using one of the EEB laptops**, follow the instructions in [Appendix A: iTOL](#appendix-a-itol) to re-root your tree and display the bootstrap values. 
+- **If you are using one of the EEB laptops**, follow the instructions in [Appendix A: iTOL](#appendix-a-itol) to re-root your tree and display the bootstrap values. 
 
 ### Combining multiple data types
 
-Follow steps 1-18 in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#combining-multiple-data-types).
+- Follow steps 14-18 in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#combining-multiple-data-types).
 
-**If you are not using one of the EEB laptops**, use the following command to convert your TNT trees to `.tre` format: `.\..\tnt_tree_clean.ps1`. 
+- **If you are not using one of the EEB laptops**, use the following command to convert your TNT trees to `.tre` format: `.\..\tnt_tree_clean.ps1`. 
 
-Then, follow step 20 in the main tutorial.
+    Then, follow step 20 in the main tutorial.
 
-**If you are using one of the EEB laptops**, follow this link to view the output of the analysis on iTOL: [nucProt\_consensus\_bootstraps.tnttre.tre](https://itol.embl.de/tree/142150219144141661758741538).
+- **If you are using one of the EEB laptops**, follow this link to view the output of the analysis on iTOL: [nucProt\_consensus\_bootstraps.tnttre.tre](https://itol.embl.de/tree/142150219144141661758741538).
 
-Then, follow the instructions in [Appendix A: iTOL](#appendix-a-itol) to re-root your tree and display the bootstrap values. 
+    Then, follow the instructions in [Appendix A: iTOL](#appendix-a-itol) to re-root your tree and display the bootstrap values. 
 
 ### Constrained Analyses
 
-Follow steps 21-26 in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#constrained-analyses).
+- Follow steps 21-26 in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB2_Parsimony.md#constrained-analyses).
 
-**If you are not using one of the EEB laptops**, use the following command to convert your TNT trees to `.tre` format: `.\..\tnt_tree_clean.ps1`. 
+- **If you are not using one of the EEB laptops**, use the following command to convert your TNT trees to `.tre` format: `.\..\tnt_tree_clean.ps1`. 
 
-**If you are using one of the EEB laptops**, follow this link to view the output of the analysis on iTOL: [nucConstrain\_consensus\_bootstraps.tnttre.tre](https://itol.embl.de/tree/142150219144141621758741537).
+- **If you are using one of the EEB laptops**, follow this link to view the output of the analysis on iTOL: [nucConstrain\_consensus\_bootstraps.tnttre.tre](https://itol.embl.de/tree/142150219144141621758741537).
 
-Then, follow the instructions in [Appendix A: iTOL](#appendix-a-itol) to re-root your tree and display the bootstrap values. 
+    Then, follow the instructions in [Appendix A: iTOL](#appendix-a-itol) to re-root your tree and display the bootstrap values. 
 
 ## Appendix A: iTOL
 The [Interactive Tree of Life](https://itol.embl.de/) provides an online platform for viewing and annotating phylogenetic trees. 
