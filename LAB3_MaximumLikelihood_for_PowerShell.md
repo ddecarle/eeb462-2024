@@ -22,7 +22,7 @@ To begin, download and unzip [all files for Lab Three](https://github.com/ddecar
 2. Locate the `NEXUS\ML` folder you created as part of [Lab One](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md)
 3. Copy `16s-enam-18s-coi-fuse.nex` into the `LabThree\allNuc` folder
 4. Copy `16s-enam-18s-fuse.nex` and `coi-protein.nex` into `LabThree\nucProt`
-5. Move the IQ-TREE executable (`iqtree2.exe`) and `libiomp5md.dll` into the `LabThree` folder.
+5. Move the IQ-TREE executable (*e.g.* `iqtree2.exe`) and `libiomp5md.dll` into the `LabThree` folder.
 
 ### Partitioning your dataset
 
