@@ -67,7 +67,7 @@ For this lab, we'll be using the following software:
 
 Begin by downloading and unzipping all [necessary files for Lab Three](https://github.com/ddecarle/eeb462-2021/blob/main/LabThree.zip). 
 
-1. Locate the "NEXUS/ML" folder you created as part of [Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LAB1_characterMatrices.md) 
+1. Locate the `NEXUS/ML` folder you created as part of [Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LAB1_characterMatrices.md) 
 2. Copy `16s-enam-18s-coi-fuse.nex` into the "LabThree/allNuc" folder
 3. Copy `16s-enam-18s-fuse.nex` and `coi-protein.nex` into "LabThree/nucProt"
 4. Move the "LabThree" folder into the "EEB462" folder on your desktop
