@@ -214,7 +214,9 @@ IQ-TREE is unable to process a single matrix containing more than one type of da
     Windows: 
 `./../iqtree3.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
-**NOTE**: You may see an error at the end of this tree search. As long as the `nucProtPartition.nex.contree` file is present in your `nucProt` folder, you can safely ignore it.
+**NOTE**: You may see an error at the end of this tree search. As long as the `nucProtPartition.nex.contree` file is present in your `nucProt` folder, you can safely ignore it.  
+
+In the future, you should be able to avoid this error by using IQ-TREE version 2 instead of version 3. 
 
 ---
 
