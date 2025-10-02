@@ -68,10 +68,11 @@ For this lab, we'll be using the following software:
 Begin by downloading and unzipping all [necessary files for Lab Three](https://github.com/ddecarle/eeb462-2021/blob/main/LabThree.zip). 
 
 1. Locate the `NEXUS/ML` folder you created as part of [Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LAB1_characterMatrices.md) 
-2. Copy `16s-enam-18s-coi-fuse.nex` into the "LabThree/allNuc" folder
-3. Copy `16s-enam-18s-fuse.nex` and `coi-protein.nex` into "LabThree/nucProt"
-4. Move the "LabThree" folder into the "EEB462" folder on your desktop
-5. Move the IQ-TREE executable to the "LabThree" folder 
+2. Copy `16s-enam-18s-coi-fuse.nex` into the `LabThree/allNuc` folder
+3. Copy `16s-enam-18s-fuse.nex` and `coi-protein.nex` into `LabThree/nucProt`
+4. Make sure the `LabThree` folder is located within the `EEB462` folder on your desktop
+5. Move the IQ-TREE executable to the `LabThree` folder
+   NOTE: If you have installed IQ-TREE using homebrew, or added it to your path, this step is not necessary
 
 
 ### Using IQ-TREE
