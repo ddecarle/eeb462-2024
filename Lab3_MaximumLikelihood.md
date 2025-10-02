@@ -38,7 +38,6 @@ Maximum likelihood analysis involves a few key assumptions:
 Questions: *(23 points total)*
 
  - [1](#question-1), [2](#question-2), [3](#question-3), [4](#question-4), [5](#question-5), [6](#question-6), [7](#question-7), [8](#question-8), [9](#question-9)
- - [Bonus Question](#bonus-question)
 
 ## Table of Contents
 
