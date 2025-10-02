@@ -176,6 +176,8 @@ After executing this command, you should see some sign that IQ-TREE is working (
 
 Once IQ-TREE has finished running, you’ll see that it has generated a number of output files. The log file (`nucPartition.nex.log`) very helpfully contains a description of the information stored in each file. 
 
+**NOTE**: If your operating system settings are configured such that file extensions are not shown, this file will appear as `nucPartition.nex`.
+
 ---
 
 Use the output files to answer the following questions:  
@@ -198,7 +200,7 @@ In IQ-TREE, the main difference between analyses using one type of data and thos
 
 IQ-TREE is unable to process a single matrix containing more than one type of data. Instead, it requires that different data types be stored in different files. This is why we generated both `16s-enam-18s-fuse.nex` and `coi-protein.nex`. 
 
-1. In the "LabThree/nucProt" folder, open both matrices as well as `nucProtPartition.nex` in your text editor. 
+1. In the `LabThree/nucProt` folder, open both matrices as well as `nucProtPartition.nex` in your text editor. 
 
 2. Fill in the partition file as before. (Since the COI protein alignment only consists of one locus, the  "partition" should just be the total length of the alignment.) Save `nucProtPartition.nex` and close it.
 
@@ -211,6 +213,8 @@ IQ-TREE is unable to process a single matrix containing more than one type of da
 
     Windows: 
 `./../iqtree3.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
+
+**NOTE**: You may see an error at the end of this tree search. As long as the `nucProtPartition.nex.contree` file is present in your `nucProt` folder, you can safely ignore it.
 
 ---
 
