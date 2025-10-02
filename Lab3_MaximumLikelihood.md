@@ -71,8 +71,7 @@ Begin by downloading and unzipping all [necessary files for Lab Three](https://g
 2. Copy `16s-enam-18s-coi-fuse.nex` into the `LabThree/allNuc` folder
 3. Copy `16s-enam-18s-fuse.nex` and `coi-protein.nex` into `LabThree/nucProt`
 4. Make sure the `LabThree` folder is located within the `EEB462` folder on your desktop
-5. Move the IQ-TREE executable to the `LabThree` folder
-   NOTE: If you have installed IQ-TREE using homebrew, or added it to your path, this step is not necessary
+5. Move the IQ-TREE executable to the `LabThree` folder (**NOTE**: If you have installed IQ-TREE using homebrew, or added it to your path, this step is not necessary)
 
 
 ### Using IQ-TREE
@@ -84,7 +83,7 @@ Unlike the programs we have used so far, IQ-TREE is not particularly interactive
 The basic syntax for an IQ-TREE command is as follows:
 
 ```
-./iqtree2 -s <alignment> [option1] [option2] ...
+./<iqtree> -s <alignment> [option1] [option2] ...
 ```
 
 **The [IQ-TREE Documentation](http://www.iqtree.org/doc/) is a really excellent resource**. It contains several tutorials, as well as thorough explanations of all analyses. It often includes links to papers and blog posts which explain the analyses in more detail. (The blog posts are particularly great, because they're written in plain-language.)
@@ -111,13 +110,13 @@ Why do we partition our dataset before model testing? Why might we want to parti
 
 To define the partitions in our dataset, we will need to create a NEXUS file that tells IQ-TREE where each of our partitions begin and end.
 
-1. Open `16s-enam-18s-coi-fuse.nex` in your text editor and locate the "LABELS" block. 
+1. Open `16s-enam-18s-coi-fuse.nex` in your text editor and locate the `SETS` block. 
 
   (Remember that "blocks" are sections of a NEXUS file starting with `BEGIN <block-name>;` abnd ending with `END;`.)
   
 2. In another window of your text editor, open the file `nucPartition.nex`.
 
-3. Replace each instance of `XXX` in `nucPartition.nex` with the corresponding values from the "LABELS" block in `16s-enam-18s-coi-fuse.nex`. 
+3. Replace each instance of `XXX` in `nucPartition.nex` with the corresponding values from the `SETS` block in `16s-enam-18s-coi-fuse.nex`. 
 
     Make sure there are no spaces on either side of the hyphens. 
   
@@ -147,10 +146,10 @@ One of the perks of using IQ-TREE is that it can run model testing, tree inferen
 2. Run IQ-TREE using the following command:
 
     Mac: 
-`./../iqtree2 -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
+`./../iqtree3 -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
     Windows: 
-`./../iqtree2.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
+`./../iqtree3.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
 After executing this command, you should see some sign that IQ-TREE is working (or you'll get an error message). While you’re waiting for IQ-TREE to finish running, let’s break down that command a little:
 
@@ -208,10 +207,10 @@ IQ-TREE is unable to process a single matrix containing more than one type of da
 3. Run IQ-TREE using the same options as before. Even though our alignments are located in multiple files, we only need to specify one of them in the IQ-TREE command. (It doesn't matter which alignment file you choose.)
 
     Mac: 
-`./../iqtree -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
+`./../iqtree3 -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
     Windows: 
-`./../iqtree.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
+`./../iqtree3.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
 ---
 
@@ -245,7 +244,7 @@ To quantitatively assess whether topologies are significantly different from one
 
 #### How does it work?
 
-All of these analyses operate under the **null hypothesis** that, given the model, all topologies are equally well supported by the data. 
+Likelihood-based topology tests assume the **null hypothesis** that, given the model, all topologies are equally well supported by the data. 
 
 The **alternative hypothesis** is that - given the model - at least one topology is a significantly worse explanation of the data. 
 
@@ -253,7 +252,7 @@ The test proceeds as follows:
 
 1. Calculate the difference in log-likelihood (&#948;) between the toplogies of interest.
 2. Using bootstrap replicated datasets, generate an expected distribution of &#948;.
-3.	For each topology, determine whether the true value of &#948; falls outide the expected distribution of values for &#948;. 
+3. For each topology, determine whether the true value of &#948; falls outide the expected distribution of values for &#948;. 
 4. If so, the null hypothesis is rejected, and we can conclude that at least one of the trees is a significantly worse explanation of the dataset.
 
 The main difference between the SH and AU tests is that **the AU test corrects for multiple comparisons**. In other words, when comparing more than two topologies at a time, the AU test should be used. 
@@ -276,22 +275,25 @@ Conveniently, IQ-TREE outputs all topologies in Newick format. Trees resulting f
 
 1. Copy `16s-enam-18s-coi-fuse.nex`, `nucPartition.nex.contree`, and `nucPartition.nex.best_scheme.nex` from the "allNuc" folder into "LabThree/topologyTest"
 
-    `nucPartition.nex.best_scheme.nex` contains the results of the model testing from our first tree search. The file is very similar to the first partition file we generated, but it includes an additional command to specify which models should be applied to each partition.
+    `nucPartition.nex.best_scheme.nex` contains the results of the model testing from our first tree search. The file is very similar to the first partition file we generated, but it includes additional commands to specify which models should be applied to each partition.
 
 2. Concatenate all three trees into the same file for analysis: 
 
-- in your terminal window, navigate to "LabThree/topologyTest"
+- in your terminal window, navigate to `LabThree/topologyTest`
 - use the following commands to combine your trees into one file:
 
     ```
     cat nucPartition.nex.contree > allTrees.txt
     cat *.new >> allTrees.txt
     ```
+
+    If you examine `allTrees.txt` in your text editor, you will notice that it contains three trees in Newick format, each on a separate line. In order, those trees are: (1) the ML `allNuc` tree, (2) the unconstrained `allNuc` parsimony tree from Lab 2, and (3) the constrained `allNuc` parsimony tree from Lab 2. 
+    
 3. Run your topology test
 
-    Mac: `./../iqtree2 -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
+    Mac: `./../iqtree3 -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
     
-    Win: `./../iqtree2.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
+    Win: `./../iqtree3.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
 
 As before, let’s break down that command: 
 The `-s` and `-spp` options are used exactly as before to specify the matrix, partition file, and models.
@@ -301,7 +303,7 @@ The `-s` and `-spp` options are used exactly as before to specify the matrix, pa
 - `-zb`: determines the number of bootstrap datasets you wish to generate. 10,000 is the recommended minimum value
 - `-au`: tells IQ-TREE to conduct an AU test in addition to the other topology tests
 
-Once your analysis is complete, the results of the topology tests will be printed to the file `nucPartition.nex.best_scheme.nex.iqtree`. You can find them under the heading `USER TREES` in a conveniently formatted table with a nice little legend underneath. (For the purposes of this lab, ignore the results of the RELL, KH, and ELW tests.)
+Once your analysis is complete, the results of the topology tests will be printed to the file `nucPartition.nex.best_scheme.nex.iqtree`. You can find them under the heading `USER TREES` in a conveniently formatted table with a nice little legend underneath. (For the purposes of this lab, ignore the results of the RELL, KH, and ELW tests.) The trees are identified by a number corresponding to the order in which they are listed in `allTrees.txt`, so Tree 1 is the ML tree, Tree 2 is the unconstrained parsimony tree, and Tree 3 is the constrained parsimony tree.
 
 ---
 
@@ -331,17 +333,10 @@ Save your constraint tree in the same folder as your matrix and partition file (
 When running your tree search, use the option `-g` to indicate that you want to run a constrained analysis, and add it to the command you used to run your original tree search. For example, to run a constrained analysis on the nucProt dataset, you could use the following command: 
 
 Mac: 
-`./iqtree2 -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> -ninit 100 -bb 1000 -wbt`
+`./iqtree3 -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> -ninit 100 -bb 1000 -wbt`
 
 Win: 
-`./iqtree2.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> -ninit 100 -bb 1000 -wbt`
-
-
----
-
-#### BONUS QUESTION
-
-Identify the order that is recovered as non-monophyletic in one of the ML trees you generated today. Conduct a tree search using the appropriate dataset that constrains this order to be monophyletic. Then, conduct a topology test: Are the constrained and unconstrained trees significantly different from one another? 
+`./iqtree3.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> -ninit 100 -bb 1000 -wbt`
 
 ---
 
