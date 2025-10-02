@@ -65,6 +65,8 @@ For this lab, we'll be using the following software:
 
 ## Tutorial
 
+[click here for the PowerShell version](https://github.com/ddecarle/eeb462-2024/blob/main/LAB3_MaximumLikelihood_for_PowerShell.md)
+
 Begin by downloading and unzipping all [necessary files for Lab Three](https://github.com/ddecarle/eeb462-2021/blob/main/LabThree.zip). 
 
 1. Locate the `NEXUS/ML` folder you created as part of [Lab One](https://github.com/ddecarle/eeb462-2021/blob/main/LAB1_characterMatrices.md) 
@@ -138,7 +140,7 @@ To define the partitions in our dataset, we will need to create a NEXUS file tha
 
 One of the perks of using IQ-TREE is that it can run model testing, tree inference, and bootstrapping in one fell swoop. 
 
-1.	Open a terminal window, and navigate to the “LabThree/allNuc” folder. 
+1.	Open a terminal window, and navigate to the `LabThree/allNuc` folder. 
 
   - MacOS: `cd ~/Desktop/EEB462/LabThree/allNuc`
   - Windows: `cd /mnt/c/Users/<your-username>/Desktop/EEB462/LabThree/allNuc`
@@ -277,7 +279,7 @@ Topology tests require the following input files:
 
 **NOTE:** Newick is simply a particular file format for phylogenetic trees. Trees can be easily converted to Newick using FigTree: Simply open your tree in FigTree, select “File > Export trees…” and select “Newick” from the drop-down menu. You can also use this feature to convert your trees to other formats, such as NEXUS. 
 
-Conveniently, IQ-TREE outputs all topologies in Newick format. Trees resulting from TNT analyses, however, need to be converted. I’ve already done this for you, so the “topologyTest” folder should already contain two trees in Newick format: `MPconsensus.new”`and `MPconstrain.new`. 
+Conveniently, IQ-TREE outputs all topologies in Newick format. Trees resulting from TNT analyses, however, need to be converted. I’ve already done this for you, so the `topologyTest` folder should already contain two trees in Newick format: `MPconsensus.new”`and `MPconstrain.new`. 
 
 1. Copy `16s-enam-18s-coi-fuse.nex`, `nucPartition.nex.contree`, and `nucPartition.nex.best_scheme.nex` from the "allNuc" folder into "LabThree/topologyTest"
 
