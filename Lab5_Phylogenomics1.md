@@ -93,11 +93,11 @@ The 20 target exons were captured for geophagine species using probes designed b
 
 #### Running Analyses on a Super Computer
 
-Phylogenomics software is largely open source and is therefore unix-based. Unfortunately, Unix-based software is not easy to install or use with Windows (Most NGS software is easily applied on Macs). Therefore, we will be running analyses for the remaining labs on SciNet’s super computer. SciNet is a Canadian institution with high-power computers that are made accessible to registered Canadian institutions and researchers. Students in this class have been registered with a temporary account for the duration of the course.
+Phylogenomics software is largely open source and is therefore unix-based. Unfortunately, Unix-based software is not easy to install or use with Windows (Most NGS software is easily applied on Macs). Therefore, we will be running analyses for the remaining labs on SciNet’s super computer. SciNet is a Canadian institution with high-powered computers that are made accessible to registered Canadian institutions and researchers. 
 
-You will need to sign in (from any computer) with these temporary credentials any time you want to use SciNet. Two main things to know about SciNet is that (1) you can run smaller jobs directly on its `$SCRATCH` node (see [below](#Preparing--Getting-Familiar-with-Your-Files)) or (2) submit larger jobs via scripts that will require more computational power and thus run as resources are available. 
+Students in this class have been registered with a temporary account for the duration of the course. You will need to sign in (from any computer) with these temporary credentials any time you want to use SciNet. **You should have received an email from SciNet with instructions on how to set up your temporary SciNet account.**
 
-**You should have received an email from SciNet with instructions on how to set up your temporary SciNet account.**
+SciNet's Teach cluster operates differently to other SciNet computing clusters, in that there is no `$SCRATCH` node. You can run smaller jobs on the `$HOME` node, or submit larger jobs via scripts that will require more computational power and thus run as resources are available. For more detailed information about this cluster, [this page on the SciNet wiki](https://docs.scinet.utoronto.ca/index.php/Teach). 
 
 [back to top](#table-of-contents)
 
@@ -118,15 +118,10 @@ Before starting this section of the labs, lets prepare a local directory (*i.e.*
 
 1. Create a "LabFive" folder inside your "EEB462" folder.
 2. Open a new terminal window and navigate to this directory.
-3. Create new directories by running the following commands:
+3. Create new directories by running the following command:
 
 ```
-mkdir prinseqGraphs
-mkdir Aligns
-mkdir Aligns_edited
-mkdir TREES
-mkdir TREES/Concat
-mkdir TREES/Astral
+mkdir prinseqGraphs Aligns Aligns_edited TREES TREES/Concat TREES/Astral
 ```
 These directories will hold your alignments, edited alignments and trees. We will keep returning to them throughout the next three labs.
 
@@ -139,9 +134,7 @@ Now let’s get onto Scinet, where we will be doing most of our work. SciNet is 
    ```
 If this gives you an error, try using the following command instead: `LANG=C ssh -Y <username>@teach.scinet.utoronto.ca`
 
-Now you are logged into SciNet’s super computer system. There are two main login nodes: `$HOME` and `$SCRATCH`. This is where you develop, prepare and submit jobs. 
-
-When you log in, you are automatically taken to the `$HOME` node (you can confirm using `pwd`). This is a read-only node, used mainly for moving files from your computer into SciNet. We will be running all analyses on the `$SCRATCH` node.
+Now you are logged into SciNet’s super computer system. When you log in, you are automatically taken to the `$HOME` node (you can confirm using `pwd`). 
 
 A folder containing all material for the remaining labs has been created in the `$HOME` node: `home/l/lcl_uoteeb462/eeb462starter`
 
@@ -188,9 +181,9 @@ Paste the output from the `head -8` command above (*i.e.* the first 2 reads and 
 7. Use the `ls`, `tr` and `sed` commands to make `speciesNames.txt` and `exonNames.txt` files. These files will contain space-delimited species and exon names, respectively, which will be useful for automating scripts across specific species or exons with for-loops later.
 
   ```
-  ls -d */ | tr '/\n' ' ' > $SCRATCH/speciesNames.txt
-  sed -i 's/astralEx//' $SCRATCH/speciesNames.txt
-  ls O_niloticus_References | sed 's/_REFERENCE.fasta//g' | tr '\n' ' ' > $SCRATCH/exonNames.txt
+  ls -d */ | tr '/\n' ' ' > $HOME/speciesNames.txt
+  sed -i 's/astralEx//' $HOME/speciesNames.txt
+  ls O_niloticus_References | sed 's/_REFERENCE.fasta//g' | tr '\n' ' ' > $HOME/exonNames.txt
   ```
   
 Now whenever you need to automate a script for all folders, simply print the contents of the species or exon file to the console with `cat` and copy and paste what you need into a for-loop (see next section). 
@@ -202,19 +195,19 @@ Now whenever you need to automate a script for all folders, simply print the con
   
 Lastly, SciNet has installed the software that we need as modules. The necessary modules need to be loaded, along with any dependencies (*e.g.* gcc), in order for the software to be available in your SciNet session. 
 
-8. Move into your `scratch`node, then load the modules.
+8. Move into your `$HOME`node, then load the modules.
 
   ```
-  cd $SCRATCH
-  module load gcc
-  module load tbb
-  module load prinseq
-  module load bowtie2
-  module load samtools
-  module load bcftools
+  cd $HOME
+  module load gcc tbb prinseq bowtie2 samtools bcftools
   ```
-If you encounter an error, try replacing the `module load gcc` command with the following command instead: `module load gcc/7.3.0`
-  
+If you encounter an error, try following commands instead: 
+
+  ```
+  module load gcc/7.3.0
+  module load tbb prinseq bowtie2 samtools bcftools
+  ```
+
 9. Confirm that your modules were loaded using the command `module list`, and checking to see that all the relevant modules are displayed in the terminal. 
 
 [back to top](#table-of-contents)
@@ -252,7 +245,7 @@ done
 
 This command may return the following error: `Cannot open file /home/l/lcluoteeb462/eeb462starter/A_cacatuoides/A_cacatuoides_sorted.fastq.gd: Permission denied.`. As long as the file `A_cacatuoides_processed1.fastq` is produced, you may disregard this. 
 
-This PRINSEQ script filters and trims reads based on a series of specified parameters. Here is a more detailed explanation of the parameters that we specified. See the [prinseq manual](#software) for additional options and explanations: 
+This PRINSEQ script filters and trims reads based on a series of specified parameters. Here is a more detailed explanation of the parameters that we specified. See the [prinseq manual](https://prinseq.sourceforge.net/manual.html) for additional options and explanations: 
 
   -	`-fastq` specifies the input fastq file containing the full set of reads
   -	`-out_format` specifies the output format (3 = fastq). 
@@ -305,6 +298,8 @@ Fill out the table below to summarize the types of reads that get filtered and b
 [back to top](#table-of-contents)
 
 ### Assess Read Quality (PRINSEQ)
+
+**NOTE**: As of 23 October 2025, it appears that the online platform for generating prinseq graphs is down. Instead, I have uploaded graphs from the processed and unprocessed reads to GitHub. [Please download them here](https://github.com/ddecarle/eeb462-2024/blob/main/A_cacatuoides_graphs.zip), and skip steps 14–20 below. 
 
 We will be using PRINSEQ’s online software to generate .png graphs to visualize a summary of our unprocessed and processed reads for *A. cacatuoides*.
 
@@ -363,7 +358,7 @@ You can use the post-process graphs to inform the continued to processing of rea
 
 Now that the reads have been processed, we will assemble them into complete target exons using the the *O. niloticus* exons as a guide. These steps are not as computational intensive as the previous section, so we will be using for loops to process *ALL* reads.  
 
-22. Go back to the ***terminal window that is signed into SciNet*** and set your scratch node. You can confirm this using the `pwd` command. If necessary, navigate to the correct directory using `cd $SCRATCH`. 
+22. Go back to the ***terminal window that is signed into SciNet*** and ensure you are located in your `$HOME` directory. You can confirm this using the `pwd` command. If necessary, navigate to the correct directory using `cd $HOME`. 
 
 23. Create an index of the reference sequences using the `Refseq_923.fna` file, which contains all of the target exons for *O. niloticus*. 
 
@@ -371,7 +366,7 @@ Now that the reads have been processed, we will assemble them into complete targ
   bowtie2-build /home/l/lcl_uoteeb462/eeb462starter/Refseq_923.fna Refseq923
   ```
 
-24. Copy all names **except for *O_niloticus***, and use that to replace `<species_names>` in the first line of the following code. Run the following for-loop for ALL target taxa (*i.e.* all taxa except *O. niloticus*). This will assemble reads using the indexed *O. niloticus* reference as a guide. The final result will be consensus sequences with a minimum read depth > 10. As the code below runs (it will take a few minutes) read through the comments above each command and the corresponding more detailed description below for details of the process. Each line of code is numbered so that you can match it with the description below. 
+24. Copy all names from `speciesNames.txt` **except for *O_niloticus***, and use that to replace `<species_names>` in the first line of the following code. Run the following for-loop for ALL target taxa (*i.e.* all taxa except *O. niloticus*). This will assemble reads using the indexed *O. niloticus* reference as a guide. The final result will be consensus sequences with a minimum read depth > 10. As the code below runs (it will take a few minutes) read through the comments above each command and the corresponding more detailed description below for details of the process. Each line of code is numbered so that you can match it with the description below. 
 
   ```
   for species in <species_names>
