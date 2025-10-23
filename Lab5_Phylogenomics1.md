@@ -324,7 +324,7 @@ This folder contains the collection of graphs generated for the unprocessed read
 19. Download the graph file for the ***processed*** *A. cacatuoides* reads to your "prinseqGraphs" directoy using the following command. As before, replace `<username>` with your username and enter your password when prompted. 
 
 ```
-scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/A_cacatuoides/A_cacatuoides_Processed1_Graphs.gd .
+scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/A_cacatuoides/A_cacatuoides_Processed1_Graphs.gd .
 ```
    
 20. Repeat steps 16 – 18 for the processed reads in `A_cacatuoides_Processed1_Graphs.gd`
