@@ -4,11 +4,11 @@
 
 ### Background
 
-During Lab 5 we processed and assembled raw NGS reads to generate fasta format sequences for our taxa of interest (*i.e.* target loci). Today we will focus on **further processing these fasta files in order to prepare the data for phylogenetic analyses**. 
+During [Lab 5](https://github.com/ddecarle/eeb462-2024/blob/main/Lab5_Phylogenomics1.md), we processed and assembled raw NGS reads to generate fasta format sequences for our taxa of interest (*i.e.* target loci). Today we will focus on **further processing these fasta files in order to prepare the data for phylogenetic analyses**. 
 
 The first step will be **assessing our assembled target loci** in more detail. Specifically, we want to make sure that what we assembled is of good enough quality for robust phylogenetic analyses (remember: garbage in ➤ garbage out). Poor quality loci include those with large amounts of **missing data**, as these contain few phylogenetically informative sites and can thus present challenges to or mislead phylogenetic analyses. 
 
-After removing poor quality loci, an important next step is ensuring that loci are orthologous. **Orthologous sequences are those with shared ancestry and whose split from one another was the result of a speciation event**. Another non-speciation event that can lead to similar but non-orthologous sequences is gene duplication. Sequences with a shared ancestry whose split was the result of a gene duplication even are known as **paralogous sequences**. Phylogenies based on orthologous sequences give us the history of species relationship. In contrast, phylogenies based on paralogous sequences give us the history of gene duplication events, which may not be the same as the history of speciation events. Therefore, if we are interested in resolving species relationships (which we often are), then it is imperative that we base our analyses almost exclusively on orthologous sequences.
+After removing poor quality loci, an important next step is ensuring that loci are orthologous. **Orthologous sequences are those with shared ancestry and whose divergence from one another was the result of a speciation event**. Another non-speciation event that can lead to similar, but non-orthologous, sequences is gene duplication. Sequences with a shared ancestry whose split was the result of a gene duplication event are known as **paralogous sequences**. Phylogenies based on orthologous sequences give us the history of species relationship. In contrast, phylogenies based on paralogous sequences give us the history of gene duplication events, which may not be the same as the history of speciation events. Therefore, if we are interested in resolving species relationships (which we often are), then it is imperative that we base our analyses almost exclusively on orthologous sequences.
 
 Unfortunately, it is not always easy to determine whether the loci you are using represent orthologous copies across your taxa. In response, several approaches for identifying orthologs have been developed:
 
@@ -56,13 +56,13 @@ Don't forget to ***consult the [Command Line Basics](https://github.com/ddecarle
 
 ### Assessing and Filtering Assembled Loci
 
-1. Log into SciNet and navigate into your `$SCRATCH` directory. Use the same username and password you used for the previous lab. 
+1. Log into SciNet using the `ssh` command. You should already be located in your home folder (*i.e.* `/home/l/lcl_uoteeb462/<username>`). You can confirm this using the `pwd` command.
 
 	```
 	ssh -Y <username>@teach.scinet.utoronto.ca
 	cd $SCRATCH
 	```
-At the end of last lab we generated complete target loci for our ingroup taxa. The `*.fasta` files that we generated have multiple lines of nucleotides per locus (you can confirm using `head -20 Gym_balzanii/Gym_balzanii.fasta`). Sequence data is much easier to work with if there is only a single line of nucleotides per locus. 
+At the end of last lab we generated complete target loci for our ingroup taxa. The `*.fasta` files that we generated have multiple lines of nucleotides per locus (you can confirm using `head -20 Gym_balzanii/Gym_balzanii.fasta`). Sequence data is much easier to work with if the entire nucleotide sequence for each locus is stored on a single line. 
 
 2. Use this for loop to update our `*.fasta` files so that each locus consists of only a single line of text with the entire sequence.
 
@@ -80,9 +80,9 @@ At the end of last lab we generated complete target loci for our ingroup taxa. T
 
 Now we will further process our assembled reads to prepare them for multiple sequence alignment.
 
-If you look at the sequences for any one species (*i.e.* the `*.fasta` file), you will note that some loci have some or many Ns. **Loci with large amounts of missing data have few phylogenetically informative sites and are therefore not particularly useful for inferring relationships**, and can actually mislead estimates in some cases. Filtering out poor quality loci is a common next step in phylogenetics. 
+If you look at the sequences for any one species (*i.e.* the `*.fasta` file), you will note that some loci have some or many Ns. These Ns represent unknown nucleotides. **Loci with large amounts of missing data have few phylogenetically informative sites and are therefore not particularly useful for inferring relationships**, and can actually mislead estimates in some cases. Filtering out poor quality loci is a common next step in phylogenetics. 
 
-Choosing which loci to filter out is usually arbitrary, but nonetheless informed by the data. For example, you may choose to filter out any target sequence that is less than 50% of the reference length. Filtering of loci can be done either with the command line or GUI sequence editing software, like [Geneious](https://www.geneious.com/) or [Mesquite](http://www.mesquiteproject.org/Installation.html). Here we will filter out all target sequences < 500 basepairs (bp) in length using the command line. 
+Choosing which loci to filter out is usually arbitrary to some degree, but nonetheless informed by the data. For example, you may choose to filter out any target sequence that is less than 50% of the reference length. Filtering of loci can be done either with the command line or GUI sequence editing software, like [Geneious](https://www.geneious.com/) or [Mesquite](http://www.mesquiteproject.org/Installation.html). Here we will filter out all target sequences < 500 basepairs (bp) in length using the command line. 
 
 4. Run the following script. **Read the embedded comments** to get a better idea of what the script is doing.
 
@@ -127,7 +127,7 @@ Reveal the contents of the `TargLengths_min500.txt` file for the first two taxa 
 
 Now that we have established a set of good quality target loci, we are ready to align our sequences. 
 
-5. To keep things neat, make a directory to hold your alignments: `mkdir Aligns`. This directory should have been created within your `$SCRATCH` directory. Confirm using this command: `ls $SCSRATCH`  
+5. To keep things neat, make a directory to hold your alignments: `mkdir Aligns`. This directory should have been created within your `$HOME` directory. Confirm using this command: `ls $HOME`  
 
 Right now, the target sequences only include the locus names. We need to **append the species name to each locus**, otherwise we won’t be able to identify to which species loci belong to once they are aligned. (The references are already appended with “`O_niloticus`".) We also need to **separate all sequences into their own files** because we will have to concatenate them by locus, rather than by species like they are now, for MUSCLE to align them. 
 
@@ -167,7 +167,7 @@ Right now the Aligns directory only contains target sequences.
 
 8. Put a copy of the *O. niloticus* loci in there as well, as this will be our outgroup taxon in phylogenetic analyses:`cp /home/l/lcl_uoteeb462/eeb462starter/O_niloticus_References/*.fasta Aligns/`. 
 
-Also add a copy of `muscle` for your `$SCRATCH` folder: `cp /home/l/lcl_uoteeb462/eeb462starter/muscle $SCRATCH`
+Also add a copy of `muscle` to your `$HOME` folder: `cp /home/l/lcl_uoteeb462/eeb462starter/muscle $HOME`
 
 Now let’s concatenate and align our loci!
 
@@ -193,7 +193,7 @@ First, we will concatenate the `*.fasta` files by locus to generate 20 "`${exon}
 	
 	- You will be asked to confirm that you want to delete these files, simply enter `y` when prompted.
 
-11. Confirm that you have created `*_MUSCLEaligned.fasta` files for each locus: `ls Aligns/*_MUSCLEaligned.fasta`.
+11. Confirm that you have created `*_MUSCLEaligned.fasta` files for each locus (n=20): `ls Aligns/*_MUSCLEaligned.fasta`.
 
 [back to top](#table-of-contents)
 
@@ -254,12 +254,12 @@ Some of the potential problems may include the addition of gaps in an alignment 
 
 **Download alignments from SciNet to the Aligns folder that you created on your computer last week.** 
 
-14. **Open a new terminal window that is not signed into SciNet** and move into your local Aligns directory (*i.e.* the Aligns folder that you created on your computer last week). Confirm that you are in the right place using `pwd`. We will be working in this directory, off of SciNet, for the remainder of the lab, so make sure that you are in the right place.
+14. **Open a new terminal window that is not signed into SciNet** and move into your local Aligns directory (*i.e.* the Aligns folder that you created **on your local computer** last week). Confirm that you are in the right place using `pwd`. We will be working in this directory, off of SciNet, for the remainder of the lab, so make sure that you are in the right place.
 
 15. When you are in the right directory, use `scp` ("secure copy") to download all `*_MUSCLEaligned.fasta` files from the `Aligns` directory in Scinet to your *local* `Aligns` directory. The period (`.`) at the end of this command specifies that the downloaded files should be placed in the current working directory (which again, is your local Aligns directory). Replace `<directory>` with your desired directory. Also replace `<username>` with your Scinet username. Enter your password when prompted. 
 
 ```
-scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/Aligns/\*MUSCLEaligned.fasta .
+scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/Aligns/\*MUSCLEaligned.fasta .
 ```
 
 **NOTE:** the back-slash (`\`) before the wildcard character (`*`) in the above command is known as an "escape character". We use escape characters to indicate that we want to use the literal meaning for the following character, rather than any other significance that character might have. Although we do not need to use an escape character when navigating through directories on SciNet, it is an essential part of the `scp` command. 
@@ -320,11 +320,11 @@ Reviewing and manually editing alignments can be very time consuming for phyloge
 
 Let's end by putting our edited alignments back onto SciNet. 
 
-20. In a terminal window that **is** logged into your SciNet account, create a new directory on your `$SCRATCH` node to hold edited alignments: `mkdir Aligns_edited`.
+20. In a terminal window that **is** logged into your SciNet account, create a new directory on your `$HOME` node to hold edited alignments: `mkdir Aligns_edited`.
 
 21. From your other terminal window (*i.e.* the one that is **not** logged in to SciNet), navigate to your `Aligns_edited` folder, and use the following `scp` command to transfer the files back to SciNet. As always, remember to replace `<username>` with the correct user ID.
 
-`scp * <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/Aligns_edited`
+`scp * <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/Aligns_edited`
 
 [back to top](#table-of-contents)
 
