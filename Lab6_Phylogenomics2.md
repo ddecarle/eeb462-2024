@@ -60,7 +60,6 @@ Don't forget to ***consult the [Command Line Basics](https://github.com/ddecarle
 
 	```
 	ssh -Y <username>@teach.scinet.utoronto.ca
-	cd $SCRATCH
 	```
 At the end of last lab we generated complete target loci for our ingroup taxa. The `*.fasta` files that we generated have multiple lines of nucleotides per locus (you can confirm using `head -20 Gym_balzanii/Gym_balzanii.fasta`). Sequence data is much easier to work with if the entire nucleotide sequence for each locus is stored on a single line. 
 
