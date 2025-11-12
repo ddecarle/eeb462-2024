@@ -101,7 +101,7 @@ As with [Lab 5](https://github.com/ddecarle/eeb462-2021/blob/main/Lab5_Phylogeno
 
 ### Prepare Your Working Directory
 
-1. Login to Scinet and move into your `$SCRATCH` directory.
+1. Login to Scinet. You should be located in your `$HOME` directory: you can confirm this using the command `pwd`.
 
 2. Make a folder called "TREES": `mkdir TREES`
 
@@ -136,10 +136,9 @@ To rename tips so that they are identical across loci, we simply have to get rid
 7. Finally, load the necessary modules for today's lab:
 
     ```
-    module load gcc
+    module load gcc StdEnv/2020 openmpi/4.0.3
     module load raxml
     module load java
-    module load astral
     ```
 
 [back to top](#table-of-contents)
@@ -155,18 +154,29 @@ Let’s concatenate our edited alignments into a supermatrix. While you could wr
 9. Navigate into the new `Concat` folder, and download the alignments that we just worked on from SciNet. Be sure to replace `<username>` with your username. 
 
     ```
-    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/Aligns_edited/\*.fasta .
+    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/Aligns_edited/\*.fasta .
     ```
 
 10. Open one of the alignments in Mesquite by clicking **File** > **Open File** > select the first file in your list of fasta alignments > select **Fasta(DNA/RNA)** > **OK**. (***Tip:** Open the alignments in the order that they appear in the folder – i.e. alphabetically – so that you don’t get confused.*)
 
-11. To open the next alignment click on **File** > **Link File…** > select the next \*.fasta alignment file > select **Fasta(DNA/RNA)** > **OK**. 
+11. To open the next alignment click on **File** > **Include & Merge** > **Include File…** > select the next `.fasta` alignment file > select **Fasta(DNA/RNA)** > **OK**. 
 
-12. Repeat this **Link File** step for the remaining fasta alignments. (Files must be linked in order to concatenate them.) 
+12. Repeat this **Include File** step for the remaining fasta alignments. (Files must be included in order to concatenate them.) 
 
-13. When all 18 alignments have been opened correctly (*i.e.* the last 17 linked with the first) click **Character** > **Concatenate Character Matrices** > **OK**. Then select the character matrices corresponding to our loci by selecting all rows from the Character Matrix column in the table that appears. With all matrices selected, click **List** > **Utilities** > **Concatenate Selected Matrices**. A window of options will pop up; leave both options unchecked and press **OK**. A new row (row 19) will appear in the Character Matrix column called **(Character Matrix) + (Character Matrix) + …)**.
+13. When all 18 alignments have been opened correctly (*i.e.* the last 17 included with the first), you can begin concatenating your matrices. First, you will notice that several Taxa blocks are marked by an error icon (an exclamation mark encolsed in a yellow circle) on the lefthand sidebar. Click on one of these Taxa blocks, and select **Merge Matrices and Trees with other Taxa Block** from the drop-down menu that appears. If a dialogue box appears, click **OK**. Repeat this process for all remaining Taxa blocks with an error icon. You should now have 5 Taxa blocks with 10, 7, 7, 5, and 9 taxa respectively. 
 
-14. View your concatenated supermatrix. Click **Characters** > **Extra Matrix Editor** >  and select the concatenated (*i.e.* **(Character Matrix) + (Character Matrix) + …**) matrix. A new tab with your concatenated matrix should open. The rows should contain your 10 taxa. Some gaps will have been introduced to fill in spaces where a taxon is missing an entire locus (*e.g.* scroll through A. cacatuoides, which was missing a few loci). 
+14. We will now create associations between these blocks of taxa, following the same procedure outlined in [Lab One](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md):
+
+ - Begin by clicking **Taxa & Trees** > **New Association**.
+ - Ensure the Taxa block with all 10 tips is selected, then click **OK** in the dialogue box that appears.
+ - Select another Taxa block in the next dialogue box, then click **OK**
+ - Enter an informative name for this association, then click **OK**
+ - Click **Contained taxa** at the heading of the yellow column that appears, then select **Assign Associates by Name Matching**. Click **OK** in the window that appears.
+ - Repeat this process until you have associations for all Taxa blocks
+ 
+15. Select **File** > **Export...** > **Fused Matrix Export (NEXUS)** > **OK**. Ensure all boxes are unchecked, then click **Export**. As the maseter block of taxa, select the Taxa block that includes all 10 taxa > **OK**. Save this file as `Concat_18Loci_fused.nex`.
+
+16. Open the file you just created (`Concat_18Loci_fused.nex`) in Mesquite, and view your concatenated supermatrix. The rows should contain your 10 taxa. Some gaps will have been introduced to fill in spaces where a taxon is missing an entire locus (*e.g.* scroll through A. cacatuoides, which was missing a few loci). 
 
 ---
 #### QUESTION 1 
@@ -175,31 +185,30 @@ How long is the concatenated supermatrix? *(1 point)*
 
 ---
 
-15. Export the supermatrix. Click **File** > **Export** > select **FASTA (DNA/RNA)** > **OK** > select your supermatrix in the window that pops up > **OK** > make sure that **include gaps** is checked > **Export** > name your file **Concat_18Loci.fasta** > **Save**.
+17. Export the supermatrix. Click **File** > **Export...** > select **FASTA (DNA/RNA)** > **OK** > select your supermatrix in the window that pops up > **OK** > make sure that **include gaps** is checked > **Export** > name your file `Concat_18Loci.fasta` > **Save**.
 
-16. Upload this supermatrix back to SciNet: From the terminal window whose working directory is set to your local directory with the exported supermatrix, run the following. As always, replace `<username>` with your username. 
+18. Upload this supermatrix back to SciNet: From the terminal window whose working directory is set to your local directory with the exported supermatrix, run the following. As always, replace `<username>` with your username. 
 
     ```
-    scp Concat_18Loci.fasta <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/Concat
+    scp Concat_18Loci.fasta <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/Concat
     ```
 
-17. Now that the supermatrix is in place, in the terminal window that is ***logged into SciNet***, move into the Concat folder: `cd TREES/Concat`
+19. Now that the supermatrix is in place, in the terminal window that is ***logged into SciNet***, move into the Concat folder: `cd TREES/Concat`
 
-18. As before, we'll need to modify our `*.fasta` file to make sure that the entire sequence for each taxon is on the same line. **NOTE:** This is an annoying feature of Mesquite. If you use other sequence editing software (*e.g.* Geneious), you can more easily export sequences with all bases on the same line.
+20. As before, we'll need to modify our `*.fasta` file to make sure that the entire sequence for each taxon is on the same line. **NOTE:** This is an annoying feature of Mesquite. If you use other sequence editing software (*e.g.* Geneious), you can more easily export sequences with all bases on the same line.
 
     ```
     cat Concat_18Loci.fasta | sed '/^>/ s/^/ /' | sed '/^ >/ s/$/ /' | tr -d '\n' | tr ' ' '\n' | sed '/^$/d' > Concat_18Loci2.fasta
     mv -f Concat_18Loci2.fasta Concat_18Loci.fasta
     ```
 
-19. Run the following command to build a ML phylogeny with RAxML. It will take about 5 minutes to complete. While it only takes a single line of code to run RAxML, there are a number of decisions to make that will define how your tree is built. Read through the explanation below while RAxML runs.  
+21. Run the following command to build a ML phylogeny with RAxML. It will take about 5 minutes to complete. While it only takes a single line of code to run RAxML, there are a number of decisions to make that will define how your tree is built. Read through the explanation below while RAxML runs.  
 
     ```
-    raxmlHPC-PTHREADS -T 2 -f a -p 1234 -x 2345 -N 1000 -m GTRGAMMA -o O_niloticus -s Concat_18Loci.fasta -n Geophagini_ConcatTREE.tre 
+    raxmlHPC -f a -p 1234 -x 2345 -N 1000 -m GTRGAMMA -o O_niloticus -s Concat_18Loci.fasta -n Geophagini_ConcatTREE.tre 
     ```
 
-  - `raxmlHPC-PTHREADS`: RAxML has a number of versions to meet different data requirements and machine capabilities. These allow you to break an analyses up into parts (*i.e.* threads) that run concurrently, often distributed across multiple nodes on a computer. The purpose is to speed large jobs up significantly, such as phylogenomic analyses on hundreds of taxa. 
-  - `-T 2`: specifies that we want to run this job with 2 **threads**. The version of RAxML, number of threads and number of nodes to use depends on the size of your job and computing environment. Since our job is actually quite small, we will use only 2 threats, the minimum allowed on SciNet. 
+  - `raxmlHPC`: RAxML has a number of versions to meet different data requirements and machine capabilities. These allow you to break an analyses up into parts (*i.e.* threads) that run concurrently, often distributed across multiple nodes on a computer. The purpose is to speed large jobs up significantly, such as phylogenomic analyses on hundreds of taxa. 
   - `-f a`: `-f` sets the **algorithm** to be used for analyses. RAxML has several algorithms available. We will use the “rapid bootstrapping and searches for best-scoring ML tree in one run” algorithm, which is represented by `a`. See the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf) for all available algorithms.  
   - `-p 1234`: This parameter sets a **random seed for the tree search**. Any random combination of numbers can be assigned here. Now every time you re-run the analyses with the same seed, it starts from the same random starting point. Technically, you don’t have to set a seed, but you should because it makes your ML search reproducible.  
   - `-x 2345`: Turns on **rapid bootstrapping** and sets a **random seed**.
@@ -211,7 +220,7 @@ How long is the concatenated supermatrix? *(1 point)*
 
 While the search is occurring, RAxML prints out progress reports to the terminal. Some of the information provided includes the current bootstrap replicated, time taken for bootstrapping, ML search, time taken for ML search, and files created. 
 
-20. Once your run has completed, take a look at the files that were created: `ls` (A brief description of each is provided below.)
+22. Once your run has completed, take a look at the files that were created: `ls` (A brief description of each is provided below.)
 
   - `Concat_18Loci.fasta.reduced`: A copy of our supermatrix excluding taxa that have identical sequences, in case you want to re-run analyses with only variable taxa. 
   - `RAxML_bestTree.Geophagini_ConcatTREE.tre`: The best ML tree. (This tree is not annotated – *i.e.* it contains no bootstrap values.)
@@ -220,7 +229,13 @@ While the search is occurring, RAxML prints out progress reports to the terminal
   - `RAxML_bipartitionsBranchLabels.Geophagini_ConcatTREE.tre`: The best ML tree annotated with bootstrap support on the branches.
   - `RAxML_info.Geophagini_ConcatTREE.tre`: Text document with a summary of analyses. It contains the same information that was printed to the terminal during your analyses.
  
-Each file contains information that can be used for different purposes. We will be making use of the `*bestTree*`, `*bootstrap*`, `*bipartitions*` and `*info*` files in this lab.  
+Each file contains information that can be used for different purposes. We will be making use of the `*bestTree*`, `*bootstrap*`, `*bipartitions*` and `*info*` files in this lab.
+
+23. Download resulting concatenation tree files from SciNet to a folder of your choice. As before, in a terminal window that is ***not signed in to SciNet***, `cd` to the folder that you want to put your trees into (`... /LabFive/TREES/Concat`) and then run the following command, replacing `<username>` with your username and entering the password when prompted. 
+
+    ```
+    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/Concat/\*.tre .
+    ```
 
 ---
 #### QUESTION 2
@@ -233,13 +248,7 @@ Explore the contents of the `RAxML_info*` file. Scroll through the file to find 
 
 ---
 
-21. Download resulting concatenation tree files from SciNet to a folder of your choice. As before, in a terminal window that is ***not signed in to SciNet***, `cd` to the folder that you want to put your trees into (`... /LabFive/TREES/concat`) and then run the following command, replacing `<username>` with your username and entering the password when prompted. 
-
-    ```
-    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/Concat/\*.tre .
-    ```
-
-22. Open the annotated concatenated tree (`RAxML_bipartitions.Geophagini_ConcatTREE.tre`) in FigTree, and use the **Display** drop-down menu in the **Node Labels** tab to show the bootstrap values. 
+24. Open the annotated concatenated tree (`RAxML_bipartitions.Geophagini_ConcatTREE.tre`) in FigTree, and use the **Display** drop-down menu in the **Node Labels** tab to show the bootstrap values. 
 
 After examining the tree, leave the window open: we'll return to it once we have constructed our species tree. 
 
@@ -253,7 +262,7 @@ Now that we have our concatenation tree, let’s infer a species a tree!
 
 As mentioned previously, we are using a **summary approach**, which **takes gene trees as input**. So, the first step in building a species tree is building gene trees for each of our loci. Gene trees will be inferred in RAxML. 
 
-23. In SciNet, navigate back to the `eeb462share` directory, and make a new folder within the `ASTRAL` directory to hold your gene trees. (Then, confirm that your folder was created using `ls`.)
+25. In SciNet, navigate back to the `eeb462share` directory, and make a new folder within the `ASTRAL` directory to hold your gene trees. (Then, confirm that your folder was created using `ls`.)
   
     ```
     cd $SCRATCH/
@@ -262,7 +271,7 @@ As mentioned previously, we are using a **summary approach**, which **takes gene
     ls TREES/ASTRAL
     ```
   
-24. Use the following for loop to make 18 maximum likelihood gene trees using the edited alignments that we have stored in the `Aligns_edited` directory. The outputted gene trees will be stored in the `TREES/ASTRAL/geneTrees` directory. We are running RAxML in almost the same way as for the concatenated tree, except that this time **no outgroup taxon is specified**, because ASTRAL takes unrooted gene trees as input. (It will take close to 15 minutes for all of your gene trees to be complete.)
+26. Use the following for loop to make 18 maximum likelihood gene trees using the edited alignments that we have stored in the `Aligns_edited` directory. The outputted gene trees will be stored in the `TREES/ASTRAL/geneTrees` directory. We are running RAxML in almost the same way as for the concatenated tree, except that this time **no outgroup taxon is specified**, because ASTRAL takes unrooted gene trees as input. (It will take close to 15 minutes for all of your gene trees to be complete.)
 
     ```
     cd Aligns_edited
@@ -274,7 +283,7 @@ As mentioned previously, we are using a **summary approach**, which **takes gene
     done
     cd ..
     ```
-25. When the analyses have completed, confirm that your gene trees have been created: `ls TREES/ASTRAL/geneTrees/RAxML_bestTree* | wc -l`
+27. When the analyses have completed, confirm that your gene trees have been created: `ls TREES/ASTRAL/geneTrees/RAxML_bestTree* | wc -l`
 
   - `ls` looks for all files beginning with `RAxML_bestTree` and `wc -l` counts the located files. The number 18 should be printed out, corresponding to the 18 ML gene trees that you made. 
 
@@ -284,9 +293,9 @@ As mentioned previously, we are using a **summary approach**, which **takes gene
 
 We're almost there! Just a few more file modifications, and then we can make the species tree!
 
-26. Move into the `TREES/ASTRAL` directory. (It is easier to work from here.)
+28. Move into the `TREES/ASTRAL` directory. (It is easier to work from here.)
 
-27. Copy the ASTRAL executable and its library folder from `eeb462share/astralEx` into this folder. (These need to be in your working directory for ASTRAL to run.)
+29. Copy the ASTRAL executable and its library folder from `eeb462share/astralEx` into this folder. (These need to be in your working directory for ASTRAL to run.)
 
     ```
     cp -r /home/l/lcl_uoteeb462/eeb462starter/astralEx/lib .
@@ -298,11 +307,11 @@ There are many options for quantifying node support in ASTRAL. Since we used boo
   - 1. A single file containing all of the best ML gene trees (*i.e.* the `RAxML_bestTree.*.tre` files) in Newick format
   - 2. A text file listing the path to the bootstrap tree files (*i.e.* the `RAxML_bootstrap.*.tre` files) for the 18 gene trees.
 
-28. Concatenate the best gene tree files into a single file called `bestGeneTrees.tre`: `cat geneTrees/*bestTree* >> bestGeneTrees.tre`
+30. Concatenate the best gene tree files into a single file called `bestGeneTrees.tre`: `cat geneTrees/*bestTree* >> bestGeneTrees.tre`
 
-29. The `>>` specifies that each successive`*bestTree*` file should be added to a new line in the same file (rather than overwriting the contents of the file). So the `bestGeneTrees.tre` file should have 18 lines. Confirm with `wc -l`.
+31. The `>>` specifies that each successive`*bestTree*` file should be added to a new line in the same file (rather than overwriting the contents of the file). So the `bestGeneTrees.tre` file should have 18 lines. Confirm with `wc -l`.
 
-30. Concatenate the paths for the bootstrap tree files into a single file called `bootstrapTrees.txt`: `find geneTrees -type f -name "*bootstrap*" >> bootstrapTrees.txt`
+32. Concatenate the paths for the bootstrap tree files into a single file called `bootstrapTrees.txt`: `find geneTrees -type f -name "*bootstrap*" >> bootstrapTrees.txt`
 
   - This command translates as: `find` in the `geneTrees` directory objects of `type` file (specified by `f`) with a name containing the string bootstrap and save the path to these to a new line in a single file called `bootstrapTrees.txt`. 
   - look into the contents of the file to confirm that it also has 18 lines: 
@@ -313,7 +322,7 @@ There are many options for quantifying node support in ASTRAL. Since we used boo
 
 Ok. ***NOW*** let's build our species tree.
 
-31. Run ASTRAL using the following command:
+33. Run ASTRAL using the following command:
 
     ```
     java -jar astral.5.6.3.jar -i bestGeneTrees.tre -b bootstrapTrees.txt -r 700 -t 8 -s 2468 -o Geophagini_AstralTREE_BS.tre 2> Geophagini_AstralTREE_BS.log 
@@ -331,14 +340,14 @@ ASTRAL is really fast, so it will only take a few seconds to get a tree. Here is
 
 The resulting `Geophagini_AstralTREE_BS.tre` file contains 702 trees: The first 700 are bootstrap replicates, 701 is a bootstrap consensus tree and 702 is the ASTRAL tree annotated with bootstrap support. We will look at this output file in a moment, but for now...
 
-32. ...save the final ASTRAL tree to its own file called `Geophagini_AstralTREE.tre`: `tail -1 Geophagini_AstralTREE_BS.tre > Geophagini_AstralTREE.tre`
+34. ...save the final ASTRAL tree to its own file called `Geophagini_AstralTREE.tre`: `tail -1 Geophagini_AstralTREE_BS.tre > Geophagini_AstralTREE.tre`
 
 ASTRAL has a parameter `t` that allows you to annotate a species tree with a number of different support measures. Alternative quartet support is a useful annotation. It shows the percentage of gene trees in the dataset that support the three possible alternative topologies (denoted q1, q2 and q3 in the tree) for each node. "Q1" refers to the topology that is shown in your tree, while "q2" and "q2" correspond to the two alternative resolutions of that node.
 
 **A quartet support of 1 means that all gene trees support that node, while values less than 1 indicate some support for one or both of the two alternative topologies.**  
 
 
-33. Annotate the species tree that we just generated with alternative quartet support:
+35. Annotate the species tree that we just generated with alternative quartet support:
 
     ```
     java -jar astral.5.6.3.jar -q Geophagini_AstralTREE.tre -i bestGeneTrees.tre -t 8 -s 2468 -o Geophagini_AstralTREE-q1q2q3.tre 2> Geophagini_AstralTREE-q1q2q3.log 
@@ -349,7 +358,7 @@ ASTRAL has a parameter `t` that allows you to annotate a species tree with a num
 
 **NOTE:** because we are just annotating our species tree with new values, the topologies of our two species trees are identical. The only difference is that one is annotated with bootstrap values, while the other shows alternative quartet support. 
 
-34. Download the two species trees and their log files from SciNet to the `... LabFive/TREES/ASTRAL` folder on your computer.
+36. Download the two species trees and their log files from SciNet to the `... LabFive/TREES/ASTRAL` folder on your computer.
 
     ```
     scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE-q1q2q3\* .
