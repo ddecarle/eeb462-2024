@@ -262,10 +262,10 @@ Now that we have our concatenation tree, let’s infer a species a tree!
 
 As mentioned previously, we are using a **summary approach**, which **takes gene trees as input**. So, the first step in building a species tree is building gene trees for each of our loci. Gene trees will be inferred in RAxML. 
 
-25. In SciNet, navigate back to the `eeb462share` directory, and make a new folder within the `ASTRAL` directory to hold your gene trees. (Then, confirm that your folder was created using `ls`.)
+25. In SciNet, navigate back to your `$HOME` directory, and make a new folder within the `ASTRAL` directory to hold your gene trees. (Then, confirm that your folder was created using `ls`.)
   
     ```
-    cd $SCRATCH/
+    cd $HOME/
     mkdir TREES/ASTRAL/geneTrees
     
     ls TREES/ASTRAL
@@ -278,7 +278,7 @@ As mentioned previously, we are using a **summary approach**, which **takes gene
     
     for exon in ENSONIE00000005149 ENSONIE00000015639 ENSONIE00000021168 ENSONIE00000023461 ENSONIE00000029595 ENSONIE00000034582 ENSONIE00000042474 ENSONIE00000044242 ENSONIE00000048423 ENSONIE00000061707 ENSONIE00000075454 ENSONIE00000110949 ENSONIE00000130663 ENSONIE00000141538 ENSONIE00000265157 ENSONIE00000265161 ENSONIE00000265364 ENSONIE00000265379_GPR85 
     do
-    raxmlHPC-PTHREADS -T 2 -f a -p 1234 -x 2345 -N 1000 -m GTRGAMMA -s ${exon}_MUSCLEaligned.fasta -n ${exon}_geneTree.tre
+    raxmlHPC -f a -p 1234 -x 2345 -N 1000 -m GTRGAMMA -s ${exon}_MUSCLEaligned.fasta -n ${exon}_geneTree.tre
     mv *.tre ../TREES/ASTRAL/geneTrees
     done
     cd ..
@@ -361,9 +361,9 @@ ASTRAL has a parameter `t` that allows you to annotate a species tree with a num
 36. Download the two species trees and their log files from SciNet to the `... LabFive/TREES/ASTRAL` folder on your computer.
 
     ```
-    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE-q1q2q3\* .
-    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE_BS.log .
-    scp <username>@teach.scinet.utoronto.ca:/scratch/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE.tre .
+    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE-q1q2q3\* .
+    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE_BS.log .
+    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE.tre .
     ```
 
 ---
