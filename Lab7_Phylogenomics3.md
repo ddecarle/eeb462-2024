@@ -105,7 +105,7 @@ As with [Lab 5](https://github.com/ddecarle/eeb462-2021/blob/main/Lab5_Phylogeno
 
 2. Make a folder called "TREES": `mkdir TREES`
 
-3. Within the `TREES` folder, make two sub-folders: "Concat" for our concatenation tree, and "ASTRAL" for our species tree: `mkdir TREES/{Concat,ASTRAL}`
+3. Within the `TREES` folder, make two sub-folders: "Concat" for our concatenation tree, and "ASTRAL" for our species tree: `mkdir TREES/{Concat,Astral}`
 
 Recall that, in our last lab, we needed to adjust our sequence files so that they were properly formatted for the software being used. We need to do this again in this lab for our tree-building software.
 
@@ -262,16 +262,16 @@ Now that we have our concatenation tree, let’s infer a species a tree!
 
 As mentioned previously, we are using a **summary approach**, which **takes gene trees as input**. So, the first step in building a species tree is building gene trees for each of our loci. Gene trees will be inferred in RAxML. 
 
-25. In SciNet, navigate back to your `$HOME` directory, and make a new folder within the `ASTRAL` directory to hold your gene trees. (Then, confirm that your folder was created using `ls`.)
+25. In SciNet, navigate back to your `$HOME` directory, and make a new folder within the `Astral` directory to hold your gene trees. (Then, confirm that your folder was created using `ls`.)
   
     ```
     cd $HOME/
-    mkdir TREES/ASTRAL/geneTrees
+    mkdir TREES/Astral/geneTrees
     
-    ls TREES/ASTRAL
+    ls TREES/Astral
     ```
   
-26. Use the following for loop to make 18 maximum likelihood gene trees using the edited alignments that we have stored in the `Aligns_edited` directory. The outputted gene trees will be stored in the `TREES/ASTRAL/geneTrees` directory. We are running RAxML in almost the same way as for the concatenated tree, except that this time **no outgroup taxon is specified**, because ASTRAL takes unrooted gene trees as input. (It will take close to 15 minutes for all of your gene trees to be complete.)
+26. Use the following for loop to make 18 maximum likelihood gene trees using the edited alignments that we have stored in the `Aligns_edited` directory. The outputted gene trees will be stored in the `TREES/Astral/geneTrees` directory. We are running RAxML in almost the same way as for the concatenated tree, except that this time **no outgroup taxon is specified**, because ASTRAL takes unrooted gene trees as input. (It will take close to 15 minutes for all of your gene trees to be complete.)
 
     ```
     cd Aligns_edited
@@ -279,11 +279,11 @@ As mentioned previously, we are using a **summary approach**, which **takes gene
     for exon in ENSONIE00000005149 ENSONIE00000015639 ENSONIE00000021168 ENSONIE00000023461 ENSONIE00000029595 ENSONIE00000034582 ENSONIE00000042474 ENSONIE00000044242 ENSONIE00000048423 ENSONIE00000061707 ENSONIE00000075454 ENSONIE00000110949 ENSONIE00000130663 ENSONIE00000141538 ENSONIE00000265157 ENSONIE00000265161 ENSONIE00000265364 ENSONIE00000265379_GPR85 
     do
     raxmlHPC -f a -p 1234 -x 2345 -N 1000 -m GTRGAMMA -s ${exon}_MUSCLEaligned.fasta -n ${exon}_geneTree.tre
-    mv *.tre ../TREES/ASTRAL/geneTrees
+    mv *.tre ../TREES/Astral/geneTrees
     done
     cd ..
     ```
-27. When the analyses have completed, confirm that your gene trees have been created: `ls TREES/ASTRAL/geneTrees/RAxML_bestTree* | wc -l`
+27. When the analyses have completed, confirm that your gene trees have been created: `ls TREES/Astral/geneTrees/RAxML_bestTree* | wc -l`
 
   - `ls` looks for all files beginning with `RAxML_bestTree` and `wc -l` counts the located files. The number 18 should be printed out, corresponding to the 18 ML gene trees that you made. 
 
@@ -293,7 +293,7 @@ As mentioned previously, we are using a **summary approach**, which **takes gene
 
 We're almost there! Just a few more file modifications, and then we can make the species tree!
 
-28. Move into the `TREES/ASTRAL` directory. (It is easier to work from here.)
+28. Move into the `TREES/Astral` directory. (It is easier to work from here.)
 
 29. Copy the ASTRAL executable and its library folder from `eeb462share/astralEx` into this folder. (These need to be in your working directory for ASTRAL to run.)
 
@@ -358,12 +358,12 @@ ASTRAL has a parameter `t` that allows you to annotate a species tree with a num
 
 **NOTE:** because we are just annotating our species tree with new values, the topologies of our two species trees are identical. The only difference is that one is annotated with bootstrap values, while the other shows alternative quartet support. 
 
-36. Download the two species trees and their log files from SciNet to the `... LabFive/TREES/ASTRAL` folder on your computer.
+36. Download the two species trees and their log files from SciNet to the `... LabFive/TREES/Astral` folder on your computer.
 
     ```
-    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE-q1q2q3\* .
-    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE_BS.log .
-    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/ASTRAL/Geophagini_AstralTREE.tre .
+    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/Astral/Geophagini_AstralTREE-q1q2q3\* .
+    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/Astral/Geophagini_AstralTREE_BS.log .
+    scp <username>@teach.scinet.utoronto.ca:/home/l/lcl_uoteeb462/<username>/TREES/Astral/Geophagini_AstralTREE.tre .
     ```
 
 ---
