@@ -89,6 +89,8 @@ Don't forget to ***consult the [Command Line Basics](https://github.com/ddecarle
 
 As with [Lab 5](https://github.com/ddecarle/eeb462-2021/blob/main/Lab5_Phylogenomics1.md) & [Lab 6](https://github.com/ddecarle/eeb462-2021/blob/main/Lab6_Phylogenomics2.md), you'll also need your SciNet login information. Your username can be found on quercus.
 
+**If you are using one of the EEB Teaching Laptops**, you will be unable to use FigTree. You can instead use the Interactive Tree of Life tree viewer following the [instructions from Lab 4](https://github.com/ddecarle/eeb462-2024/blob/main/LAB3_MaximumLikelihood_for_PowerShell.md).
+
 ## Tutorial
 
 | Main Objective for This Lab: |
