@@ -1,6 +1,8 @@
 ## Setting up your workspace 
 
-1. All necessary files for this lab are stored in the "student" folder on the EEB teaching laptop, so you will not need to follow the first few steps listed in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md).
+1. **If you are using an EEB laptop**, all necessary files for this lab are stored in the "student" folder on the EEB teaching laptop, so you will not need to follow the first few steps listed in the [main tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_characterMatrices.md).
+
+**If you are NOT using an EEB laptop**, download and unzip the required files for the tutorial [here](https://github.com/ddecarle/eeb462-2024/blob/main/LabOne.zip). Create a folder called `EEB462`, then move the unzipped `LabOne` folder into it.
 
 2. Open an instance of Windows PowerShell from the start menu.
 
@@ -9,6 +11,7 @@
 ```
 cd C:\Users\student\EEB462\LabOne
 ```
+The above command is for students using the EEB laptops. If you are using your own laptop, the path to your file may look slightly different.
 
 4. create a new folder called `Fasta`:
 
