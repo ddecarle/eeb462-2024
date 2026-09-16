@@ -12,14 +12,14 @@ The figure below details the basic steps involved in phylogenetic analysis. Over
 </p>
 
 
-Each of the seven labs will involve working through a tutorial. Sprinkled throughout the tutorial, you’ll find the questions that make up the **lab assignments**. These questions are designed as checkpoints to make sure things are going smoothly as you move through the lab. There will also be some long-answer questions, which double as an opportunity for you to practice the type of writing you’ll be using for your manuscript. Eventually, when we get into tree-building, many of these questions will be talking points you can use for writing your discussion. 
+Each of the seven labs will involve working through a tutorial. Sprinkled throughout the tutorial, you’ll find the questions that make up the **lab assignments**. These questions are designed as checkpoints to make sure things are going smoothly as you move through the lab. There will also be some long-answer questions, which double as an opportunity for you to practice the type of writing you’ll be using for your term project. When we get into tree-building, many of these questions will be examples of the kinds of talking points you can use for discussing your results.  
 
-To complete the lab assignments, create a document with your answers to all the questions, and **upload it to Quercus** by the due date: **2:00 PM, one week after the lab in which they were assigned**. Bonus questions should be answered on the Discussion Board for Lab One. 
+To complete the lab assignments, create a document with your answers to all the questions, and **upload it to Quercus** by the due date indicated. 
 
 
 ### Lab Assignment One: 
 Questions: 
-- [1](#question-1), [2](#question-2), [3](#question-3), [4](#question-4), [5](#question-5), [6](#question-6), [7](#question-7) *(19 points total)*
+- [1](#question-1), [2](#question-2), [3](#question-3), [4](#question-4), [5](#question-5), [6](#question-6), [7](#question-7), [8](#question-8) *(21 points total)*
 - [Bonus questions](#bonus-questions)
 
 
@@ -40,9 +40,9 @@ Questions:
 
 For this lab, we will be using the following software: 
 
-- [MUSCLE](https://drive5.com/muscle5/)
+- [MUSCLE](https://drive5.com/muscle/)
 - [Mesquite](http://www.mesquiteproject.org/Installation.html)
-- A plain text editor of your choice 
+- A plain text editor of your choice (*e.g.* [Atom](https://atom-editor.cc/) or [SublimeText](https://www.sublimetext.com/)) 
 
 
 ## The Basics
@@ -50,7 +50,9 @@ For this lab, we will be using the following software:
 ### A Note on operating systems 
 Most tree-building software is designed and built for the Unix shell, bash. Bash is a command language that is natively used by MacOS and most Linux distributions. (It is also available in Windows 10 using the Windows Subsystem for Linux.) 
 
-Accordingly, the tutorials in this course are also designed for bash. Be aware, however, that you will still need to download the appropriate (i.e. Windows) versions of all software. 
+Accordingly, the tutorials in this course are also designed for bash. Be aware, however, that you will still need to download the appropriate version of all software for your particular operating system, whatever that may be. 
+
+If you are running Windows and would prefer to use the PowerShell, you may follow the [PowerShell tutorial](https://github.com/ddecarle/eeb462-2024/blob/main/LAB1_for_PowerShell.md) instead.   
 
 Throughout the tutorials, the word “terminal” will refer to the program you use to interface with the command line.
 
@@ -91,7 +93,9 @@ mkdir ~/Desktop/EEB462
 mv LabOne ~/Desktop/EEB462
 ```
 
-3. Move your MUSCLE program into this new folder as well (`~/Desktop/EEB462`)
+3. Move your MUSCLE program into this new folder as well (`~/Desktop/EEB462`). 
+
+**NOTE:** If you have already added MUSCLE to your path, this step is not necessary.
 
 4.	Navigate into the LabOne folder, and create a new folder called “Fasta”. 
 
@@ -200,7 +204,14 @@ The **E value** describes the number of hits you would expect to see by chance w
 bash ../rename.bash
 ```
 
-2.	Open “extraMammals.fasta” and delete any sequences that BLAST identified as erroneous. 
+2.	If there are any erroneous sequences in `extraMammals.fasta`, open the file in your text editor and delete them. Be sure to delete both the sequence itself and the line containing the sequence name.
+
+---
+#### QUESTION 2: 
+
+Were there any erroneous sequences (if so, list the common name here)? How do you know? *(2 points)*
+
+---
 
 3.	Save this file, close it, and return to your terminal window. 
 
@@ -210,7 +221,7 @@ bash ../rename.bash
 cat extraMammals.fasta >> 18s.fasta
 ```
 
-5.	Using grep as indicated above, ensure that “18s.fasta” now contains all 21 sequences for 18S. 
+5.	Using grep as indicated above, ensure that “18s.fasta” now contains all the correct number of sequences for 18S. 
 
 6.	Once you have confirmed that this is the case, delete “extraMammals.fasta”:
 
@@ -225,7 +236,7 @@ Your “Fasta” folder should now contain four fasta files: one for each of the
 Before aligning our sequences, you’ll also want to translate your COI sequences into amino acid sequences. 
 
 ---
-#### QUESTION 2: 
+#### QUESTION 3: 
 
 Why might we want to use amino acid sequences – rather than nucleotide sequences – for COI? Does it make sense to use amino acid sequences for COI, but not for ENAM? Why or why not?  *(4 points)*
 
@@ -245,9 +256,9 @@ You’ll notice that Transeq appended `_2` to the ends of the sequence names to 
 
 6.	In your terminal, use the following command to clean up the sequence names, making sure that your working directory is `~/Desktop/EEB462/LabOne/Fasta`.
 
-```
-sed -i '' 's/_2//' coi-protein.fasta
-```
+MacOS: `sed -i '' 's/_2//' coi-protein.fasta`
+
+Windows: `sed -i 's/_2//' coi-protein.fasta`
 
 The stream editing tool (`sed`) can be used to edit streams of text as well as files. In this case, the `-i` flag indicates that we want to do the latter. The `s/` functionality is used to substitute one string of text for another. The strings are separated by slashes. Here, we are substituting `_2` with nothing. Finally, the file name at the end of the command specifies the file we want to edit. 
 
@@ -318,20 +329,20 @@ Now, you should see your character matrix colour-coded by amino acid, with the s
 
 ---
 
-#### QUESTION 3: 
+#### QUESTION 4: 
 How many characters are in your alignment? Are there any gaps? *(1 point)*
 
-#### QUESTION 4: 
+#### QUESTION 5: 
 Are the following sites “parsimony informative”: a) 17, b) 23, c) 30, d) 42? Why or why not? *(4 points)*
 
 ---
 
-3.	Close “coi-protein.nex”. 
+3.	Close `coi-protein.nex`. 
 
 Now, you’re going to create your first concatenated matrix. The first step in this process is to open one of your alignments in Mesquite. Generally, you want to start with the locus that has least missing data. 
 
-4.	Open “16s.fasta.align” in Mesquite. Select “**FASTA (DNA/RNA)**” from the pop-up window.
-- Save the file as “16s.nex”. 
+4.	Open `16s.fasta.align` in Mesquite. Select “**FASTA (DNA/RNA)**” from the pop-up window.
+- Save the file as `16s.nex`. 
 
 On the left side of the screen, you should notice the words “Taxa (36 taxa)” followed by “Character Matrix…”. 
 
@@ -340,7 +351,7 @@ On the left side of the screen, you should notice the words “Taxa (36 taxa)”
 
 Renaming these elements makes the rest of the concatenation process much easier. It also makes the resulting NEXUS file more legible. 
 
-6.	**File** > **Include & Merge** > **Include File…** and select “enam.fasta.align”.
+6.	**File** > **Include & Merge** > **Include File…** and select `enam.fasta.align`.
 Again, select “**FASTA (DNA/RNA)**” and rename the **Taxa Block** and **Character Matrix**.
 
 7.	Repeat the process for the 18S alignment. 
@@ -364,7 +375,7 @@ The “Contained taxa” column should now be populated with the names of all ta
 Now save this file: we’ll come back to it later. 
 
 11.	**File** > **Save File As…**
-Save the file as “16s-enam-18s-MAIN.nex”
+Save the file as `16s-enam-18s-MAIN.nex`
 
 This file is useful for our purposes, because we can easily come back to it and change only one aspect of our character matrix. Unfortunately, is not readable by the programs we’re going to use. Therefore, you’ll have to generate a **“Fused” NEXUS file**.
 
@@ -372,10 +383,10 @@ This file is useful for our purposes, because we can easily come back to it and 
 - Unselect “Generate MrBayes block” 
 - Export
 - Select 16S as the master block of taxa
-- Save the file as “16s-enam-18s-fuse.nex”
+- Save the file as `16s-enam-18s-fuse.nex`
 
 13.	Now, we'll be adding more loci to our MAIN file 
-- Select **File** > **Include & Merge** > **Include File…** > coi-barcode.fasta.align
+- Select **File** > **Include & Merge** > **Include File…** > `coi-barcode.fasta.align`
 - Rename the Taxa Block and Character Matrix as before.
 
 14.	Create an association between 16S and COI.
@@ -384,43 +395,45 @@ This file is useful for our purposes, because we can easily come back to it and 
 
 16.	**File** > **Export…** > **Fused Matrix Export (NEXUS)**
 - Select 16S as the master block of taxa
-- Save the file as “16s-enam-18s-coi-fuse.nex”
+- Save the file as `16s-enam-18s-coi-fuse.nex`
 
-17.	Next, we’ll have to generate yet another type of NEXUS file for use in the program MrBayes. Open “16s-enam-18s-coi-fuse.nex”
+17.	Next, we’ll have to generate yet another type of NEXUS file for use in the program MrBayes. Open `16s-enam-18s-coi-fuse.nex`
 
 18. Generate a simplified NEXUS file as before:	**File** > **Export…** > **Simplified NEXUS**
-Save the file as “16s-enam-18s-coi-fuseSimp.nex” 
+Ensure "use DATA instead of TAXA/CHARACTERS blocks" is selected.
+Save the file as `16s-enam-18s-coi-fuseSimp.nex`
 
 19.	Close the file.
 
 ---
 
-#### QUESTION 5: 
-Open “16s-enam-18s-coi-fuse.nex” and “16s-enam-18s-coi-fuseSimp.nex” in your text editor. Name at least 3 ways in which the Fused NEXUS file differs from the Simplified NEXUS file.  *(3 points)*
+#### QUESTION 6: 
+Open `16s-enam-18s-coi-fuse.nex` and `16s-enam-18s-coi-fuseSimp.nex` in your text editor. Name at least 3 ways in which the Fused NEXUS file differs from the Simplified NEXUS file (think about the way the files are formatted and what they contain).  *(3 points)*
 
 ---
 
 Now there’s only one file to go. 
 
-20.	Open “16s-enam-18s-MAIN.nex”... again. 
+20.	Open `16s-enam-18s-MAIN.nex`... again. 
 
-21.	Include the file “coi-protein.fasta.align” 
+21.	Include the file `coi-protein.fasta.align` 
 - Select the correct interpreter for the file
 - Rename the **Taxa Block** and **Character Matrix**. 
 
 22.	Create an association between 16s and the COI protein alignment. 
 
-23.	**File** > **Save File As…** > “16s-enam-18s-coiProt-MAIN.nex”
+23.	**File** > **Save File As…** > `16s-enam-18s-coiProt-MAIN.nex`
 
-24.	Export the file as a Fused NEXUS file. 
+24.	Export the file as a Fused Matrix Export (NEXUS) file. 
 - In the dialogue box that appears, make sure to check the box that says, “**Permit fused matrix with mixed data types…**” is selected. 
-- Leave the “**Generate MrBayes block**” box selected as well. 
-- Save the file as “16s-enam-18s-coiProt-fuse.nex”
+- Leave the “**Generate MrBayes block**” box selected as well.
+- Select 16s as the master block of taxa. 
+- Save the file as `16s-enam-18s-coiProt-fuse.nex`
 
 Mercifully, we are now finished with Mesquite. You may close the program. 
 
 ---
-#### QUESTION 6: 
+#### QUESTION 7: 
 
 How long is each of the following alignments (*i.e.* how many characters does each have)? *(2 points)*
 
@@ -447,7 +460,7 @@ Before you go, you’ll have to organize your files.
 
 ---
 
-#### QUESTION 7: 
+#### QUESTION 8: 
 
 What commands did you use to complete the tasks above? *(4 points)*
 
