@@ -368,42 +368,50 @@ You should be taken to a window that lists all the taxa in the “16s” block o
 
 Since the names of all taxa in both alignments should be the same, simply click “**OK**” in the box that appears. 
 
-The “Contained taxa” column should now be populated with the names of all taxa for which ENAM sequences are available. 
+The “Contained taxa” column should now be populated with the names of all taxa for which *ENAM* sequences are available. 
 
-10.	Repeat step nine to create an association between 16S and 18S. 
+You should notice that one of the sequences (the one for pig) remains unassigned: the text is still shown in black, rather than grey. This is because we have an *ENAM* sequence for this taxon, but no *16S* sequence. In this case, you will have to manually add a taxon to your data matrix and manually assign a match. 
+
+10. Select **List** > **Add Taxa...** from the dropdown menu. A pop-up will ask you how many taxa to add. Ensure `1` is entered, then click "**OK**".
+
+11. Double click on the new taxon that has been added to the list, and change the name from `taxon 36` to `pig`, and press enter.
+
+12. Click on the number next to `pig` in the taxon list so that the entire row is selected. Then, click `pig` in the "**Contained taxa**" panel on the right of your screen, and click the blue square with the left arrow at the top of that panel. If the association was correctly formed, `pig` should now be greyed out in the "**Contained taxa**" panel on the right, and the cell corresponding to `pig` in the yellow "**Contained taxa**" column should be filled in. 
+
+13.	Repeat step nine to create an association between 16S and 18S. 
 
 Now save this file: we’ll come back to it later. 
 
-11.	**File** > **Save File As…**
+14.	**File** > **Save File As…**
 Save the file as `16s-enam-18s-MAIN.nex`
 
 This file is useful for our purposes, because we can easily come back to it and change only one aspect of our character matrix. Unfortunately, is not readable by the programs we’re going to use. Therefore, you’ll have to generate a **“Fused” NEXUS file**.
 
-12.	**File** > **Export…** > **Fused Matrix Export (NEXUS)** > **OK**
+15.	**File** > **Export…** > **Fused Matrix Export (NEXUS)** > **OK**
 - Unselect “Generate MrBayes block” 
 - Export
 - Select 16S as the master block of taxa
 - Save the file as `16s-enam-18s-fuse.nex`
 
-13.	Now, we'll be adding more loci to our MAIN file 
+16.	Now, we'll be adding more loci to our MAIN file 
 - Select **File** > **Include & Merge** > **Include File…** > `coi-barcode.fasta.align`
 - Rename the Taxa Block and Character Matrix as before.
 
-14.	Create an association between 16S and COI.
+17.	Create an association between 16S and COI.
 
-15.	**File** > **Save File As…** > “16s-enam-18s-coi-MAIN.nex”
+18.	**File** > **Save File As…** > “16s-enam-18s-coi-MAIN.nex”
 
-16.	**File** > **Export…** > **Fused Matrix Export (NEXUS)**
+19.	**File** > **Export…** > **Fused Matrix Export (NEXUS)**
 - Select 16S as the master block of taxa
 - Save the file as `16s-enam-18s-coi-fuse.nex`
 
-17.	Next, we’ll have to generate yet another type of NEXUS file for use in the program MrBayes. Open `16s-enam-18s-coi-fuse.nex`
+20.	Next, we’ll have to generate yet another type of NEXUS file for use in the program MrBayes. Open `16s-enam-18s-coi-fuse.nex`
 
-18. Generate a simplified NEXUS file as before:	**File** > **Export…** > **Simplified NEXUS**
+21. Generate a simplified NEXUS file as before:	**File** > **Export…** > **Simplified NEXUS**
 Ensure "use DATA instead of TAXA/CHARACTERS blocks" is selected.
 Save the file as `16s-enam-18s-coi-fuseSimp.nex`
 
-19.	Close the file.
+22.	Close the file.
 
 ---
 
@@ -414,17 +422,17 @@ Open `16s-enam-18s-coi-fuse.nex` and `16s-enam-18s-coi-fuseSimp.nex` in your tex
 
 Now there’s only one file to go. 
 
-20.	Open `16s-enam-18s-MAIN.nex`... again. 
+23.	Open `16s-enam-18s-MAIN.nex`... again. 
 
-21.	Include the file `coi-protein.fasta.align` 
+24.	Include the file `coi-protein.fasta.align` 
 - Select the correct interpreter for the file
 - Rename the **Taxa Block** and **Character Matrix**. 
 
-22.	Create an association between 16s and the COI protein alignment. 
+25.	Create an association between 16s and the COI protein alignment. 
 
-23.	**File** > **Save File As…** > `16s-enam-18s-coiProt-MAIN.nex`
+26.	**File** > **Save File As…** > `16s-enam-18s-coiProt-MAIN.nex`
 
-24.	Export the file as a Fused Matrix Export (NEXUS) file. 
+27.	Export the file as a Fused Matrix Export (NEXUS) file. 
 - In the dialogue box that appears, make sure to check the box that says, “**Permit fused matrix with mixed data types…**” is selected. 
 - Leave the “**Generate MrBayes block**” box selected as well.
 - Select 16s as the master block of taxa. 
