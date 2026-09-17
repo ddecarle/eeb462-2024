@@ -22,7 +22,7 @@ mkdir Fasta
 5. move all `.fasta` files into this new folder 
 
 ```
-mv *fasta Fasta
+mv *.fasta Fasta
 ```
 
 6. Navigate into the `Fasta` folder using `cd` and use the list directory contents command (`ls`) to examine the contents of the folder.
