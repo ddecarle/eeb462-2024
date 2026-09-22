@@ -134,8 +134,8 @@ Now it's time to **begin the analysis**.
 
 6. Open a terminal window and navigate to your allNuc folder. If the LabTwo folder is inside the EEB462 folder on your desktop, use the following commands:
 
-  - MacOS: `cd ~/Desktop/EEB462/LabTwo/allNuc`
-  - Windows: `cd /mnt/c/Users/<your-username>/Desktop/EEB462/LabTwo/allNuc`
+  - MacOS: `cd ~/Desktop/EEB462/Lab2/allNuc`
+  - Windows Subsystem for Linux (WSL): `cd /mnt/c/Users/<your-username>/Desktop/EEB462/Lab2/allNuc`
  
 7. Launch TNT
 
@@ -158,7 +158,10 @@ tnt*>
 
 The last TNT idiosyncrasy that we will encounter (…hopefully), is the tree output. TNT prints its trees in a particular format that can’t be read by most other programs. Luckily, I’ve provided you with a script that converts the TNT tree format into a more legible tree file.
 
-10. Run the tree conversion script: `bash ../tnt_tree_clean.sh`
+10. Run the tree conversion script: 
+
+  - Mac & WSL: `bash ../tnt_tree_clean.sh`
+  - PowerShell: `.\..\tnt_tree_clean.ps1`
 
 ---
 Open your log file in your text editor and use it to answer the following questions: 
