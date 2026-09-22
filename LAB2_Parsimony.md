@@ -34,7 +34,7 @@ Philosophical considerations aside, **parsimony has two considerable advantages*
 
     If your analyses recover relationships that seem at odds with your expectations, a parsimony tree will help you pinpoint the particular taxa or data driving that relationship. If nothing in your alignment(s) or parsimony tree(s) seems out of place, the problem is likely to be with your model or the way you have parameterized your analyses. 
     
-Today, we will be learning to conduct parsimony analyses using TNT, and touch on some other features you may find likely for your project: scripting and constrained analyses.  
+Today, we will be learning to conduct parsimony analyses using TNT, and touch on some other features you may find useful for your project: scripting and constrained analyses.  
 
 
 ### Lab Assignment Two:
@@ -116,7 +116,7 @@ The first time you use TNT, you may be asked to agree to their terms of service.
 
 2. Move into the **allNuc** folder and open `TNTscript.run` in your text editor
 
-You'll see a number of lines beginning with the word `quote` followed by a TNT command on the line below. TNT ignores all lines beginning with `quote`, so these lines simply explain what the following command is doing. All of these commands are explained in detail in [Appendix A: The Script Explained](#appendix-a-the-script-explained), but you'll only need to change a few of them for the purposes of this lab (and probably for analyses you run in the future). 
+You'll see a number of lines beginning with the word `quote` followed by a TNT command on the line below. TNT ignores all lines beginning with `quote`, so these lines have been added simply explain what the following command is doing. All of these commands are explained in detail in [Appendix A: The Script Explained](#appendix-a-the-script-explained), but you'll only need to change a few of them for the purposes of this lab (and probably for analyses you run in the future). 
 
 Before we begin, we'll have to make some changes to this script.
 
@@ -161,6 +161,8 @@ The last TNT idiosyncrasy that we will encounter (…hopefully), is the tree out
 10. Run the tree conversion script: `bash ../tnt_tree_clean.sh`
 
 ---
+Open your log file in your text editor and use it to answer the following questions: 
+
 #### QUESTION 1 
 What is the length of the best scoring tree? *(1 point)*
 
@@ -229,6 +231,8 @@ As before, we'll have to make some changes to our TNT script.
 19. When the analyses are complete, quit TNT (`quit;`) and use the script to reformat the trees: `bash ../tnt_tree_clean.sh`
 
 ---
+Use your log file to answer the following question:
+
 #### QUESTION 7
 Report the length of the most parsimonious tree, the number of trees encountered, the CI and RI for your new tree. *(3 points)*
 
@@ -279,23 +283,6 @@ What is the length of the tree recovered by the constrained analysis? How does t
 
 #### QUESTION 10
 Which (if any) of the trees you generated do you trust the most? Can you trust some parts of the tree(s) over others? What additional types of evidence might you examine to help you make a decision about the “true” systematic groupings? *(3 points)*
-
----
-
-#### BONUS QUESTION
-
-In the following tree, node x has a bootstrap support value of 90%. What topology did the other 10% of bootstrap trees support? Choose one of the following, and explain your answer.
-
-<p align="center">
-  <img src="https://github.com/ddecarle/eeb462-2024/blob/main/images/L2-Picture2.png">
-</p>
-
-
- - a.	It is not possible to know
- - b.	Any other grouping not represented in this tree
- - c.	A sister group relationship between taxa A & C
- - d.	A sister group relationship between taxa B & C
- - e.	Other (explain your answer)
 
 ---
 
