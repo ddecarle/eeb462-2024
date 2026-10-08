@@ -334,7 +334,7 @@ In IQ-TREE, this process is simple.
 
 First, you will need to generate a constraint tree in Newick format. The tree can either encompass all taxa, or only a subset of them. If you wanted to constrain hedgehogs and pangolins to form a monophyletic group sister to whales, for example, your constraint tree would look like this:
 
-`((hedgehog, pangolin), whale);`
+`(((hedgehog, pangolin), whale), hyrax, elephant, dugong, aardvark, hare, rabbit, macaque, gibbon, orangutan, guineaPig, porcupine, vole, mouse, rat, cheetah, dingo, hyaena, bear, giraffe, hippo, pig, bat, flyingFox, rhinoceros, horse, tapir, armadillo, sloth, anteater, platypus, opossum, wallaby, tasmanianDevil);`
 
 Save your constraint tree in the same folder as your matrix and partition file (if applicable). 
 
@@ -345,6 +345,8 @@ Mac:
 
 Win: 
 `./iqtree3.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes –g <constraint_tree_file> -ninit 100 -bb 1000 -wbt`
+
+More detailed information about running constrained analyses in IQ-TREE can be found [here](https://iqtree.github.io/doc/Advanced-Tutorial#constrained-tree-search).
 
 ---
 
