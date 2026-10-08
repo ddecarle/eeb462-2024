@@ -142,14 +142,14 @@ One of the perks of using IQ-TREE is that it can run model testing, tree inferen
 1.	Open a terminal window, and navigate to the `LabThree/allNuc` folder. 
 
   - MacOS: `cd ~/Desktop/EEB462/LabThree/allNuc`
-  - Windows: `cd /mnt/c/Users/<your-username>/Desktop/EEB462/LabThree/allNuc`
+  - Windows Subsystem for Linux (WSL): `cd /mnt/c/Users/<your-username>/Desktop/EEB462/LabThree/allNuc`
 
 2. Run IQ-TREE using the following command:
 
     Mac: 
 `./../iqtree3 -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
-    Windows: 
+    WSL: 
 `./../iqtree3.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
 After executing this command, you should see some sign that IQ-TREE is working (or you'll get an error message). While you’re waiting for IQ-TREE to finish running, let’s break down that command a little:
@@ -181,7 +181,7 @@ Once IQ-TREE has finished running, you’ll see that it has generated a number o
 
 ---
 
-Use the output files to answer the following questions:  
+Use the output files from your allNuc analysis to answer the following questions:  
 
 #### QUESTION 2 
 
@@ -212,7 +212,7 @@ IQ-TREE is unable to process a single matrix containing more than one type of da
     Mac: 
 `./../iqtree3 -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
-    Windows: 
+    WSL: 
 `./../iqtree3.exe -s 16s-enam-18s-fuse.nex -spp nucProtPartition.nex -m TESTMERGE -mset mrbayes -ninit 100 -bb 1000 -wbt`
 
 **NOTE**: You may see an error at the end of this tree search. As long as the `nucProtPartition.nex.contree` file is present in your `nucProt` folder, you can safely ignore it.  
@@ -300,7 +300,7 @@ Conveniently, IQ-TREE outputs all topologies in Newick format. Trees resulting f
 
     Mac: `./../iqtree3 -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
     
-    Win: `./../iqtree3.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
+    WSL: `./../iqtree3.exe -s 16s-enam-18s-coi-fuse.nex -spp nucPartition.nex.best_scheme.nex -z allTrees.txt -n 0 -zb 10000 -au`
 
 As before, let’s break down that command: 
 The `-s` and `-spp` options are used exactly as before to specify the matrix, partition file, and models.
@@ -313,6 +313,7 @@ The `-s` and `-spp` options are used exactly as before to specify the matrix, pa
 Once your analysis is complete, the results of the topology tests will be printed to the file `nucPartition.nex.best_scheme.nex.iqtree`. You can find them under the heading `USER TREES` in a conveniently formatted table with a nice little legend underneath. (For the purposes of this lab, ignore the results of the RELL, KH, and ELW tests.) The trees are identified by a number corresponding to the order in which they are listed in `allTrees.txt`, so Tree 1 is the ML tree, Tree 2 is the unconstrained parsimony tree, and Tree 3 is the constrained parsimony tree.
 
 ---
+Use the output file from your topology test (`nucPartition.nex.best_scheme.nex.iqtree`) to answer the following question.
 
 #### QUESTION 8
 
