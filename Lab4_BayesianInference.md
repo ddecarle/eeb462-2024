@@ -245,7 +245,7 @@ Once you’ve written your Bayes Block, running an analysis is easy.
 16. In your terminal, navigate to `.../LabFour/allNuc`, and start MrBayes using the following command: 
 
     - MacOS: `./../mb`
-    - Windows: `./../mb.3.2.7-win64.exe`
+    - Windows Subsystem for Linux (WSL): `./../mb.3.2.7-win64.exe`
     - If you encounter a `Permission Denied` error, enter the following command" `chmod +x mb` or `chmod +x mb.3.2.7-win64.exe` and try the previous command again. 
 
 17. When MrBayes has started, load your matrix: `exec 16s-enam-18s-coi-fuseSimp.nex;`
@@ -389,6 +389,7 @@ In this section, you will run a Bayesian analysis on the combined nucleotide + p
 
 
 ---
+Answer the following questions about your `nucProt` analysis:
 
 #### QUESTION 8
 
@@ -401,7 +402,7 @@ Did the analysis converge? How do you know? Include the log and `.p` files with 
 
 #### QUESTION 10
 
-Contrast this tree with the allNuc tree. Do you trust one of the trees over the other? Include both consensus trees as part of your submission. *(4 points)*
+Contrast this tree with the `allNuc` tree. Do you trust one of the trees over the other? Include both consensus trees as part of your submission. *(4 points)*
 
 #### QUESTION 11
 
