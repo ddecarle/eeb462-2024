@@ -398,7 +398,7 @@ Paste the Bayes block from your `nucProt` analysis here *(5 points)*
 
 #### QUESTION 9
 
-Did the analysis converge? How do you know? Include the log and `.p` files with your submission.  *(4 points)*
+Did the analysis converge? How do you know? Include the log and `.p` files with your submission.  *(3 points)*
 
 #### QUESTION 10
 
